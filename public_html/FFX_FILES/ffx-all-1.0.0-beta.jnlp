@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp codebase="http://ffx.eng.uiowa.edu/ffx-commons/"
+      href="ffx-all-1.0.0-beta.jnlp" version="1.0.0-beta">
+    <information>
+        <title>Force Field X Libraries</title>
+        <vendor>The Schnieders Lab at The University of Iowa</vendor>
+        <homepage href="http://ffx.eng.uiowa.edu/"/>
+        <description>Software for Computational Molecular Biophysics</description>
+        <description kind="short">Software for Computational Molecular Biophysics</description>
+        <offline-allowed/>
+    </information>
+    <update check="background" policy="always"/>
+    <security>
+        <all-permissions/>
+    </security>
+    <resources>
+        <jar href="edu/uiowa/eng/ffx/algorithms/1.0.0-beta/algorithms-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/autoparm/1.0.0-beta/autoparm-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/crystal/1.0.0-beta/crystal-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/ui/1.0.0-beta/ui-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/numerics/1.0.0-beta/numerics-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/potentials/1.0.0-beta/potentials-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/utilities/1.0.0-beta/utilities-1.0.0-beta.jar"/>
+        <jar href="edu/uiowa/eng/ffx/xray/1.0.0-beta/xray-1.0.0-beta.jar"/>
+    </resources>
+    <component-desc />
+</jnlp>

@@ -1,0 +1,103 @@
+
+
+/* ==========================================================================
+   Ian's custom styles
+   ========================================================================== */
+html,
+body {
+    background-color:black;
+    color: white;
+    height:100%;
+}
+.jumbotron {
+    background-color: rgba(255,255,255,0.85);
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #2B2B2B;
+    text-align:center
+}
+hr {
+    border-color: gold;
+}
+.btn-color {
+    background-color: gold;
+}
+#menubar div {
+    background-color: black;
+}
+#menubar a {
+    padding-top: 20px;
+}
+#FileDownloadList p {
+    color: black
+}
+.panel-gold {
+    background-color: gold;
+}
+a {
+    text-align:center;
+    color:white;
+}
+ul.nav li a.navbar-brand {
+    color:white;
+}
+ul.nav li.dropdown a.dropdown-toggle {
+    color:white;
+    font-size: 18px;
+    /*background-color: white;*/
+}
+ul.nav li.dropdown ul li a:hover {
+    color:white;
+    /*font-size: 18px;*/
+    background-color: black;
+}
+ul.nav a:hover { 
+    color: gold !important;
+    /*background-color: black;*/
+
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    background-color: black !important;
+}
+.dropdown:hover .dropdown-menu li a {
+    color: white;
+}
+ul.dropdown-menu a:hover{
+    background-color: black !important;
+}
+a.navbar-brand {
+    color: white !important;
+}
+a.navbar-brand:hover {
+    color: gold !important;
+}
+a.dropdownhover:hover {
+    background-color: black !important;
+}
+.dropdown-menu > li > a:hover {
+    background-image:none !important;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+    height: 142px; /* .push must be the same height as .footer */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

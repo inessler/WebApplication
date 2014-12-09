@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <!--[if !IE]> -->
+    <head>
+        <title>FFX Web Application</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            input[type="number"], textarea {
+                background-color: #F6F6F6;
+            }
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+                background-color:#2B2B2B;
+                color: #F6F6F6;
+            }
+            .jumbotron {
+                background-color: #F6F6F6;
+                margin-top: auto;
+                margin-bottom: auto;
+                color: #2B2B2B;
+            }
+            #Dropdown li {
+                /*background-color: black;*/
+                color: white;
+            }
+            .row {
+                padding-bottom: 3px;
+                padding-left: 10px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .button1 {
+                padding-top: 10px;
+                right: 20px;
+                color: #2B2B2B;
+            }         
+            .background{
+                padding-top: 50px;
+                background-color:#f39c12;
+                padding:0px;
+                margin:0px;
+                opacity: 0.7;
+                text-align: center;
+            }
+
+            #menubar div {
+                background-color: black;
+            }
+            #menubar a {
+                padding-top: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+        <script src="js/libs/FileSaver.js-master/FileSaver.min.js"></script>
+        <!--<script src="js/libs/angular.js/angular.js"></script>-->
+        <script src="js/libs/Processing/RunFFX.js"></script>
+        <script src="js/libs/angular.js/angularController.js"></script>
+    </head>
+    <body ng-app="WebApp">
+        <div  id="menubar" class="navbar  navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand " href="index.html"><font color="white">FFX Web Application</font></a>
+                </div>
+                <div class="navbar-collapse collapse navbar-right ">
+                    <ul class="nav navbar-nav">
+                        <!--                        <li>
+                                                    <a class="navbar-brand" href="#" role="button">
+                                                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <font color="white">Home</font>
+                                                    </a>
+                                                </li>-->
+                        <li>
+                            <a class="navbar-brand" href="LearnMore.html" role="button">
+                                <!--<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>--> 
+                                Learn More
+                            </a>
+                        </li>
+                        <li id="123" class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="Dropdown" role="menu">
+                                <li class="divider" style="margin-top: -5px"></li>
+                                <li><a href="Minimize.html" style="padding-top: -5px">Minimize</a></li>
+                                <li class="divider" ></li>
+                                <li><a href="#">Another action</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a class="navbar-brand" href="ContactUs.html" role="button">
+                                <!--                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> -->
+                                Contact
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand" href="Developers.html" role="button">
+                                <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>--> 
+                                Developers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--          .navbar-collapse -->
+            </div>
+        </div>
+        <!--<div class="jumbotron" style="background-color: #f6f620;">-->
+        <hr style="border-width: 10px; margin-top: auto; margin-bottom: auto; ">
+        <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
+        <div class="jumbotron" >
+            <!--style="background-color: cyan;"-->
+            <div class="container">
+                <h1>Minimization</h1>
+                <p>Force Field X</p>
+                <p>The following forms will allow you to select the specifics of the minimization that you wish to run.</p>
+            </div>
+        </div>
+        <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
+        <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
+        <div class="container" style="margin-left: 40px" >
+            <form name="EnergyForm" ng-controller="EnergyController">
+                <div class='row'>
+                    <h3>
+                        <b>
+                            First upload the parameter file below:
+                        </b>
+                    </h3>
+                    <div class="form-group">
+                        <!--                        <label for="inputFile" >File Input</label>-->
+                        <input type="file" id="PDB_File">
+                        <p class="help-block" style="color: white;">Please upload the parameters file for the molecule you wish to analyze.</p>
+                    </div>
+                </div>
+                <hr>
+                <div class='row'>
+                    <h3>
+                        Set variables pertaining to the calculation below: 
+                    </h3>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input0.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
+                                </span>
+                                <input name="input0" ng-model="Number0" placeholder="RMS gradient convergence criteria" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input1.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
+                                </span>
+                                <input name="input1" ng-model="Number1" placeholder="Starting ligand atom number" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input2.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
+                                </span>
+                                <input name="input2" onchange="" ng-model="Number2" type="number" placeholder="Starting ligand atom number for the second topology" class="form-control" ng-pattern="NumberPattern" required>
+                            </div><!-- /input-group -->
+                        </div>
+                        <!--<div class="col-lg-6" ng-if="test2"> not an integer</div>-->
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input3.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
+                                </span>
+                                <input name="input3" ng-model="Number3" placeholder="Initial lambda value" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input4.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
+                                </span>
+                                <input name="input4" ng-model="Number4" placeholder="Final ligand atom number" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input5.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
+                                </span>
+                                <input name="input5" ng-model="Number5" placeholder="Final ligand atom number for second topology" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            </div><!-- /input-group -->
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="button1">
+                            <button ng-class="{ 'disabled': EnergyForm.input5.$error.number || EnergyForm.input4.$error.number || EnergyForm.input3.$error.number || EnergyForm.input2.$error.number || EnergyForm.input1.$error.number}" 
+                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5)" 
+                                    type="button" class="btn btn-color" >Create JNLP File</button> 
+                        </div>
+                    </div>
+                </div>
+                <hr >
+                <footer>
+                    <div class="col-md-10" style="margin-top: 30px; margin-left: 40px; padding-bottom:30px;">
+                        <p>
+                            &copy; University of Iowa Biochemistry Department 2014
+                        </p>
+                    </div>
+                    <div class="col-md-2" style="margin-right:-100px">
+                        <img src="img/Logo2.png" alt="Smiley face" height="100" width="100">
+                    </div>
+                </footer>
+            </form> 
+        </div>
+
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>');</script>
+
+
+
+
+        <!-- <![endif]-->
+</html>
