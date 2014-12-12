@@ -5,9 +5,12 @@
    ========================================================================== */
 html,
 body {
-    background-color:black;
+    background-color:#1b1b1b;
     color: white;
     height:100%;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;  
 }
 .jumbotron {
     background-color: rgba(255,255,255,0.85);
@@ -16,23 +19,28 @@ body {
     color: #2B2B2B;
     text-align:center
 }
+.navbar-inverse {
+    background-image: none !important;
+    background-color: #1b1b1b !important;
+}
 hr {
-    border-color: gold;
+    border-color: yellow;
 }
 .btn-color {
-    background-color: gold;
+    background-color: yellow;
 }
 #menubar div {
-    background-color: black;
+    background-color: #1b1b1b; 
+    height: 35px;
 }
 #menubar a {
-    padding-top: 20px;
+        font-size: 14px;
 }
 #FileDownloadList p {
-    color: black
+    color: #1b1b1b;
 }
 .panel-gold {
-    background-color: gold;
+    background-color: yellow;
 }
 a {
     text-align:center;
@@ -40,40 +48,27 @@ a {
 }
 ul.nav li a.navbar-brand {
     color:white;
-}
-ul.nav li.dropdown a.dropdown-toggle {
-    color:white;
-    font-size: 18px;
-    /*background-color: white;*/
-}
-ul.nav li.dropdown ul li a:hover {
-    color:white;
-    /*font-size: 18px;*/
-    background-color: black;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 ul.nav a:hover { 
-    color: gold !important;
-    /*background-color: black;*/
-
+    color: yellow !important;
 }
 .dropdown:hover .dropdown-menu {
     display: block;
-    background-color: black !important;
+    background-color: #1b1b1b !important;
 }
 .dropdown:hover .dropdown-menu li a {
     color: white;
 }
 ul.dropdown-menu a:hover{
-    background-color: black !important;
+    background-color: #1b1b1b !important;
 }
 a.navbar-brand {
     color: white !important;
 }
 a.navbar-brand:hover {
-    color: gold !important;
-}
-a.dropdownhover:hover {
-    background-color: black !important;
+    color: yellow !important;
 }
 .dropdown-menu > li > a:hover {
     background-image:none !important;
@@ -89,15 +84,21 @@ a.dropdownhover:hover {
     padding-top: 142px;
 }
 ul.nav > li.dropdown > ul > li.active1 {
-    color: gold !important;
+    color: yellow !important;
 }
 .active1 a{
-color: gold !important;
+    color: yellow !important;
 }
 .divider {
-    background-color: gold !important;
+    background-color: yellow !important;
 }
-
+/*li+li { 
+        border-left: 1px solid gold;
+        height: 30px;
+        text-align: center;
+        padding-left: 10px;
+        
+}*/
 
 
 

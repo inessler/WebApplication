@@ -13,8 +13,7 @@
         <style>
             body {
                 padding-top: 50px;
-                padding-bottom: 20px;
-                background-color: black;
+/*                padding-bottom: 20px;*/
                 color: white;
             }
             .jumbotron {
@@ -55,7 +54,6 @@
                 left: 0;
                 position: relative;
             }
-
             @media screen and (max-width: 1024px) { /* Specific to this particular image */
                 img.bg {
                     left: 50%;
@@ -74,10 +72,10 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="js/libs/angular.js/angular.js"></script>
     </head>
-    <body id="page">
+    <body>
         <div class="wrapper">
             <div  id="menubar" class="navbar  navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="container-fluid" >
+                <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="sr-only"></span>
@@ -85,18 +83,17 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html"><font style="color:gold">FFX Web Application</font></a>
+                        <a class="navbar-brand" href="index.html"><font style="color:yellow;">FFX Web Application</font></a>
                     </div>
                     <div class="navbar-collapse collapse navbar-right">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a class="navbar-brand" href="LearnMore.html" role="button">
-                                    <!--<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>--> 
+                                <a class="navbar-brand " href="LearnMore.html" role="button">
                                     Learn More
                                 </a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
                                 <ul class="dropdown-menu" id="Dropdown" role="menu">
                                     <li class="divider" style="margin-top: -5px"></li>
                                     <li><a href="Minimize.html" style="padding-top: -5px">Minimize</a></li>
@@ -114,7 +111,6 @@
                             </li>
                             <li >
                                 <a class="navbar-brand" href="Developers.html" role="button">
-                                    <!--<span class="glyphicon glyphicon-user" aria-hidden="true"></span>--> 
                                     Developers
                                 </a>
                             </li>
@@ -133,16 +129,9 @@
                     <h1>
                         <b><u>FFX Web Application</u></b>
                     </h1>
-                    <!--<hr style="border-width: 1px; margin-top: auto; margin-bottom: auto;">-->
                     <p>
                         <b>This web application provides a way for scientists to determine important parameters about molecules of interest. </b>
                     </p>
-                    <!--        <p>To learn more follow the link below:</p>-->
-                    <!--                <p><a class="btn btn-lg btn-color" href="LearnMore.html" role="button">
-                                            <font color="black">
-                                                Learn more &raquo;
-                                            </font>
-                                        </a></p>-->
                 </div>
             </div>
             <hr style="border-width: 10px; margin-top: -150px; margin-bottom: auto; border-color: #2B2B2B;">
