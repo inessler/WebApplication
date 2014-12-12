@@ -88,6 +88,15 @@ a.dropdownhover:hover {
     height: 142px; /* .push must be the same height as .footer */
     padding-top: 142px;
 }
+ul.nav > li.dropdown > ul > li.active1 {
+    color: gold !important;
+}
+.active1 a{
+color: gold !important;
+}
+.divider {
+    background-color: gold !important;
+}
 
 
 

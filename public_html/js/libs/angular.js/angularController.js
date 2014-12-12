@@ -24,7 +24,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.Number3 = "";
         $scope.Number4 = "";
         $scope.Number5 = "";
-        $scope.URL="";
+        $scope.URL = "";
         //         Function to collect flags input then download JNLP file and input file
         $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
 
@@ -43,21 +43,26 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
 //            the JNLP file string called TextString.
             if (Number1 !== undefined) {
                 var TextString = TextString + ' ' + '-s ' + Number1;
-            };
+            }
+            ;
             if (Number2 !== undefined) {
                 TextString = TextString + ' ' + '-s2 ' + Number2;
-            };
+            }
+            ;
             if (Number3 !== undefined) {
                 TextString = TextString + ' ' + '-l ' + Number3;
-            };
+            }
+            ;
             if (Number4 !== undefined) {
                 TextString = TextString + ' ' + '-f ' + Number4;
-            };
+            }
+            ;
             if (Number5 !== undefined) {
                 TextString = TextString + ' ' + '-f2 ' + Number5;
-            };
+            }
+            ;
             TextString = TextString + " </argument>\n       <argument> ";
-            
+
             // Check if user inputed a file if not then deliver a warning to user
             // and exit function.
             if (document.getElementById("PDB_File").files.length !== 0) {
@@ -68,12 +73,12 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                 return;
             }
             TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
-            
+
             //Textstring compile is completed create download element.
             var data = new Blob([TextString], {type: 'text/plain'});
             saveAs(data, "ffx.jnlp");
-            
-            
+
+
 //                  The code below this block can be used if saveAs()
 //                  Does not work in the future, I think the save as is a better implementation as of this moment
 //                      
@@ -90,14 +95,16 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             var fr = new FileReader();
             fr.onload = receivedText;
             fr.readAsText(document.getElementById("PDB_File").files[0]);
+
+            // Function to collect input file information
             function receivedText() {
-                
+
                 // Set input file to a variable
                 var fileInputContents = fr.result;
-                
+
                 // Create blob of input file contents
                 var blobFileInput = new Blob([fileInputContents], {type: 'text/plain'});
-                
+
                 // Get file input name and set that as the name for the pdb file download.
                 // In future may want to make a random process to avoid duplicates.
                 var FileName = document.getElementById("PDB_File").files[0].name;
@@ -126,7 +133,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.Number2 = "";
         $scope.Number3 = "";
         $scope.Number4 = "";
-        $scope.Number5 = "";        
+        $scope.Number5 = "";
         //         Function to collect flags input then download JNLP file and input file
         $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
 
@@ -145,21 +152,26 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
 //            the JNLP file string called TextString.
             if (Number1 !== undefined) {
                 var TextString = TextString + ' ' + '-s ' + Number1;
-            };
+            }
+            ;
             if (Number2 !== undefined) {
                 TextString = TextString + ' ' + '-s2 ' + Number2;
-            };
+            }
+            ;
             if (Number3 !== undefined) {
                 TextString = TextString + ' ' + '-l ' + Number3;
-            };
+            }
+            ;
             if (Number4 !== undefined) {
                 TextString = TextString + ' ' + '-f ' + Number4;
-            };
+            }
+            ;
             if (Number5 !== undefined) {
                 TextString = TextString + ' ' + '-f2 ' + Number5;
-            };
+            }
+            ;
             TextString = TextString + " </argument>\n       <argument> ";
-            
+
             // Check if user inputed a file if not then deliver a warning to user
             // and exit function.
             if (document.getElementById("PDB_File").files.length !== 0) {
@@ -170,12 +182,12 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                 return;
             }
             TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
-            
+
             //Textstring compile is completed create download element.
             var data = new Blob([TextString], {type: 'text/plain'});
             saveAs(data, "ffx.jnlp");
-            
-            
+
+
 //                  The code below this block can be used if saveAs()
 //                  Does not work in the future, I think the save as is a better implementation as of this moment
 //                      
@@ -193,13 +205,13 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             fr.onload = receivedText;
             fr.readAsText(document.getElementById("PDB_File").files[0]);
             function receivedText() {
-                
+
                 // Set input file to a variable
                 var fileInputContents = fr.result;
-                
+
                 // Create blob of input file contents
                 var blobFileInput = new Blob([fileInputContents], {type: 'text/plain'});
-                
+
                 // Get file input name and set that as the name for the pdb file download.
                 // In future may want to make a random process to avoid duplicates.
                 var FileName = document.getElementById("PDB_File").files[0].name;
