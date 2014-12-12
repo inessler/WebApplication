@@ -88,9 +88,6 @@ a.dropdownhover:hover {
     height: 142px; /* .push must be the same height as .footer */
     padding-top: 142px;
 }
-#FooterPusher {
-    padding-bottom:142px;
-}
 
 
 
