@@ -25,6 +25,16 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.Number4 = "";
         $scope.Number5 = "";
         $scope.URL = "";
+        function DownloadCheck() {
+            // create temporary hyperlink element
+            var hyperlink = document.createElement("a");
+
+              // if download property is undefined
+// browser doesn't support the feature
+if(hyperlink.download === undefined) {
+  alert('Bummer... \n it would appear your browser does not support download attributes.\n please switch to a compatible browser such as: \n Google Chrome\nOpera\nFirefox')
+}
+        }
         //         Function to collect flags input then download JNLP file and input file
         $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
 
