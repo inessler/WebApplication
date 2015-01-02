@@ -12,104 +12,149 @@ body {
     font-size: 14px;
     line-height: 20px;  
 }
+
+/*
+    Set color and positioning of jumbotron
+*/
 .jumbotron {
     margin-top: auto;
     margin-bottom: auto;
     color: #2B2B2B;
     text-align:center
 }
+
+/*
+        Change background color of nabar to black
+*/
 .navbar-inverse {
     background-image: none !important;
     background-color: #1b1b1b !important;
 }
+
+/*
+    Set all line and button colors through out website
+*/
 hr {
     border-color: yellow;
 }
 .btn-color {
     background-color: yellow;
 }
-.navbar {
-}
-#menubar div {
-    background-color: #1b1b1b; 
-}
 
+/*
+    Set font size of all links in navbar
+*/
 #menubar a {
         font-size: 14px;
 }
+/*
+    Set color of text in box on fileDownloaded.html page
+*/
 #FileDownloadList p {
     color: #1b1b1b;
 }
+
+/*
+    Set color of box on fileDownloaded.html page
+*/
 .panel-gold {
     background-color: yellow;
 }
+
+/*
+    Set color for all links and align the text
+*/
 a {
     text-align:center;
     color:white;
 }
-ul.nav li a.navbar-brand {
+
+/*
+    Dividers inbetween listed items in navbar
+*/
+ul.nav li a.navbar-brand:before {
     color:white;
-    padding-left: 20px;
-    padding-right: 20px;
+    content: "|";
+    padding-left: 15px;
+    padding-right: 15px;
 }
+/*
+    Remove seperator on first listed element in the navbar
+*/
+ul.nav li:first-child a.navbar-brand:before {
+    content:none;
+}
+/*
+    Set color of links on hover
+*/
 ul.nav a:hover { 
     color: yellow !important;
 }
+
+/*************************************************************
+                Drop down menu css for navbar
+*************************************************************/
+
+/*
+    Centers dropdown menu and changes color
+*/
 .dropdown:hover .dropdown-menu {
     display: block;
+    left: -10px;
     background-color: #1b1b1b !important;
 }
+
+/*
+    Changes color of text and and dropdown menus background color for each link on hover
+*/
 .dropdown:hover .dropdown-menu li a {
     color: white;
-}
-ul.dropdown-menu a:hover{
     background-color: #1b1b1b !important;
+    background-image:none !important;
 }
+
+/*
+  Changes the color of the divider lines in the dropdown menu   
+*/
+.divider {
+    background-color: yellow !important;
+}
+
+/*
+    Set color of links in navbar
+*/
 a.navbar-brand {
     color: white !important;
 }
+
+/*
+    Set color of links in navbar on hover
+*/
 a.navbar-brand:hover {
     color: yellow !important;
 }
-.dropdown-menu > li > a:hover {
-    background-image:none !important;
-}
+
+/*
+Css to deal with background image
+*/
 .wrapper {
     min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -284px; /* the bottom margin is the negative value of the footer's height */
 }
+
+/*
+    Css to push the footer to bottom of web page even when content does not warrant a full page
+*/
 .footer, .push {
     height: 142px; /* .push must be the same height as .footer */
     padding-top: 142px;
 }
-ul.nav > li.dropdown > ul > li.active1 {
-    color: yellow !important;
-}
+
+/*
+    Css class that makes the link in the navbar yellow for the active page
+*/
 .active1 a{
     color: yellow !important;
 }
-.divider {
-    background-color: yellow !important;
-}
-/*li+li { 
-        border-left: 1px solid gold;
-        height: 30px;
-        text-align: center;
-        padding-left: 10px;
-        
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
