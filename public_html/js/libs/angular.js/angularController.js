@@ -28,11 +28,11 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         var DownloadCheck = function () {
             // create temporary hyperlink element
             var hyperlink = document.createElement('a');
-              // if download property is undefined
+            // if download property is undefined
 // browser doesn't support the feature
-if (hyperlink.download === undefined) {
-  alert('Bummer... \nIt would appear your browser does not support download attributes.\n\nPlease switch to a compatible browser such as:\nGoogle Chrome\nOpera\nFirefox');
-}
+            if (hyperlink.download === undefined) {
+                alert('Bummer... \nIt would appear your browser does not support download attributes.\n\nPlease switch to a compatible browser such as:\nGoogle Chrome\nOpera\nFirefox');
+            }
         };
         DownloadCheck();
         //         Function to collect flags input then download JNLP file and input file
@@ -46,8 +46,8 @@ if (hyperlink.download === undefined) {
                 return;
             }
 //          Build JNLP as Textstring to download
-            var TextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.eng.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.eng.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.eng.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>md"
-
+            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.eng.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.eng.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.eng.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var TextString = InitialTextString+"minimize";
 //            Next 5 if statements check to see if user input has been provided
 //            in input box if so it assigns the appropriate flag and appends it to
 //            the JNLP file string called TextString.
@@ -119,15 +119,28 @@ if (hyperlink.download === undefined) {
                 // In future may want to make a random process to avoid duplicates.
                 var FileName = document.getElementById("PDB_File").files[0].name;
                 saveAs(blobFileInput, FileName);
-//                
-//The code below this block can be used if saveAs()
-//Does not work in the future, I think the save as is a better implementation as of this moment
-//                a.download = FileName;
-//                a.href = window.URL.createObjectURL(data2);
-//                document.body.appendChild(a);
-//                a.click();
-//                document.body.removeChild(a);
+ /* The code below this block can be used if saveAs()
+  * Does not work in the future, I think the save as is a better implementation at this moment
+                
+                a.download = FileName;
+                a.href = window.URL.createObjectURL(data2);
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+ 
+                 
+ */
             }
+            /************************************************************************************
+             * The following code provides a way to go from the minimize html page to the fileDownloaded html page
+             * So that the end user will know how to run the file that was previously downloaded.
+             * @type @exp;window@pro;document@call;createElement
+             ************************************************************************************/
+            var a = window.document.createElement('a');
+            a.href = "FileDownloaded.html";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         };
     }]);
 
@@ -144,7 +157,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.Number3 = "";
         $scope.Number4 = "";
         $scope.Number5 = "";
-        
+
         //         Function to collect flags input then download JNLP file and input file
         $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
 
