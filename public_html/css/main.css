@@ -4,6 +4,7 @@
    Ian's custom styles
    ========================================================================== */
 html,
+/* Set base format for all html pages */
 body {
     background-color:#1b1b1b;
     color: white;
@@ -14,7 +15,7 @@ body {
 }
 
 /*
-    Set color and positioning of jumbotron
+    Set base color and positioning of jumbotron
 */
 .jumbotron {
     margin-top: auto;
@@ -24,7 +25,7 @@ body {
 }
 
 /*
-    Set all line and button colors through out website
+    Set all line and button colors for all html pages
 */
 hr {
     border-color: yellow;
@@ -64,7 +65,6 @@ a {
     Set font size of all links in navbar
 */
 #menubar a {
-    
     font-size: 14px;
     /*text-transform: uppercase;*/
 }

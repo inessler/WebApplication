@@ -16,6 +16,7 @@
                 background-color: white;
                 color: white;
             }
+            /* Edit Jumbotron color, placement, and add border. */            
             div.jumbotron  {
                 background-color: rgba(255,255,255,0.85);
                 margin-top: -475px; 
@@ -23,19 +24,21 @@
                 border: 2px solid black;
                 color: #2B2B2B;
             }
-            /* Set a div that fills the whole background instead of a small area*/
 
+            /* Set a div that fills the whole background instead of a small area*/
             #background div{
                 min-height: 10px;
                 min-width: 1024px;
                 width: 100%;
                 height: 650px;
+
                 /* Set up positioning */
                 position: fixed;
                 top: 0;
                 left: 0;
                 position: relative;
             }
+
             /* Make a class called bg that makes the image stretch across the webpage
             without stretching*/
             img.bg {
@@ -54,61 +57,69 @@
                 left: 0;
                 position: relative;
             }
+            /* Specify where the first line is placed and what color it is */
             #firstLine {
                 border-width: 10px; margin-top: 220px; margin-bottom: auto; border-color: #2B2B2B;
             }
+            /* Adaptation for background image when the browser window is greater than 750px */
             @media screen and (min-height: 750px) {
                 #background div{
-                min-height: 10px;
-                min-width: 1024px;
-                width: 100%;
-                height: 800px;
-                /* Set up positioning */
-                position: fixed;
-                top: 0;
-                left: 0;
-                position: relative;
-            }
-            img.bg {
-                /* Set rules to fill background */
-                min-height: 100%;
-                min-width: 1400px;
-                padding-top: -50px;
+                    min-height: 10px;
+                    min-width: 1024px;
+                    width: 100%;
+                    height: 800px;
+                    /* Set up positioning */
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    position: relative;
+                }
+                img.bg {
+                    /* Set rules to fill background */
+                    min-height: 100%;
+                    min-width: 1400px;
+                    padding-top: -50px;
 
-                /* Set up proportionate scaling */
-                width: 100%;
-                height: auto;
+                    /* Set up proportionate scaling */
+                    width: 100%;
+                    height: auto;
 
-                /* Set up positioning */
-                position: fixed;
-                top: 0;
-                left: 0;
-                position: relative;
+                    /* Set up positioning */
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    position: relative;
+                }
+                div.jumbotron  {
+                    background-color: rgba(255,255,255,0.85);
+                    margin-top: -500px; 
+                    position: relative; 
+                    border: 2px solid black;
+                    color: #2B2B2B;
+                }
+                #firstLine {
+                    border-width: 10px; 
+                    margin-top: 255px; 
+                    margin-bottom: auto; 
+                    border-color: #2B2B2B; 
+                    position: relative;
+                }
+                div.container {
+                    position: relative;
+                }
+                #secondLine {
+                    position: relative
+                }
             }
-            div.jumbotron  {
-                background-color: rgba(255,255,255,0.85);
-                margin-top: -500px; 
-                position: relative; 
-                border: 2px solid black;
-                color: #2B2B2B;
-            }
-            #firstLine {
-                border-width: 10px; margin-top: 260px; margin-bottom: auto; border-color: #2B2B2B; position: relative;
-            }
-            div.container {
-                position: relative;
-            }
-            #secondLine {
-                position: relative
-            }
-            }
-            
-            @media screen and (max-width: 1024px) {  Specific to this particular image 
+            /* Css to be used when width is less than 1024px*/
+            @media screen and (max-width: 1024px) {  
+                /* Specific to this particular image */
                 img.bg {
                     left: 50%;
                     margin-left: -512px;   /*50%*/
                 }
             }
+            
             /* Crop the image at the standard laptop computer size */
             #wrapper{
                 height:20%;
@@ -122,8 +133,13 @@
         <script src="js/libs/angular.js/angular.js"></script>
     </head>
     <body>
+        <!--  Used to make room for footer at bottom of page see Main.css for more details  -->
         <div class="wrapper">
+            
+            <!--  Id menubar as shown in Main.css provides coloring  -->
             <div  id="menubar" class="navbar  navbar-inverse navbar-fixed-top" role="navigation">
+            
+                <!--  Allows the navbar to fit any width of page  -->
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
@@ -133,7 +149,6 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="index.html"><font style="color:yellow;">FFX Web Application</font></a>
-                        <!--<img src="img/forcefield.png" alt="Smiley face" height="50" width="100">-->
                     </div>
                     <div class="navbar-collapse collapse navbar-right">
                         <ul class="nav navbar-nav">
@@ -147,6 +162,7 @@
                                     About
                                 </a>
                             </li>
+                            <!--  This is the dropdown featured in the navbar. More information on the class "dropdown" can be found in Main.css  -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
                                 <ul class="dropdown-menu" id="Dropdown" role="menu">
@@ -166,14 +182,17 @@
                             </li>
                         </ul>
                     </div>
-                    <!--          .navbar-collapse -->
                 </div>
             </div>
+            
+            <!--  This is the div that controls the size of the background image for the webpage  -->
             <div id="background">
                 <div id="wrapper">
                     <img  class="bg" src="img/background1.png" alt="Smiley face" style="background-color: #F6F6F6; margin-top: -150px;">
                 </div>
             </div>
+            
+            <!--  This div provides the large text box featured on the front page of the website  -->
             <div class="jumbotron" style="">
                 <div class="container-fluid" style="text-align:center">
                     <h1>
@@ -186,8 +205,9 @@
             </div>
             <hr id="firstLine" >
             <hr id="secondLine" style="border-width: 3px; margin-top:-5px; margin-bottom: auto; ">
+            
+            <!--  This div contains the buttons and information about the various functions  -->
             <div class="container" style="padding-top: 15px; " >
-                <!-- Example row of columns -->
                 <div class="row" >
                     <div class="col-md-4">
                         <h2>Minimize</h2>
@@ -206,8 +226,12 @@
                     </div>
                 </div>
             </div>
+            <!--  This div is used as a spacer so that the footer of the webpage is always attached to the 
+                  bottom of the webpage     SEE MAIN.CSS FOR DETAILS ON CLASS "PUSH"
+            -->
             <div class="push"></div>
         </div>
+        <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push">
             <hr style="border-width: 2px;  bottom: 0px;">
             <div class="col-md-10" style="margin-top: 40px">
@@ -220,39 +244,8 @@
                 <img src="img/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
             </div>
         </div>    
-
-        <!--            <hr style="border-width: 2px;">
-        
-                    <footer>
-                        <div class="col-md-10" style="margin-top: 30px">
-                            <p>
-                                &copy; University of Iowa Biochemistry Department 2014
-                            </p>
-                        </div>
-                        <div class="col-md-2" style="margin-right:-100px">
-                            <img src="img/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
-                        </div>
-                    </footer>-->
-        <!-- /container -->        
-        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>');</script>
-
         <script src="js/vendor/bootstrap.min.js"></script>
-
-<!--        Use this script to alert user to browser inadequacy -->
-        <!--        <script>
-            var DownloadCheck = function () {
-                // create temporary hyperlink element
-                var hyperlink = document.createElement('a');
-                // if download property is undefined
-// browser doesn't support the feature
-                if (hyperlink.download === undefined) {
-                    alert('Bummer... \nIt would appear your browser does not support download attributes.\n\nPlease switch to a compatible browser such as:\nGoogle Chrome\nOpera\nFirefox');
-                }
-            };
-            DownloadCheck();
-        </script>-->
-
         <script src="js/main.js"></script>
     </body>
 </html>

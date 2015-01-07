@@ -61,40 +61,40 @@ and open the template in the editor.
                     <a class="navbar-brand " href="index.html">FFX Web Application</a>
                 </div>
                 <div class="navbar-collapse collapse navbar-right">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a class="navbar-brand" href="index.html" role="button">
-                                    <font>Home</font>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="navbar-brand" href="LearnMore.html" role="button">
-                                    About
-                                </a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
-                                <ul class="dropdown-menu" id="Dropdown" role="menu">
-                                    <li class="divider" style="margin-top: -5px"></li>
-                                    <li><a href="Minimize.html" style="padding-top: -5px; color: yellow;">Minimize</a></li>
-                                    <li class="divider" ></li>
-                                    <li><a href="#Molecular_Dynamics.html">Molecular Dynamics</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">Xray Minimize</a></li>
-                                    <li class="divider"></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a id="link" class="navbar-brand" href="ContactUs.html" role="button">
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a class="navbar-brand" href="index.html" role="button">
+                                <font>Home</font>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand" href="LearnMore.html" role="button">
+                                About
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions</font><span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="Dropdown" role="menu">
+                                <li class="divider" style="margin-top: -5px"></li>
+                                <li><a href="Minimize.html" style="padding-top: -5px;"><font style="color: yellow;">Minimize</font></a></li>
+                                <li class="divider" ></li>
+                                <li><a href="#Molecular_Dynamics.html">Molecular Dynamics</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Xray Minimize</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="link" class="navbar-brand" href="ContactUs.html" role="button">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <!--          .navbar-collapse -->
             </div>
         </div>
-        
+
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; ">
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
         <div class="jumbotron">
@@ -128,7 +128,9 @@ and open the template in the editor.
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input0.$error.number }">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input0.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
@@ -138,7 +140,9 @@ and open the template in the editor.
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input1.$error.number }">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input1.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
@@ -149,7 +153,9 @@ and open the template in the editor.
                     </div>
                     <div class="row"></div>
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input2.$error.number }">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input2.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
@@ -161,7 +167,9 @@ and open the template in the editor.
                     </div>
                     <div class="row"></div>
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input3.$error.number }">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input3.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
@@ -172,7 +180,9 @@ and open the template in the editor.
                     </div>
                     <div class="row"></div>
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input4.$error.number }">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input4.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
@@ -183,7 +193,9 @@ and open the template in the editor.
                     </div>
                     <div class="row"></div>
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{ 'has-error': EnergyForm.input5.$error.number }">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input5.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
@@ -194,8 +206,11 @@ and open the template in the editor.
                     </div>
                     <div class="row">
                         <div class="button1">
-                            <button ng-class="{ 'disabled': EnergyForm.input5.$error.number || EnergyForm.input4.$error.number || EnergyForm.input3.$error.number || EnergyForm.input2.$error.number || EnergyForm.input1.$error.number || EnergyForm.input0.$error.number}" 
-                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5); migrateHtml();" 
+                            <button ng-class="{
+                                    'disabled'
+                                    : EnergyForm.input5.$error.number || EnergyForm.input4.$error.number || EnergyForm.input3.$error.number || EnergyForm.input2.$error.number || EnergyForm.input1.$error.number || EnergyForm.input0.$error.number}" 
+                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5);
+                                            migrateHtml();" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>
                     </div>
