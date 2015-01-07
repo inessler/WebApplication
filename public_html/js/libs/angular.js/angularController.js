@@ -8,7 +8,6 @@ var WebApp = angular.module('WebApp', []).config(['$compileProvider', function (
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/);
     }]);
 ;
-
 WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.flag0 = false;
@@ -24,7 +23,6 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.Number3 = "";
         $scope.Number4 = "";
         $scope.Number5 = "";
-        $scope.URL = "";
         var DownloadCheck = function () {
             // create temporary hyperlink element
             var hyperlink = document.createElement('a');
@@ -35,6 +33,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             }
         };
         DownloadCheck();
+        
         //         Function to collect flags input then download JNLP file and input file
         $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
 
@@ -89,23 +88,23 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             saveAs(data, "ffx.jnlp");
 
 
-//                  The code below this block can be used if saveAs()
-//                  Does not work in the future, I think the save as is a better implementation as of this moment
-//                      
-//                      
-//            var a = window.document.createElement('a');
-//            a.download = 'ffx.jnlp';
-//            a.href = $scope.JNLP_Directory;
-////            a.href = window.URL.createObjectURL(data);
-//            document.body.appendChild(a);
-////            a.click();
-//            document.body.removeChild(a);
+/*           The code below this block can be used if saveAs()
+*            Does not work in the future, I think the save as is a better implementation as of this moment
+*                      
+*            var a = window.document.createElement('a');
+*            a.download = 'ffx.jnlp';
+*            a.href = $scope.JNLP_Directory;
+*            a.href = window.URL.createObjectURL(data);
+*            document.body.appendChild(a);
+*            a.click();
+*            document.body.removeChild(a);
+*/
 
             //Start of dealing with input pdb file    
             var fr = new FileReader();
             fr.onload = receivedText;
             fr.readAsText(document.getElementById("PDB_File").files[0]);
-
+//            migrateHtml();
             // Function to collect input file information
             function receivedText() {
 
@@ -119,30 +118,41 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                 // In future may want to make a random process to avoid duplicates.
                 var FileName = document.getElementById("PDB_File").files[0].name;
                 saveAs(blobFileInput, FileName);
- /* The code below this block can be used if saveAs()
-  * Does not work in the future, I think the save as is a better implementation at this moment
+                migrateHtml();
+
+                /* The code below this block can be used if saveAs()
+  * Does not work in the future, I think the save as is a better implementation at this moment*/
+//                
+//                a.download = FileName;
+//                a.href = window.URL.createObjectURL(fileInputContents);
+//                document.body.appendChild(a);
+//                a.click();
+//                document.body.removeChild(a);
                 
-                a.download = FileName;
-                a.href = window.URL.createObjectURL(data2);
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
- 
-                 
- */
             }
-            /************************************************************************************
+            
+        };
+        
+    }]);
+/************************************************************************************
              * The following code provides a way to go from the minimize html page to the fileDownloaded html page
              * So that the end user will know how to run the file that was previously downloaded.
              * @type @exp;window@pro;document@call;createElement
              ************************************************************************************/
+var migrateHtml = function () {
             var a = window.document.createElement('a');
             a.href = "FileDownloaded.html";
             document.body.appendChild(a);
             a.click();
-            document.body.removeChild(a);
+            document.body.removeChild(a);            
         };
-    }]);
+
+
+
+
+
+
+
 
 WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope) {
 
