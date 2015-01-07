@@ -16,12 +16,11 @@
                 background-color: white;
                 color: white;
             }
-            .jumbotron {
+            div.jumbotron  {
                 background-color: rgba(255,255,255,0.85);
-                margin-top: auto;
-                margin-bottom: auto;
-                padding-bottom: auto;
-                padding-top: auto;
+                margin-top: -475px; 
+                position: relative; 
+                border: 2px solid black;
                 color: #2B2B2B;
             }
             /* Set a div that fills the whole background instead of a small area*/
@@ -30,18 +29,13 @@
                 min-height: 10px;
                 min-width: 1024px;
                 width: 100%;
-                    height: 650px;
+                height: 650px;
                 /* Set up positioning */
                 position: fixed;
                 top: 0;
                 left: 0;
                 position: relative;
             }
-/*            @media screen and (min-width: 1024px) {
-                #background div{
-                    height: 1024px;
-                }
-            }*/
             /* Make a class called bg that makes the image stretch across the webpage
             without stretching*/
             img.bg {
@@ -60,6 +54,55 @@
                 left: 0;
                 position: relative;
             }
+            #firstLine {
+                border-width: 10px; margin-top: 220px; margin-bottom: auto; border-color: #2B2B2B;
+            }
+            @media screen and (min-height: 900px) {
+                #background div{
+                min-height: 10px;
+                min-width: 1024px;
+                width: 100%;
+                height: 900px;
+                /* Set up positioning */
+                position: fixed;
+                top: 0;
+                left: 0;
+                position: relative;
+            }
+            img.bg {
+                /* Set rules to fill background */
+                min-height: 100%;
+                min-width: 1400px;
+                padding-top: -50px;
+
+                /* Set up proportionate scaling */
+                width: 100%;
+                height: auto;
+
+                /* Set up positioning */
+                position: fixed;
+                top: 0;
+                left: 0;
+                position: relative;
+            }
+            div.jumbotron  {
+                background-color: rgba(255,255,255,0.85);
+                margin-top: -600px; 
+                position: relative; 
+                border: 2px solid black;
+                color: #2B2B2B;
+            }
+            #firstLine {
+                border-width: 10px; margin-top: 450px; margin-bottom: auto; border-color: #2B2B2B; position: relative;
+            }
+            div.container {
+                position: relative;
+            }
+            #secondLine {
+                position: relative
+            }
+            }
+            
             @media screen and (max-width: 1024px) {  Specific to this particular image 
                 img.bg {
                     left: 50%;
@@ -131,7 +174,7 @@
                     <img  class="bg" src="img/background1.png" alt="Smiley face" style="background-color: #F6F6F6; margin-top: -150px;">
                 </div>
             </div>
-            <div class="jumbotron" style="margin-top: -475px; position: relative; border: 2px solid black;">
+            <div class="jumbotron" style="">
                 <div class="container-fluid" style="text-align:center">
                     <h1>
                         <b><u>FFX Web Application</u></b>
@@ -141,9 +184,9 @@
                     </p>
                 </div>
             </div>
-            <hr style="border-width: 10px; margin-top: -150px; margin-bottom: auto; border-color: #2B2B2B;">
-            <hr style="border-width: 10px; margin-top:350px; margin-bottom: auto;">
-            <div class="container" style="padding-top: 15px;" >
+            <hr id="firstLine" >
+            <hr id="secondLine" style="border-width: 3px; margin-top:-5px; margin-bottom: auto; ">
+            <div class="container" style="padding-top: 15px; " >
                 <!-- Example row of columns -->
                 <div class="row" >
                     <div class="col-md-4">
