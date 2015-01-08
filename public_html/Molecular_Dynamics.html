@@ -107,7 +107,7 @@ and open the template in the editor.
         <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
         <div class="container" style="margin-left: 40px" >
-            <form name="EnergyForm" ng-controller="EnergyController">
+            <form name="EnergyForm" ng-controller="Molecular_Dynamics_Controller">
                 <div class='row'>
                     <h3>
                         <b>
@@ -135,7 +135,7 @@ and open the template in the editor.
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                 </span>
-                                <input name="input0" ng-model="Number0" placeholder="RMS gradient convergence criteria" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <input name="input0" ng-model="Number0" placeholder=" Number of molecular dynamics steps." type="number" class="form-control" ng-pattern="NumberPattern" required>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
@@ -167,15 +167,18 @@ and open the template in the editor.
                     </div>
                     <div class="row"></div>
                     <div class="row">
-                        <div class="col-lg-6" ng-class="{
-                                'has-error'
-                                : EnergyForm.input3.$error.number }">
+                        <div class="col-lg-6">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
                                 </span>
-                                <input name="input3" ng-model="Number3" placeholder="Initial lambda value" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                            </div><!-- /input-group -->
+                                <select name="input3" ng-model="Number3" placeholder="Polarization: [None / Direct / Mutual]" type="text" class="form-control" ng-pattern="PFlag" required>
+                                    <option></option>
+                                    <option ng-value="None">None</option>
+                                    <option ng-value="Direct">Direct</option>
+                                    <option ng-value="Mutual">Mutual</option>
+                                </select>
+                            </div>
                         </div>                   
                     </div>
                     <div class="row"></div>
