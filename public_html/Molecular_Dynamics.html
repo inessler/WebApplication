@@ -72,9 +72,9 @@ and open the template in the editor.
                                 About
                             </a>
                         </li>
-                        <li class="dropdown">
+                        <li id="Dropdown" class="dropdown">
                             <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions</font><span class="caret"></span></a>
-                            <ul class="dropdown-menu" id="Dropdown" role="menu">
+                            <ul class="dropdown-menu"  role="menu">
                                 <li class="divider" style="margin-top: -5px"></li>
                                 <li><a href="Minimize.html" style="padding-top: -5px;">Minimize</a></li>
                                 <li class="divider" ></li>
@@ -107,7 +107,7 @@ and open the template in the editor.
         <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
         <div class="container" style="margin-left: 40px" >
-            <form name="EnergyForm" ng-controller="Molecular_Dynamics_Controller">
+            <form name="MDForm" ng-controller="Molecular_Dynamics_Controller">
                 <div class='row'>
                     <h3>
                         <b>
@@ -130,24 +130,20 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-lg-6" ng-class="{
                                 'has-error'
-                                : EnergyForm.input0.$error.number }">
+                                : MDForm.input0.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                 </span>
                                 <input name="input0" ng-model="Number0" placeholder=" Number of molecular dynamics steps." type="number" class="form-control" ng-pattern="NumberPattern" required>
-                            </div><!-- /input-group -->
-                        </div>                   
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6" ng-class="{
-                                'has-error'
-                                : EnergyForm.input1.$error.number }">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
-                                </span>
-                                <input name="input1" ng-model="Number1" placeholder="Starting ligand atom number" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
@@ -155,12 +151,41 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-lg-6" ng-class="{
                                 'has-error'
-                                : EnergyForm.input2.$error.number }">
+                                : MDForm.input1.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
+                                </span>
+                                <input name="input1" ng-model="Number1" placeholder="Time discretization (fsec)." type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-lg-6" ng-class="{
+                                'has-error'
+                                : MDForm.input2.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
                                 </span>
-                                <input name="input2" onchange="" ng-model="Number2" type="number" placeholder="Starting ligand atom number for the second topology" class="form-control" ng-pattern="NumberPattern" required>
+                                <input name="input2" onchange="" ng-model="Number2" type="number" placeholder="Temperature in degrees Kelvin." class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>
                         <!--<div class="col-lg-6" ng-if="test2"> not an integer</div>-->
@@ -171,13 +196,22 @@ and open the template in the editor.
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
+                                    Polarization:
                                 </span>
-                                <select name="input3" ng-model="Number3" placeholder="Polarization: [None / Direct / Mutual]" type="text" class="form-control" ng-pattern="PFlag" required>
+                                <select name="input3" ng-model="Number3" class="form-control">
                                     <option></option>
                                     <option ng-value="None">None</option>
                                     <option ng-value="Direct">Direct</option>
                                     <option ng-value="Mutual">Mutual</option>
                                 </select>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div>
                         </div>                   
                     </div>
@@ -185,12 +219,20 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-lg-6" ng-class="{
                                 'has-error'
-                                : EnergyForm.input4.$error.number }">
+                                : MDForm.input4.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
                                 </span>
-                                <input name="input4" ng-model="Number4" placeholder="Final ligand atom number" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <input name="input4" ng-model="Number4" placeholder="Interval to log thermodyanamics (psec)." type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
@@ -198,22 +240,31 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-lg-6" ng-class="{
                                 'has-error'
-                                : EnergyForm.input5.$error.number }">
+                                : MDForm.input5.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
                                 </span>
-                                <input name="input5" ng-model="Number5" placeholder="Final ligand atom number for second topology" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <input name="input5" ng-model="Number5" placeholder="Interval to write out coordinates (psec)." type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
+                        
                         </div>  
                     </div>
                     <div class="row">
                         <div class="button1">
                             <button ng-class="{
                                     'disabled'
-                                    : EnergyForm.input5.$error.number || EnergyForm.input4.$error.number || EnergyForm.input3.$error.number || EnergyForm.input2.$error.number || EnergyForm.input1.$error.number || EnergyForm.input0.$error.number}" 
-                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5);
-                                            migrateHtml();" 
+                                    : MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
+                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
+                                                migrateHtml();" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>
                     </div>

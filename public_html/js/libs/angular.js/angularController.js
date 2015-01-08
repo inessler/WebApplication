@@ -226,25 +226,25 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.flag3 = false;
         $scope.flag4 = false;
         $scope.flag5 = false;
+        $scope.flag6 = false;
         $scope.uriFlags = "";
         $scope.Number0 = "";
         $scope.Number1 = "";
         $scope.Number2 = "";
         $scope.Number3 = "";
-        $scope.Flags = [{Id: '1', Text: 'None'}, {Id: '2', Text: 'Direct'}, {Id: '3', Text: 'Mutual'}];
-        $scope.Polarization = {
-            Options: [{
-                    Flag: $scope.Flags[0]
-                }, {
-                    Flag: $scope.Flags[1]
-                }, {
-                    Flag: $scope.Flags[2]
-                }]
-        };
-        
+//        $scope.Flags = [{Id: '1', Text: 'None'}, {Id: '2', Text: 'Direct'}, {Id: '3', Text: 'Mutual'}];
+//        $scope.Polarization = {
+//            Options: [{
+//                    Flag: $scope.Flags[0]
+//                }, {
+//                    Flag: $scope.Flags[1]
+//                }, {
+//                    Flag: $scope.Flags[2]
+//                }]
+//        };
         $scope.Number4 = "";
         $scope.Number5 = "";
-
+        $scope.Number6 = "";
         var CheckFlag = function (word1) {
             console.log(word1);
         };
@@ -282,7 +282,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
          * @param {type} Number5
          * @returns {undefined}
          *****************************************************************************/
-        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
+        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6) {
 
             /*****************************************************************************
              * Check for the various File API support. 
@@ -301,7 +301,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
              * Build JNLP as Textstring to download
              *****************************************************************************/
             var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.eng.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.eng.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.eng.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
-            var FFX_Function = "minimize";
+            var FFX_Function = "md";
             var TextString = InitialTextString + FFX_Function;
 
             /*******************************************************************************
@@ -310,23 +310,27 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
              *      the JNLP file string called TextString. 
              *******************************************************************************/
             if (Number1 !== undefined) {
-                var TextString = TextString + ' ' + '-s ' + Number1;
+                var TextString = TextString + ' ' + '-n ' + Number1;
             }
             ;
             if (Number2 !== undefined) {
-                TextString = TextString + ' ' + '-s2 ' + Number2;
+                TextString = TextString + ' ' + '-d ' + Number2;
             }
             ;
             if (Number3 !== undefined) {
-                TextString = TextString + ' ' + '-l ' + Number3;
+                TextString = TextString + ' ' + '-t ' + Number3;
             }
             ;
             if (Number4 !== undefined) {
-                TextString = TextString + ' ' + '-f ' + Number4;
+                TextString = TextString + ' ' + '-p ' + Number4;
             }
             ;
             if (Number5 !== undefined) {
-                TextString = TextString + ' ' + '-f2 ' + Number5;
+                TextString = TextString + ' ' + '-l ' + Number5;
+            }
+            ;
+            if (Number6 !== undefined) {
+                TextString = TextString + ' ' + '-w ' + Number6;
             }
             ;
             TextString = TextString + " </argument>\n       <argument> ";
