@@ -57,9 +57,9 @@ a {
     text-align:center;
     color:white;
 }
-    /*************************************************************
-                    Navbar css elements
-    *************************************************************/
+/*************************************************************
+                Navbar css elements
+*************************************************************/
 
 /*
     Set font size of all links in navbar
@@ -127,19 +127,43 @@ ul.nav a:hover {
     background-image:none !important;
     display: block;
     left: 110px;
-    top: 0px;
+    top: -4px;
     border-color: yellow;
     border-width: 2px;
-    width:400px;
+    /*width:400px;*/
     /*text-align: left;*/
 }
+
+/* Allows room for pop-up message when user hovers over the 'what is this' button  */
+.spacer {
+    width: 100px;
+}
+/* The following three @media tags provide css to make the drop-down input group on the molecular dynamics page the same size as the 
+*  other input groups at varying widths.
+*/
+@media (max-width:992px) {
+    .spacer1 {
+        width: 56px;
+    }    
+}
+@media (min-width:993px) {
+    .spacer1 {
+        width: 52px;
+    }    
+}
+@media (min-width:1201px) {
+    .spacer1 {
+        width: 63px;
+    }    
+}
+
 /* Source: http://snipplr.com/view/10979/css-cross-browser-word-wrap */
 .wordwrap { 
-   white-space: normal;       /* CSS3 */    
-   white-space: -moz-pre-wrap; /* Firefox */    
-   white-space: -pre-wrap;     /* Opera <7 */   
-   white-space: -o-pre-wrap;   /* Opera 7 */    
-   word-wrap: break-word;      /* IE */
+    white-space: normal;       /* CSS3 */    
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
 }
 /*
   Changes the color of the divider lines in the dropdown menu   
