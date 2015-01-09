@@ -127,14 +127,15 @@ ul.nav a:hover {
     background-image:none !important;
     display: block;
     left: 110px;
-    top: -3px;
-    border-color: white;
+    top: 0px;
+    border-color: yellow;
     border-width: 2px;
-    width:100vh;
+    width:400px;
+    /*text-align: left;*/
 }
 /* Source: http://snipplr.com/view/10979/css-cross-browser-word-wrap */
 .wordwrap { 
-   white-space: pre-wrap;      /* CSS3 */   
+   white-space: normal;       /* CSS3 */    
    white-space: -moz-pre-wrap; /* Firefox */    
    white-space: -pre-wrap;     /* Opera <7 */   
    white-space: -o-pre-wrap;   /* Opera 7 */    

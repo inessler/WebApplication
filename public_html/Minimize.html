@@ -73,7 +73,7 @@ and open the template in the editor.
                             </a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions</font><span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions<span class="caret"></span></font></a>
                             <ul class="dropdown-menu" id="Dropdown" role="menu">
                                 <li class="divider" style="margin-top: -5px"></li>
                                 <li><a href="Minimize.html" style="padding-top: -5px;"><font style="color: yellow;">Minimize</font></a></li>
@@ -108,12 +108,20 @@ and open the template in the editor.
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
         <div class="container" style="margin-left: 40px" >
             <form name="EnergyForm" ng-controller="EnergyController">
+                <div class='row' style="height: 20px;"></div>
                 <div class='row'>
-                    <h3>
+                    <h2>
+                        Follow the steps below to begin:
+                    </h2>
+                </div>
+                <hr style="border-width: 2px;  margin-top: -5px; margin-bottom: auto; ">
+                <div class='row' style="height: 20px;"></div>
+                <div class='row'>
+                    <h4>
                         <b>
-                            First upload the parameter file below:
+                            1. Upload parameter file below:
                         </b>
-                    </h3>
+                    </h4>
                     <div class="form-group">
                         <!--                        <label for="inputFile" >File Input</label>-->
                         <input type="file" id="PDB_File">
@@ -122,9 +130,9 @@ and open the template in the editor.
                 </div>
                 <hr>
                 <div class='row'>
-                    <h3>
-                        Set variables pertaining to the calculation below: 
-                    </h3>
+                    <h4>
+                        2. Set variables pertaining to the calculation below: 
+                    </h4>
                 </div>
                 <div class="container">
                     <div class="row">
@@ -136,9 +144,18 @@ and open the template in the editor.
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                 </span>
                                 <input name="input0" ng-model="Number0" placeholder="RMS gradient convergence criteria" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
+                    <div class="row"></div>
                     <div class="row">
                         <div class="col-lg-6" ng-class="{
                                 'has-error'
@@ -148,6 +165,14 @@ and open the template in the editor.
                                     <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
                                 </span>
                                 <input name="input1" ng-model="Number1" placeholder="Starting ligand atom number" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
@@ -161,6 +186,14 @@ and open the template in the editor.
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
                                 </span>
                                 <input name="input2" onchange="" ng-model="Number2" type="number" placeholder="Starting ligand atom number for the second topology" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>
                         <!--<div class="col-lg-6" ng-if="test2"> not an integer</div>-->
@@ -175,6 +208,14 @@ and open the template in the editor.
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
                                 </span>
                                 <input name="input3" ng-model="Number3" placeholder="Initial lambda value" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
@@ -188,6 +229,14 @@ and open the template in the editor.
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
                                 </span>
                                 <input name="input4" ng-model="Number4" placeholder="Final ligand atom number" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
@@ -201,6 +250,14 @@ and open the template in the editor.
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
                                 </span>
                                 <input name="input5" ng-model="Number5" placeholder="Final ligand atom number for second topology" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                            <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                    Number of molecular dynamics steps.
+                                    </div>
+                                </div>
                             </div><!-- /input-group -->
                         </div>  
                     </div>

@@ -73,7 +73,7 @@ and open the template in the editor.
                             </a>
                         </li>
                         <li id="Dropdown" class="dropdown">
-                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions</font><span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions<span class="caret"></span></font></a>
                             <ul class="dropdown-menu"  role="menu">
                                 <li class="divider" style="margin-top: -5px"></li>
                                 <li><a href="Minimize.html" style="padding-top: -5px;">Minimize</a></li>
@@ -108,12 +108,20 @@ and open the template in the editor.
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
         <div class="container" style="margin-left: 40px" >
             <form name="MDForm" ng-controller="Molecular_Dynamics_Controller">
+                <div class='row' style="height: 20px;"></div>
                 <div class='row'>
-                    <h3>
+                    <h2>
+                        Follow the steps below to begin:
+                    </h2>
+                </div>
+                <hr style="border-width: 2px;  margin-top: -5px; margin-bottom: auto; ">
+                <div class='row' style="height: 20px;"></div>
+                <div class='row'>
+                    <h4>
                         <b>
-                            First upload the parameter file below:
+                            1. Upload parameter file below:
                         </b>
-                    </h3>
+                    </h4>
                     <div class="form-group">
                         <!--                        <label for="inputFile" >File Input</label>-->
                         <input type="file" id="PDB_File">
@@ -121,10 +129,14 @@ and open the template in the editor.
                     </div>
                 </div>
                 <hr>
+<!--                <h2>
+                    The following parameters do not need to be set unless a particular run is desired.
+                </h2>
+                <hr>-->
                 <div class='row'>
-                    <h3>
-                        Set variables pertaining to the calculation below: 
-                    </h3>
+                    <h4>
+                        2. Set variables pertaining to the calculation below: 
+                    </h4>
                 </div>
                 <div class="container">
                     <div class="row">
@@ -182,13 +194,12 @@ and open the template in the editor.
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
-                                    <div class="dropdown-menu special wordwrap" role="menu">
-                                    Number of molecular dynamics steps.
+                                    <div class="dropdown-menu special wordwrap" role="menu" style="align: justify;">
+                                        <span role="menuitem">Number of molecular dynamics steps.Number of molecular dynamics steps.Number of molecular dynamics steps.Number of molecular dynamics steps.</span>
                                     </div>
                                 </div>
-                            </div><!-- /input-group -->
+                            </div>
                         </div>
-                        <!--<div class="col-lg-6" ng-if="test2"> not an integer</div>-->
                     </div>
                     <div class="row"></div>
                     <div class="row">
@@ -258,6 +269,7 @@ and open the template in the editor.
                         
                         </div>  
                     </div>
+                    <div class='row' style="height: 20px;"></div>
                     <div class="row">
                         <div class="button1">
                             <button ng-class="{
