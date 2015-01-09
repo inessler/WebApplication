@@ -133,6 +133,9 @@ ul.nav a:hover {
     /*width:400px;*/
     /*text-align: left;*/
 }
+.col-lg-6 {
+    min-width: 87vh;
+}
 
 /* Allows room for pop-up message when user hovers over the 'what is this' button  */
 .spacer {
@@ -143,17 +146,17 @@ ul.nav a:hover {
 */
 @media (max-width:992px) {
     .spacer1 {
-        width: 56px;
+        width: 54px;
     }    
 }
 @media (min-width:993px) {
     .spacer1 {
-        width: 52px;
+        width: 50px;
     }    
 }
 @media (min-width:1201px) {
     .spacer1 {
-        width: 63px;
+        width: 57px;
     }    
 }
 
