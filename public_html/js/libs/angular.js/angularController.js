@@ -16,6 +16,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.flag3 = false;
         $scope.flag4 = false;
         $scope.flag5 = false;
+        $scope.time=false;
+        $scope.confirmed = false;
         $scope.uriFlags = "";
         $scope.Number0 = "";
         $scope.Number1 = "";
@@ -23,7 +25,11 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.Number3 = "";
         $scope.Number4 = "";
         $scope.Number5 = "";
-
+        
+        /*
+         * Function to test browser compatibility with download attribute
+         * @returns {undefined}
+         */
         var DownloadCheck = function () {
 
             /*****************************************************************************
@@ -46,7 +52,10 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
          * @returns {undefined}
          *****************************************************************************/
         DownloadCheck();
-
+        console.log($scope.time+"heller");
+$scope.$watch('time', function (time) {
+    console.log(time);
+    });
         /*****************************************************************************
          * Function to collect flags input then download JNLP file and input file
          * @param {type} Number1
@@ -57,7 +66,6 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
          * @returns {undefined}
          *****************************************************************************/
         $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5) {
-
             /*****************************************************************************
              * Check for the various File API support. 
              *****************************************************************************/
@@ -177,7 +185,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                  *The function below will take the user to FileDownloaded.html after completion. 
                  * @returns {Element}
                  *****************************************************************************/
-                migrateHtml();
+//                migrateHtml();
 
                 /*****************************************************************************
                  *      The code below this block can be used if saveAs()
@@ -196,7 +204,60 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         };
 
     }]);
-
+/*
+ * Directive used to initiate function to read file and determine number of atoms and time consumption.
+ * @param {type} param1
+ * @param {type} param2
+ */
+WebApp.directive("fileread", [function () {
+        return {
+           scope: {
+                fileread: "=",
+                time: "="
+            },
+            link: function (scope, element, attrs) {
+                element.bind("change", function (changeEvent) {
+                    var reader = new FileReader();
+                    reader.onload = function (loadEvent) {
+                       scope.$apply(function () {
+                           scope.fileread = true;
+                            var textString = reader.result;
+                            var arrayOfTextString = textString.split("\n");
+                           scope.atomNumber = 0;
+                           scope.atomNumber2 = 0;
+                            var i = 0;
+                            for (i = 0; i < arrayOfTextString.length; i++) {
+                                var tempString = arrayOfTextString[i].slice(0, 6);
+                                var tempString2 = arrayOfTextString[i].slice(0, 4);
+                                var UpperCaseTempString = tempString.toUpperCase();
+                                var UpperCaseTempString2 = tempString2.toUpperCase();
+                                if (UpperCaseTempString === "HETATM") {
+                                   scope.atomNumber += 1;
+                                }
+                                if (UpperCaseTempString2 === "ATOM") {
+                                   scope.atomNumber2 += 1;
+                                }
+                            }
+                            if (scope.atomNumber>scope.atomNumber2) {
+                               scope.Number=scope.atomNumber;
+                               scope.time =scope.Number*Math.log(scope.Number)
+                            }
+                            else if (scope.atomNumber<scope.atomNumber2) {
+                               scope.Number=scope.atomNumber2;
+                               scope.time =scope.Number*Math.log(scope.Number);
+                            }
+                            else {
+                               scope.time = false;
+                            }
+                            console.log(scope.atomNumber,scope.atomNumber2);
+//                            console.log(scope.time);
+                        });
+                    };
+                    reader.readAsText(changeEvent.target.files[0]);
+                });
+            }
+        };
+    }]);
 /************************************************************************************
  *      The following code provides a way to go from the minimize html page to the fileDownloaded html page
  *      So that the end user will know how to run the file that was previously downloaded.
@@ -209,6 +270,7 @@ var migrateHtml = function () {
     a.click();
     document.body.removeChild(a);
 };
+
 
 /*
  * Future FFX functions could be conducted using seperate controllers with similar code on the inside.

@@ -130,8 +130,17 @@ ul.nav a:hover {
     top: -4px;
     border-color: yellow;
     border-width: 2px;
-    /*width:400px;*/
-    /*text-align: left;*/
+}
+#diver {
+    border-color: yellow !important;
+    border-width: 2px;
+    border: solid;
+    background-image:none !important; 
+    text-align: center;  
+    margin-left:300px; 
+    margin-top: -50px; 
+    max-width: 400px;  
+    z-index: 1;
 }
 
 /* Allows room for pop-up message when user hovers over the 'what is this' button  */
