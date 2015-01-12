@@ -16,8 +16,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.flag3 = false;
         $scope.flag4 = false;
         $scope.flag5 = false;
-        $scope.time=0;
-        $scope.finalnumber=true;
+        $scope.time = 0;
+        $scope.finalnumber = true;
         $scope.confirmed = false;
         $scope.uriFlags = "";
         $scope.Number0 = "";
@@ -26,7 +26,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.Number3 = "";
         $scope.Number4 = "";
         $scope.Number5 = "";
-        
+
         /*
          * Function to test browser compatibility with download attribute
          * @returns {undefined}
@@ -53,13 +53,124 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
          * @returns {undefined}
          *****************************************************************************/
         DownloadCheck();
-        
+
         /*
          * Logic to estimate time based on number of atoms
          */
         $scope.$watch('finalnumber', function (finalnumber) {
-    $scope.time =finalnumber*Math.log(finalnumber);
-    });
+            $scope.time = (finalnumber * Math.log(finalnumber)).toFixed(0);
+            $scope.minutes = $scope.time;
+            $scope.hours = ($scope.minutes / 60).toFixed(0);
+            $scope.minutes %= 60;
+            $scope.days = ($scope.hours / 24).toFixed(0);
+            $scope.hours %= 24;
+            console.log($scope.days + " days, " + $scope.hours + " hours, " + $scope.minutes + " minutes");
+            if ($scope.days == 1) {
+                if ($scope.hours === 1) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hour, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " day " + $scope.hours + " hour";
+                    }
+                    else {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hour, and " + $scope.minutes + " minutes";
+                    };
+                }
+                else if ($scope.hours == 0) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " day and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " day";
+                    }
+                    else {
+                        $scope.time = $scope.days + " day and " + $scope.minutes + " minutes";
+                    };
+                }
+                else {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hours, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " day " + $scope.hours + " hours";
+                    }
+                    else {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hours, and " + $scope.minutes + " minutes";
+                    };
+                };
+            }
+            else if ($scope.days == 0) {
+                if ($scope.hours === 1) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.hours + " hour and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.hours + " hour";
+                    }
+                    else {
+                        $scope.time = $scope.hours + " hour and " + $scope.minutes + " minutes";
+                    };
+                }
+                else if ($scope.hours == 0) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = false;
+                    }
+                    else {
+                        $scope.time = $scope.minutes + " minutes";
+                    };
+                }
+                else {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.hours + " hours and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.hours + " hours";
+                    }
+                    else {
+                        $scope.time = $scope.hours + " hours and " + $scope.minutes + " minutes";
+                    };
+                };
+            }
+            else {
+                if ($scope.hours === 1) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hour, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " days and " + $scope.hours + " hour";
+                    }
+                    else {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hour, and " + $scope.minutes + " minutes";
+                    };
+                }
+                else if ($scope.hours == 0) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " days and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " days";
+                    }
+                    else {
+                        $scope.time = $scope.days + " days and " + $scope.minutes + " minutes";
+                    };
+                }
+                else {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hours, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " days " + $scope.hours + " hours";
+                    }
+                    else {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hours, and " + $scope.minutes + " minutes";
+                    };
+                };
+            };
+        });
         /*****************************************************************************
          * Function to collect flags input then download JNLP file and input file
          * @param {type} Number1
@@ -215,7 +326,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
  */
 WebApp.directive("fileread", [function () {
         return {
-           scope: {
+            scope: {
                 fileread: "=",
                 finalnumber: "="
             },
@@ -223,12 +334,12 @@ WebApp.directive("fileread", [function () {
                 element.bind("change", function (changeEvent) {
                     var reader = new FileReader();
                     reader.onload = function (loadEvent) {
-                       scope.$apply(function () {
-                           scope.fileread = true;
+                        scope.$apply(function () {
+                            scope.fileread = true;
                             var textString = reader.result;
                             var arrayOfTextString = textString.split("\n");
-                           scope.atomNumber = 0;
-                           scope.atomNumber2 = 0;
+                            scope.atomNumber = 0;
+                            scope.atomNumber2 = 0;
                             var i = 0;
                             for (i = 0; i < arrayOfTextString.length; i++) {
                                 var tempString = arrayOfTextString[i].slice(0, 6);
@@ -236,20 +347,20 @@ WebApp.directive("fileread", [function () {
                                 var UpperCaseTempString = tempString.toUpperCase();
                                 var UpperCaseTempString2 = tempString2.toUpperCase();
                                 if (UpperCaseTempString === "HETATM") {
-                                   scope.atomNumber += 1;
+                                    scope.atomNumber += 1;
                                 }
                                 if (UpperCaseTempString2 === "ATOM") {
-                                   scope.atomNumber2 += 1;
+                                    scope.atomNumber2 += 1;
                                 }
                             }
-                            if (scope.atomNumber>scope.atomNumber2) {
-                               scope.finalnumber=scope.atomNumber;
+                            if (scope.atomNumber > scope.atomNumber2) {
+                                scope.finalnumber = scope.atomNumber;
                             }
-                            else if (scope.atomNumber<scope.atomNumber2) {
-                               scope.finalnumber=scope.atomNumber2;
+                            else if (scope.atomNumber < scope.atomNumber2) {
+                                scope.finalnumber = scope.atomNumber2;
                             }
                             else {
-                               scope.finalnumber = false;
+                                scope.finalnumber = false;
                             }
                         });
                     };
