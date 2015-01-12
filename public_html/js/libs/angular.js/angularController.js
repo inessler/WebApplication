@@ -16,7 +16,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.flag3 = false;
         $scope.flag4 = false;
         $scope.flag5 = false;
-        $scope.time=false;
+        $scope.time=0;
+        $scope.finalnumber=true;
         $scope.confirmed = false;
         $scope.uriFlags = "";
         $scope.Number0 = "";
@@ -52,9 +53,12 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
          * @returns {undefined}
          *****************************************************************************/
         DownloadCheck();
-        console.log($scope.time+"heller");
-$scope.$watch('time', function (time) {
-    console.log(time);
+        
+        /*
+         * Logic to estimate time based on number of atoms
+         */
+        $scope.$watch('finalnumber', function (finalnumber) {
+    $scope.time =finalnumber*Math.log(finalnumber);
     });
         /*****************************************************************************
          * Function to collect flags input then download JNLP file and input file
@@ -213,7 +217,7 @@ WebApp.directive("fileread", [function () {
         return {
            scope: {
                 fileread: "=",
-                time: "="
+                finalnumber: "="
             },
             link: function (scope, element, attrs) {
                 element.bind("change", function (changeEvent) {
@@ -239,18 +243,14 @@ WebApp.directive("fileread", [function () {
                                 }
                             }
                             if (scope.atomNumber>scope.atomNumber2) {
-                               scope.Number=scope.atomNumber;
-                               scope.time =scope.Number*Math.log(scope.Number)
+                               scope.finalnumber=scope.atomNumber;
                             }
                             else if (scope.atomNumber<scope.atomNumber2) {
-                               scope.Number=scope.atomNumber2;
-                               scope.time =scope.Number*Math.log(scope.Number);
+                               scope.finalnumber=scope.atomNumber2;
                             }
                             else {
-                               scope.time = false;
+                               scope.finalnumber = false;
                             }
-                            console.log(scope.atomNumber,scope.atomNumber2);
-//                            console.log(scope.time);
                         });
                     };
                     reader.readAsText(changeEvent.target.files[0]);
