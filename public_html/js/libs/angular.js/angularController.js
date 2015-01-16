@@ -75,7 +75,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.days + " day, " + $scope.hours + " hour, and " + $scope.minutes + " minutes";
-                    };
+                    }
+                    ;
                 }
                 else if ($scope.hours == 0) {
                     if ($scope.minutes === 1) {
@@ -86,7 +87,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.days + " day and " + $scope.minutes + " minutes";
-                    };
+                    }
+                    ;
                 }
                 else {
                     if ($scope.minutes === 1) {
@@ -97,8 +99,10 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.days + " day, " + $scope.hours + " hours, and " + $scope.minutes + " minutes";
-                    };
-                };
+                    }
+                    ;
+                }
+                ;
             }
             else if ($scope.days == 0) {
                 if ($scope.hours === 1) {
@@ -110,7 +114,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.hours + " hour and " + $scope.minutes + " minutes";
-                    };
+                    }
+                    ;
                 }
                 else if ($scope.hours == 0) {
                     if ($scope.minutes === 1) {
@@ -121,7 +126,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.minutes + " minutes";
-                    };
+                    }
+                    ;
                 }
                 else {
                     if ($scope.minutes === 1) {
@@ -132,8 +138,10 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.hours + " hours and " + $scope.minutes + " minutes";
-                    };
-                };
+                    }
+                    ;
+                }
+                ;
             }
             else {
                 if ($scope.hours === 1) {
@@ -145,7 +153,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.days + " days, " + $scope.hours + " hour, and " + $scope.minutes + " minutes";
-                    };
+                    }
+                    ;
                 }
                 else if ($scope.hours == 0) {
                     if ($scope.minutes === 1) {
@@ -156,7 +165,8 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.days + " days and " + $scope.minutes + " minutes";
-                    };
+                    }
+                    ;
                 }
                 else {
                     if ($scope.minutes === 1) {
@@ -167,9 +177,12 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                     }
                     else {
                         $scope.time = $scope.days + " days, " + $scope.hours + " hours, and " + $scope.minutes + " minutes";
-                    };
-                };
-            };
+                    }
+                    ;
+                }
+                ;
+            }
+            ;
         });
         /*****************************************************************************
          * Function to collect flags input then download JNLP file and input file
@@ -400,21 +413,13 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.flag4 = false;
         $scope.flag5 = false;
         $scope.flag6 = false;
+        $scope.finalnumber = true;
+        $scope.confirmed = false;
         $scope.uriFlags = "";
         $scope.Number0 = "";
         $scope.Number1 = "";
         $scope.Number2 = "";
         $scope.Number3 = "";
-//        $scope.Flags = [{Id: '1', Text: 'None'}, {Id: '2', Text: 'Direct'}, {Id: '3', Text: 'Mutual'}];
-//        $scope.Polarization = {
-//            Options: [{
-//                    Flag: $scope.Flags[0]
-//                }, {
-//                    Flag: $scope.Flags[1]
-//                }, {
-//                    Flag: $scope.Flags[2]
-//                }]
-//        };
         $scope.Number4 = "";
         $scope.Number5 = "";
         $scope.Number6 = "";
@@ -445,6 +450,138 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
          * @returns {undefined}
          *****************************************************************************/
         DownloadCheck();
+
+        /*
+         * Logic to estimate time based on number of atoms
+         */
+        $scope.$watch('finalnumber', function (finalnumber) {
+            $scope.time = (finalnumber * Math.log(finalnumber)).toFixed(0);
+            $scope.minutes = $scope.time;
+            $scope.hours = ($scope.minutes / 60).toFixed(0);
+            $scope.minutes %= 60;
+            $scope.days = ($scope.hours / 24).toFixed(0);
+            $scope.hours %= 24;
+            console.log($scope.days + " days, " + $scope.hours + " hours, " + $scope.minutes + " minutes");
+            if ($scope.days == 1) {
+                if ($scope.hours === 1) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hour, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " day " + $scope.hours + " hour";
+                    }
+                    else {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hour, and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                else if ($scope.hours == 0) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " day and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " day";
+                    }
+                    else {
+                        $scope.time = $scope.days + " day and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                else {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hours, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " day " + $scope.hours + " hours";
+                    }
+                    else {
+                        $scope.time = $scope.days + " day, " + $scope.hours + " hours, and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                ;
+            }
+            else if ($scope.days == 0) {
+                if ($scope.hours === 1) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.hours + " hour and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.hours + " hour";
+                    }
+                    else {
+                        $scope.time = $scope.hours + " hour and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                else if ($scope.hours == 0) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = false;
+                    }
+                    else {
+                        $scope.time = $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                else {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.hours + " hours and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.hours + " hours";
+                    }
+                    else {
+                        $scope.time = $scope.hours + " hours and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                ;
+            }
+            else {
+                if ($scope.hours === 1) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hour, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " days and " + $scope.hours + " hour";
+                    }
+                    else {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hour, and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                else if ($scope.hours == 0) {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " days and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " days";
+                    }
+                    else {
+                        $scope.time = $scope.days + " days and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                else {
+                    if ($scope.minutes === 1) {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hours, and " + $scope.minutes + " minute";
+                    }
+                    else if ($scope.minutes == 0) {
+                        $scope.time = $scope.days + " days " + $scope.hours + " hours";
+                    }
+                    else {
+                        $scope.time = $scope.days + " days, " + $scope.hours + " hours, and " + $scope.minutes + " minutes";
+                    }
+                    ;
+                }
+                ;
+            }
+            ;
+        });
+
 
         /*****************************************************************************
          * Function to collect flags input then download JNLP file and input file
