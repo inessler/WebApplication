@@ -128,6 +128,7 @@ ul.nav a:hover {
     display: block;
     left: 110px;
     top: -4px;
+    min-width: 200px;
     border-color: yellow;
     border-width: 2px;
 }
@@ -138,7 +139,7 @@ ul.nav a:hover {
     background-image:none !important; 
     text-align: center;  
     margin-left:300px; 
-    margin-top: -50px; 
+    margin-top: -50px;
     max-width: 600px;  
     z-index: 1;
 }

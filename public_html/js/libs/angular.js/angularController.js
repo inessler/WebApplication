@@ -8,6 +8,12 @@ var WebApp = angular.module('WebApp', []).config(['$compileProvider', function (
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/);
     }]);
 ;
+/*
+ * Controller that is used for the minimzation webpage and all angular variables
+ * on that web page.
+ * @param {type} param1
+ * @param {type} param2
+ */
 WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.flag0 = false;
