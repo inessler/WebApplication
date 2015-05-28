@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
      <head>
-        <title>JNLP Download</title>
+        <title>JNLP Applet</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -79,13 +79,14 @@ and open the template in the editor.
             </div>
             <div>TODO write content</div>
             <script src="https://www.java.com/js/deployJava.js"></script>
-<script>
-    var attributes = {} ;
-    <!-- Base64 encoded string truncated below for readability -->
-    var parameters = {jnlp_href: 'jnlp/Force Field X',
-        jnlp_embedded: 'PCEtLSANCi8qDQogKiBDb ... bmxwPg=='
-    } ;
-    deployJava.runApplet(attributes, parameters, '1.6');
-</script>
+ 
+    
+        <script> 
+            var attributes = {
+                code:'ffx.Main',  width:300, height:300} ; 
+            var parameters = {jnlp_href: 'jnlp/ffx.jnlp'} ; 
+            deployJava.runApplet(attributes, parameters, '1.7'); 
+        </script>
+<div>TODO write content</div>
     </body>
 </html>
