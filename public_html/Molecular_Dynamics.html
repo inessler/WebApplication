@@ -135,10 +135,10 @@ and open the template in the editor.
                     </div>
                 </div>
                 <hr>
-<!--                <h2>
-                    The following parameters do not need to be set unless a particular run is desired.
-                </h2>
-                <hr>-->
+                <!--                <h2>
+                                    The following parameters do not need to be set unless a particular run is desired.
+                                </h2>
+                                <hr>-->
                 <div class='row' >
                     <h4>
                         2. Set variables pertaining to the calculation below: 
@@ -159,7 +159,7 @@ and open the template in the editor.
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap container-fluid" role="menu">
-                                    Number of molecular dynamics steps.
+                                        Number of molecular dynamics steps.
                                     </div>
                                 </div>
                                 <div class="spacer"></div>
@@ -181,7 +181,7 @@ and open the template in the editor.
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                    Number of molecular dynamics steps.
+                                        Number of molecular dynamics steps.
                                     </div>
                                 </div>
                                 <div class="spacer"></div>
@@ -229,7 +229,7 @@ and open the template in the editor.
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                    Number of molecular dynamics steps.
+                                        Number of molecular dynamics steps.
                                     </div>
                                 </div>
                                 <div class="col-xsm-6 spacer1"> </div>
@@ -244,12 +244,12 @@ and open the template in the editor.
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
                                 </span>
                                 <input name="input4" ng-model="Number4" placeholder="Interval to log thermodyanamics (psec)." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                            <div class="input-group-addon dropdown">
+                                <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                    Number of molecular dynamics steps.
+                                        Number of molecular dynamics steps.
                                     </div>
                                 </div>
                                 <div class="spacer"></div>
@@ -266,19 +266,19 @@ and open the template in the editor.
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
                                 </span>
                                 <input name="input5" ng-model="Number5" placeholder="Interval to write out coordinates (psec)." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                            <div class="input-group-addon dropdown">
+                                <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                    Number of molecular dynamics steps.
+                                        Number of molecular dynamics steps.
                                     </div>
                                 </div>
                                 <div class="spacer"></div>
                             </div><!-- /input-group -->
-                        
+
                         </div>  
-                        
+
                     </div>
                     <div class='row' style="height: 20px;"></div>
                     <div class="row">
@@ -291,7 +291,31 @@ and open the template in the editor.
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>
                     </div>
+                    {{time}}
                 </div>
+                <div>TODO write content </div>
+            {{time}}
+            <script src="https://www.java.com/js/deployJava.js"></script>
+        <script>
+                    var attributes = {};
+        <!-- Base64 encoded string truncated below for readability -->
+                    var parameters = {jnlp_href: 'jnlp/ffx.jnlp',
+                        jnlp_embedded: [[base64data]]
+                    };
+                    deployJava.runApplet(attributes, parameters, '1.7');
+        </script>
+        <script>        
+  var jnlpFile = "ffx.jnlp";
+  deployJava.createWebStartLaunchButtonEx(jnlpFile);
+        </script>  
+        
+        <script> 
+            var attributes = {
+                code:'ffx.jnlp',  width:300, height:300} ; 
+            var parameters = {jnlp_href: 'jnlp/ffx.jnlp'} ; 
+            deployJava.runApplet(attributes, parameters, '1.7'); 
+        </script>
+<div>TODO write content</div>
                 <hr >
                 <footer>
                     <div class="col-md-10" style="margin-top: 30px; margin-left: 40px; padding-bottom:30px;">
@@ -308,6 +332,7 @@ and open the template in the editor.
 
 
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>');</script>
+        
 
 
 

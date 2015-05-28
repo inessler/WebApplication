@@ -319,24 +319,22 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
                  *The function below will take the user to FileDownloaded.html after completion. 
                  * @returns {Element}
                  *****************************************************************************/
-//                migrateHtml();
-
+                migrateHtml();
                 /*****************************************************************************
                  *      The code below this block can be used if saveAs()
                  *      does not work in the future, I think the save as is a better 
                  *      implementation at this moment
                  *                 
-                 *                 a.download = FileName;
-                 *                 a.href = window.URL.createObjectURL(fileInputContents);
-                 *                 document.body.appendChild(a);
-                 *                 a.click();
-                 *                 document.body.removeChild(a);
-                 *****************************************************************************/
-
+                 * var a = window.document.createElement('a');                  
+                 * a.download = FileName;
+                 *                   a.href = window.URL.createObjectURL(document.getElementById("PDB_File").files[0]);
+                 *                   document.body.appendChild(a);
+                 *                    console.log("hello");
+                 *                   a.click();
+                 *                  document.body.removeChild(a);
+                 /*****************************************************************************/
             }
-
         };
-
     }]);
 /*
  * Directive used to initiate function to read file and determine number of atoms and time consumption.
@@ -390,7 +388,7 @@ WebApp.directive("fileread", [function () {
     }]);
 /************************************************************************************
  *      The following code provides a way to go from the minimize html page to the fileDownloaded html page
- *      So that the end user will know how to run the file that was previously downloaded.
+ *      so that the end user will know how to run the file that was previously downloaded.
  * @type @exp;window@pro;document@call;createElement
  ************************************************************************************/
 var migrateHtml = function () {
@@ -402,11 +400,12 @@ var migrateHtml = function () {
 };
 
 
-/*
+/****************************************************************************************************************
+ * 
  * Future FFX functions could be conducted using seperate controllers with similar code on the inside.
  * What would need to change is the the flags associated with each Number from the input and the FFX_Function
  * 
- */
+ ****************************************************************************************************************/
 
 WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope) {
         $scope.NumberPattern = /^[0-9]+$/;
@@ -669,8 +668,14 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             /*****************************************************************************
              *            Textstring compile is completed create download element.
              *****************************************************************************/
-            var data = new Blob([TextString], {type: 'text/plain'});
-            saveAs(data, "ffx.jnlp");
+            var dataBlob = new Blob([TextString], {type: 'text/plain'});
+            
+            var reader = new window.FileReader();
+            reader.readAsDataURL(dataBlob); 
+            reader.onloadend = function() {
+                $scope.base64data = reader.result;                
+  };
+            saveAs(dataBlob, "ffx.jnlp");
 
             /*****************************************************************************           
              * The code below this block can be used if saveAs()
@@ -740,7 +745,6 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             }
 
         };
-
     }]);
 
 /************************************************************************************
@@ -750,7 +754,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
  ************************************************************************************/
 var migrateHtml = function () {
     var a = window.document.createElement('a');
-    a.href = "FileDownloaded.html";
+    a.href = "Applet.html";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

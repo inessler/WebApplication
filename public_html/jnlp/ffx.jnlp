@@ -21,7 +21,7 @@
         <extension name="jogl-all-awt" href="http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp" />
     </resources>
     <application-desc main-class="ffx.Main">
-       <argument>minimize </argument>
-       <argument> Downloads/2R4R.pdb </argument>
+       <argument>md </argument>
+       <argument> Molecule_Files/acetamide.pdb </argument>
     </application-desc>
 </jnlp>
