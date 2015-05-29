@@ -437,7 +437,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.Number1 = "";
         $scope.Number2 = "";
         $scope.Number3 = "";
-        $scope.Number4 = "Mutual";
+        $scope.Number4 = "";
         $scope.Number5 = "";
         $scope.Number6 = "";
         var CheckFlag = function (word1) {
@@ -648,7 +648,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                 TextString = TextString + ' ' + '-t ' + Number3;
             }
             ;
-            if (Number4 !== undefined) {
+            if (Number4 !== "") {
                 TextString = TextString + ' ' + '-p ' + Number4;
             }
             ;
