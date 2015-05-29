@@ -437,13 +437,13 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.Number1 = "";
         $scope.Number2 = "";
         $scope.Number3 = "";
-        $scope.Number4 = "";
+        $scope.Number4 = "Mutual";
         $scope.Number5 = "";
         $scope.Number6 = "";
-//        var CheckFlag = function (word1) {
-//            console.log(word1);
-//        };
-//        CheckFlag($scope.Number3);
+        var CheckFlag = function (word1) {
+            console.log(word1);
+        };
+        CheckFlag($scope.Number4);
 
         var DownloadCheck = function () {
 
@@ -660,6 +660,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                 TextString = TextString + ' ' + '-w ' + Number6;
             }
             ;
+            
             TextString = TextString + " </argument>\n       <argument> ";
 
             /*****************************************************************************
@@ -687,7 +688,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             reader.readAsDataURL(dataBlob); 
             reader.onloadend = function() {
                 $scope.base64data = reader.result;
-                console.log(base64data);
+                console.log($scope.base64data);
   };
             saveAs(dataBlob, "ffx.jnlp");
 
