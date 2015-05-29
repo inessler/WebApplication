@@ -460,7 +460,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
          * Logic to estimate time based on number of atoms
          */
         $scope.$watch('finalnumber', function (finalnumber) {
-            $scope.time = (finalnumber * Math.log(finalnumber)).toFixed(0);
+            $scope.time = ((finalnumber * Math.log(finalnumber))/10).toFixed(0);
             $scope.minutes = $scope.time;
             $scope.hours = ($scope.minutes / 60).toFixed(0);
             $scope.minutes %= 60;
@@ -615,7 +615,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.eng.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.eng.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.eng.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
             var FFX_Function = "md";
             var TextString = InitialTextString + FFX_Function;
 
@@ -664,18 +664,20 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                 return;
             }
             TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
+            $scope.textString = TextString;
 
             /*****************************************************************************
              *            Textstring compile is completed create download element.
              *****************************************************************************/
             var dataBlob = new Blob([TextString], {type: 'text/plain'});
-            
+            $scope.JnlpBlob= dataBlob;
             var reader = new window.FileReader();
             reader.readAsDataURL(dataBlob); 
             reader.onloadend = function() {
-                $scope.base64data = reader.result;                
+                $scope.base64data = reader.result;
+                console.log(base64data);
   };
-            saveAs(dataBlob, "ffx.jnlp");
+//            saveAs(dataBlob, "ffx.jnlp");
 
             /*****************************************************************************           
              * The code below this block can be used if saveAs()
@@ -722,13 +724,13 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                  * @type @exp;document@call;getElementById@arr;files@pro;name
                  *****************************************************************************/
                 var FileName = document.getElementById("PDB_File").files[0].name;
-                saveAs(blobFileInput, FileName);
+//                saveAs(blobFileInput, FileName);
 
                 /*****************************************************************************
                  *The function below will take the user to FileDownloaded.html after completion. 
                  * @returns {Element}
                  *****************************************************************************/
-                migrateHtml();
+//                migrateHtml();
 
                 /*****************************************************************************
                  *      The code below this block can be used if saveAs()
@@ -744,6 +746,15 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
 
             }
 
+        };
+        $scope.GenerateEmbeddedJNLP = function (text) {
+            console.log(text);
+            var attributes = {};
+                    var parameters = {
+                        jnlp_embedded: text
+                    };
+                    deployJava.runApplet(attributes, parameters, '1.7');
+                    
         };
     }]);
 

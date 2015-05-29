@@ -12,7 +12,7 @@ and open the template in the editor.
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css2/bootstrap.min.css">
         <style>
             input[type="number"], textarea {
                 background-color: white;
@@ -38,9 +38,9 @@ and open the template in the editor.
                 color: #2B2B2B;
             }         
         </style>
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css2/main.css">
+        <link rel="stylesheet" href="css2/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css2/main.css">
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
         <script src="js/libs/FileSaver.js-master/FileSaver.min.js"></script>
@@ -58,12 +58,12 @@ and open the template in the editor.
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand " href="index.html">FFX Web Application</a>
+                    <a class="navbar-brand " href="index-JNLP.html">FFX Web Application</a>
                 </div>
                 <div class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="navbar-brand" href="index.html" role="button">
+                            <a class="navbar-brand" href="index-JNLP.html" role="button">
                                 <font>Home</font>
                             </a>
                         </li>
@@ -287,34 +287,47 @@ and open the template in the editor.
                                     'disabled'
                                     : MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
                                     ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
-                                                migrateHtml();" 
+                                                GenerateEmbeddedJNLP(textString);" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>
                     </div>
-                    {{time}}
+
                 </div>
                 <div>TODO write content </div>
-            {{time}}
+            {{textString}}
+            <div foo></div>
             <script src="https://www.java.com/js/deployJava.js"></script>
-        <script>
-                    var attributes = {};
-        <!-- Base64 encoded string truncated below for readability -->
-                    var parameters = {jnlp_href: 'jnlp/ffx.jnlp',
-                        jnlp_embedded: [[base64data]]
-                    };
-                    deployJava.runApplet(attributes, parameters, '1.7');
-        </script>
-        <script>        
-  var jnlpFile = "ffx.jnlp";
-  deployJava.createWebStartLaunchButtonEx(jnlpFile);
-        </script>  
+        <script>  
+//WebApp.directive("foo", function () {
+//        return {
+//        restrict: 'A',
+//        link: function(scope, elem, attrs){
+//            //Use scope.totals here
+//            console.log(scope.finalnumber);
+//            var attributes = {};
+//                    var parameters = {
+//                        jnlp_embedded: [[textString]]
+//                    };
+//                    deployJava.runApplet(attributes, parameters, '1.7');
+//                    console.log([[textString]]);    
+//        }
+//    };
+//});
+//  $(document).ready(function(){
+//        var $element = $('div[ng-controller="Molecular_Dynamics_Controller"]');
+//        var scope = angular.element($element).scope();
+//        console.dir(scope);
         
-        <script> 
+        </script> 
+<!--        var jnlpFile = scope.textString;
+        deployJava.createWebStartLaunchButtonEx(jnlpFile);-->
+        
+<!--        <script> 
             var attributes = {
                 code:'ffx.jnlp',  width:300, height:300} ; 
             var parameters = {jnlp_href: 'jnlp/ffx.jnlp'} ; 
             deployJava.runApplet(attributes, parameters, '1.7'); 
-        </script>
+        </script>-->
 <div>TODO write content</div>
                 <hr >
                 <footer>
@@ -324,7 +337,7 @@ and open the template in the editor.
                         </p>
                     </div>
                     <div class="col-md-2" style="margin-right:-100px">
-                        <img src="img/Logo2.png" alt="Smiley face" height="100" width="100">
+                        <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100">
                     </div>
                 </footer>
             </form> 
