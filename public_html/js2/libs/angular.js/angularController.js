@@ -216,7 +216,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
             var FFX_Function = "minimize";
             var TextString = InitialTextString + FFX_Function;
 
@@ -336,6 +336,20 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             }
         };
     }]);
+//WebApp.service('fileUpload', ['$http', function ($http) {
+//    this.uploadFileToUrl = function(file, uploadUrl){
+//        var fd = new FormData();
+//        fd.append('file', file);
+//        $http.post(uploadUrl, fd, {
+//            transformRequest: angular.identity,
+//            headers: {'Content-Type': undefined}
+//        })
+//        .success(function(){
+//        })
+//        .error(function(){
+//        });
+//    };
+//}]);
 /*
  * Directive used to initiate function to read file and determine number of atoms and time consumption.
  * @param {type} param1
@@ -391,15 +405,13 @@ WebApp.directive("fileread", [function () {
  *      so that the end user will know how to run the file that was previously downloaded.
  * @type @exp;window@pro;document@call;createElement
  ************************************************************************************/
-var migrateHtml = function () {
-    var a = window.document.createElement('a');
-    a.href = "FileDownloaded.html";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-};
-
-
+//var migrateHtml = function () {
+//    var a = window.document.createElement('a');
+//    a.href = "FileDownloaded.html";
+//    document.body.appendChild(a);
+//    a.click();
+//    document.body.removeChild(a);
+//};
 /****************************************************************************************************************
  * 
  * Future FFX functions could be conducted using seperate controllers with similar code on the inside.
@@ -428,10 +440,10 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.Number4 = "";
         $scope.Number5 = "";
         $scope.Number6 = "";
-        var CheckFlag = function (word1) {
-            console.log(word1);
-        };
-        CheckFlag($scope.Number3);
+//        var CheckFlag = function (word1) {
+//            console.log(word1);
+//        };
+//        CheckFlag($scope.Number3);
 
         var DownloadCheck = function () {
 
@@ -615,7 +627,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
             var FFX_Function = "md";
             var TextString = InitialTextString + FFX_Function;
 
@@ -677,7 +689,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                 $scope.base64data = reader.result;
                 console.log(base64data);
   };
-//            saveAs(dataBlob, "ffx.jnlp");
+            saveAs(dataBlob, "ffx.jnlp");
 
             /*****************************************************************************           
              * The code below this block can be used if saveAs()
@@ -724,7 +736,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                  * @type @exp;document@call;getElementById@arr;files@pro;name
                  *****************************************************************************/
                 var FileName = document.getElementById("PDB_File").files[0].name;
-//                saveAs(blobFileInput, FileName);
+                saveAs(blobFileInput, FileName);
 
                 /*****************************************************************************
                  *The function below will take the user to FileDownloaded.html after completion. 
@@ -753,10 +765,15 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                     var parameters = {
                         jnlp_embedded: text
                     };
-                    deployJava.runApplet(attributes, parameters, '1.7');
+                    deployJava.runApplet(attributes, parameters, '1.8');
                     
         };
     }]);
+
+WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope) {
+        
+}]);
+
 
 /************************************************************************************
  *      The following code provides a way to go from the minimize html page to the fileDownloaded html page
