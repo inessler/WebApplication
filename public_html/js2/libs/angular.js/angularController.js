@@ -770,7 +770,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         };
     }]);
 
-WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope) {
+WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) {
         
 }]);
 
