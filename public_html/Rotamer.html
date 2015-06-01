@@ -217,7 +217,8 @@ and open the template in the editor.
                         <div class="row" ng-show="Number0 == 5">
                             <div class="col-xsm-5" ng-class="{
                                 'has-error'
-                                : MDForm.input0b1.$error.number, 'has-success':Number0b1 }">
+                                : MDForm.input0
+                                    b1.$error.number, 'has-success':Number0b1 }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0b1" ng-if="Number0b1" type="checkbox" ng-init="flag0b1 = true">
@@ -260,13 +261,13 @@ and open the template in the editor.
                             </div>
                         </div>                  
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-xsm-6">
                             <div class="input-group" style="width:104%">
                                 <span class="input-group-addon">
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
-                                    Three Body:
+                                    Three body:
                                 </span>
                                 <select name="input2" ng-model="Number2" class="form-control">
                                     <option></option>
@@ -285,46 +286,115 @@ and open the template in the editor.
                             </div>
                         </div>                  
                     </div>
-                    
-                    <div class="row" >
-                        <div class="col-xsm-6" ng-class="{
-                                'has-error'
-                                : MDForm.input3.$error.number, 'has-success':Number3 }">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
-                                </span>
-                                <input name="input0" ng-model="Number3" placeholder=" Starting rotamer <1>." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                                <div class="input-group-addon dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                        <font style="color:black">What is this?</font>
-                                    </a>
-                                    <div class="dropdown-menu special wordwrap container-fluid" role="menu">
-                                        Specifies the first rotamer to be optimized.
-                                    </div>
-                                </div>
-                                <div class="spacer"></div>
-                            </div><!-- /input-group -->
-                        </div>                   
-                    </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
-                            <div class="input-group">
+                        <div class="col-xsm-6">
+                            <div class="input-group" style="width:79%">
                                 <span class="input-group-addon">
-                                    <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
+                                    <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
+                                    Rotamer selection:
                                 </span>
-                                <input name="input4" ng-model="Number4" placeholder="Final rotamer." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <select name="input5" ng-model="Number5" class="form-control">
+                                    <option></option>
+                                    <option ng-value="1">Optimize all from start point</option>
+                                    <option ng-value="2">Specify start/finish</option>
+                                    <option ng-value="3">List specific rotamers</option>
+                                </select>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                        Specifies the last rotamer to be optimized
+                                        Various modalities for specifying which rotamers to optimize.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
-                            </div><!-- /input-group -->
-                        </div>                   
+                                <div class="col-xsm-6 spacer1"> </div>
+                            </div>
+                        </div>
+                        <div class='row' style="height: 2px;"></div>
+                            <div class="row" ng-show="Number5 == 1">
+                                <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : MDForm.input6.$error.number, 'has-success':Number6 }">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input ng-model="flag6" ng-if="Number6" type="checkbox" ng-init="flag6 = true">
+                                        </span>
+                                        <input name="input6" ng-model="Number6" placeholder=" Starting rotamer for optimization <1>." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                        <div class="input-group-addon dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                                <font style="color:black">What is this?</font>
+                                            </a>
+                                            <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                                Specifies where to begin optimization of rotamers and then will continue until end of file.
+                                            </div>
+                                        </div>
+                                        <div class="spacer"></div>
+                                    </div><!-- /input-group -->
+                                </div>                   
+                            </div>
+                        <div ng-show="Number5 == 2">
+                            <div class="row">
+                                <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : MDForm.input3.$error.number, 'has-success':Number3 }">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
+                                        </span>
+                                        <input name="input3" ng-model="Number3" placeholder=" Starting rotamer <-1>." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                        <div class="input-group-addon dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                                <font style="color:black">What is this?</font>
+                                            </a>
+                                            <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                                Specifies the first rotamer to be optimized.
+                                            </div>
+                                        </div>
+                                        <div class="spacer"></div>
+                                    </div><!-- /input-group -->
+                                </div>                   
+                            </div>
+                            <div class="row">
+                                <div class="col-xsm-5" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
+                                        </span>
+                                        <input name="input4" ng-model="Number4" placeholder="Final rotamer <-1>." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                        <div class="input-group-addon dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                                <font style="color:black">What is this?</font>
+                                            </a>
+                                            <div class="dropdown-menu special wordwrap" role="menu">
+                                                Specifies the last rotamer to be optimized
+                                            </div>
+                                        </div>
+                                        <div class="spacer"></div>
+                                    </div><!-- /input-group -->
+                                </div>                   
+                            </div>   
+                        </div>
+                        <div class="row" ng-show="Number5 == 3">
+                                <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : MDForm.input7.$error.number, 'has-success':Number7 }">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input ng-model="flag7" ng-if="Number7" type="checkbox" ng-init="flag7 = true">
+                                        </span>
+                                        <input name="input7" ng-model="Number7" placeholder=" List of residues (eg. A11,A24,B40)." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                        <div class="input-group-addon dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                                <font style="color:black">What is this?</font>
+                                            </a>
+                                            <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                                Choose a list of individual residues to optimize (eg. A11,A24,B40).
+                                            </div>
+                                        </div>
+                                        <div class="spacer"></div>
+                                    </div><!-- /input-group -->
+                                </div>                   
+                            </div>
                     </div>
                     <div class='row' style="height: 20px;"></div>
                     <div class="row">
@@ -332,8 +402,8 @@ and open the template in the editor.
                             <button ng-class="{
                                     'disabled'
                                     : MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
-                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
-                                                migrateHtml();" 
+                                    ng-click="CollectFlags(Number0, Number0a, Number0b0, Number0b1, Number1, Number2, Number3, Number4, Number6, Number7);
+                                            migrateHtml();" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>
                     </div>
@@ -351,13 +421,6 @@ and open the template in the editor.
                 </footer>
             </form> 
         </div>
-
-
         <script>window.jQuery || document.write('<script src="js2/vendor/jquery-1.11.1.min.js"><\/script>');</script>
-
-
-
-
-
         <!-- <![endif]-->
 </html>

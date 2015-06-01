@@ -64,7 +64,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
          * Logic to estimate time based on number of atoms
          */
         $scope.$watch('finalnumber', function (finalnumber) {
-            $scope.time = ((finalnumber * Math.log(finalnumber))/10).toFixed(0);
+            $scope.time = ((finalnumber * Math.log(finalnumber)) / 10).toFixed(0);
             $scope.minutes = $scope.time;
             $scope.hours = ($scope.minutes / 60).toFixed(0);
             $scope.minutes %= 60;
@@ -472,7 +472,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
          * Logic to estimate time based on number of atoms
          */
         $scope.$watch('finalnumber', function (finalnumber) {
-            $scope.time = ((finalnumber * Math.log(finalnumber))/10).toFixed(0);
+            $scope.time = ((finalnumber * Math.log(finalnumber)) / 10).toFixed(0);
             $scope.minutes = $scope.time;
             $scope.hours = ($scope.minutes / 60).toFixed(0);
             $scope.minutes %= 60;
@@ -660,7 +660,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
                 TextString = TextString + ' ' + '-w ' + Number6;
             }
             ;
-            
+
             TextString = TextString + " </argument>\n       <argument> ";
 
             /*****************************************************************************
@@ -683,13 +683,13 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
              *            Textstring compile is completed create download element.
              *****************************************************************************/
             var dataBlob = new Blob([TextString], {type: 'text/plain'});
-            $scope.JnlpBlob= dataBlob;
+            $scope.JnlpBlob = dataBlob;
             var reader = new window.FileReader();
-            reader.readAsDataURL(dataBlob); 
-            reader.onloadend = function() {
+            reader.readAsDataURL(dataBlob);
+            reader.onloadend = function () {
                 $scope.base64data = reader.result;
                 console.log($scope.base64data);
-  };
+            };
             saveAs(dataBlob, "ffx.jnlp");
 
             /*****************************************************************************           
@@ -763,11 +763,11 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.GenerateEmbeddedJNLP = function (text) {
             console.log(text);
             var attributes = {};
-                    var parameters = {
-                        jnlp_embedded: text
-                    };
-                    deployJava.runApplet(attributes, parameters, '1.8');
-                    
+            var parameters = {
+                jnlp_embedded: text
+            };
+            deployJava.runApplet(attributes, parameters, '1.8');
+
         };
     }]);
 
@@ -784,19 +784,25 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
         $scope.flag3 = false;
         $scope.flag4 = false;
         $scope.flag5 = false;
+        $scope.flag6 = false;
+        $scope.flag7 = false;
         $scope.finalnumber = true;
         $scope.confirmed = false;
         $scope.uriFlags = "";
         $scope.Number0 = "";
+        $scope.Number0a = "";
+        $scope.Number0b0 = "";
+        $scope.Number0b1 = "";
         $scope.Number1 = "";
         $scope.Number2 = "";
         $scope.Number3 = "";
         $scope.Number4 = "";
         $scope.Number5 = "";
+        $scope.Number6 = "";
+        $scope.Number7 = "";
         var CheckFlag = function (word1) {
             console.log(word1);
         };
-        CheckFlag($scope.Number4);
 
         var DownloadCheck = function () {
 
@@ -825,7 +831,7 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
          * Logic to estimate time based on number of atoms
          */
         $scope.$watch('finalnumber', function (finalnumber) {
-            $scope.time = ((finalnumber * Math.log(finalnumber))/10).toFixed(0);
+            $scope.time = ((finalnumber * Math.log(finalnumber)) / 10).toFixed(0);
             $scope.minutes = $scope.time;
             $scope.hours = ($scope.minutes / 60).toFixed(0);
             $scope.minutes %= 60;
@@ -962,7 +968,7 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
          * @param {type} Number5
          * @returns {undefined}
          *****************************************************************************/
-        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6) {
+        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9, Number10) {
 
             /*****************************************************************************
              * Check for the various File API support. 
@@ -989,27 +995,47 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
              *      in input box if so it assigns the appropriate flag and appends it to
              *      the JNLP file string called TextString. 
              *******************************************************************************/
-            if (Number1 !== "") {
+            if (Number1 !== "" && Number1 !== undefined) {
                 var TextString = TextString + ' ' + '-a ' + Number1;
             }
             ;
-            if (Number2 !== "") {
-                TextString = TextString + ' ' + '-o ' + Number2;
+            if (Number2 !== "" && Number2 !== undefined) {
+                TextString = TextString + ' ' + '-w ' + Number2;
             }
             ;
-            if (Number3 !== "") {
-                TextString = TextString + ' ' + '-t ' + Number3;
+            if (Number3 !== "" && Number3 !== undefined) {
+                TextString = TextString + ' ' + '-bB ' + Number3;
             }
             ;
-            if (Number4 !== undefined) {
-                TextString = TextString + ' ' + '-s ' + Number4;
+            if (Number4 !== "" && Number4 !== undefined) {
+                TextString = TextString + ' ' + '-bL ' + Number4;
             }
             ;
-            if (Number5 !== undefined) {
-                TextString = TextString + ' ' + '-f ' + Number5;
+            if (Number5 !== "" && Number5 !== undefined) {
+                TextString = TextString + ' ' + '-o ' + Number5;
             }
             ;
-            
+            if (Number6 !== "" && Number6 !== undefined) {
+                TextString = TextString + ' ' + '-t ' + Number6;
+            }
+            ;
+            if (Number7 !== "" && Number7 !== undefined) {
+                TextString = TextString + ' ' + '-x ' + Number7;
+            }
+            ;
+            if (Number8 !== "" && Number8 !== undefined) {
+                TextString = TextString + ' ' + '-s ' + Number8;
+            }
+            ;
+            if (Number9 !== "" && Number9 !== undefined) {
+                TextString = TextString + ' ' + '-f ' + Number8;
+            }
+            ;
+            if (Number10 !== "" && Number10 !== undefined) {
+                TextString = TextString + ' ' + '-lR ' + Number8;
+            }
+            ;
+
             TextString = TextString + " </argument>\n       <argument> ";
 
             /*****************************************************************************
@@ -1032,13 +1058,13 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
              *            Textstring compile is completed create download element.
              *****************************************************************************/
             var dataBlob = new Blob([TextString], {type: 'text/plain'});
-            $scope.JnlpBlob= dataBlob;
+            $scope.JnlpBlob = dataBlob;
             var reader = new window.FileReader();
-            reader.readAsDataURL(dataBlob); 
-            reader.onloadend = function() {
+            reader.readAsDataURL(dataBlob);
+            reader.onloadend = function () {
                 $scope.base64data = reader.result;
                 console.log($scope.base64data);
-  };
+            };
             saveAs(dataBlob, "ffx.jnlp");
 
             /*****************************************************************************           
@@ -1105,11 +1131,9 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
                  *                 a.click();
                  *                 document.body.removeChild(a);
                  *****************************************************************************/
-
             }
-
         };
-}]);
+    }]);
 
 
 /************************************************************************************
