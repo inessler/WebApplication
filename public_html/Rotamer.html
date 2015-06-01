@@ -5,12 +5,359 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <!--[if !IE]> -->
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rotamer Optimization</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css2/bootstrap.min.css">
+        <style>
+            input[type="number"], textarea {
+                background-color: white;
+            }
+            .jumbotron {
+                background-color: white;
+            }
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+                background-color:#2B2B2B;
+                color: #F6F6F6;
+            }
+            .row {
+                padding-bottom: 3px;
+                padding-left: 10px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .button1 {
+                padding-top: 10px;
+                right: 20px;
+                color: #2B2B2B;
+            }         
+        </style>
+        <link rel="stylesheet" href="css2/main.css">
+        <link rel="stylesheet" href="css2/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css2/main.css">
+        <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+        <script src="js2/libs/FileSaver.js-master/FileSaver.min.js"></script>
+        <!--<script src="js2/libs/angular.js/angular.js"></script>-->
+        <script src="js2/libs/Processing/RunFFX.js"></script>
+        <script src="js2/libs/angular.js/angularController.js"></script>
     </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    <body ng-app="WebApp">
+        <div  id="menubar" class="navbar  navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand " href="index-JNLP.html">FFX Web Application</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a class="navbar-brand" href="index-JNLP.html" role="button">
+                                <font>Home</font>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="navbar-brand" href="LearnMore.html" role="button">
+                                About
+                            </a>
+                        </li>
+                        <li id="Dropdown" class="dropdown">
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions<span class="caret"></span></font></a>
+                            <ul class="dropdown-menu"  role="menu">
+                                <li class="divider" style="margin-top: -5px"></li>
+                                <li><a href="Minimize.html" style="padding-top: -5px;">Minimize</a></li>
+                                <li class="divider" ></li>
+                                <li><a href="Molecular_Dynamics.html">Molecular Dynamics</a></li>
+                                <li class="divider"></li>
+                                <li><a href="Rotamer.html"><font style="color: yellow;">Rotamer Optimization</font></a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="link" class="navbar-brand" href="ContactUs.html" role="button">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--          .navbar-collapse -->
+            </div>
+        </div>
+
+        <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; ">
+        <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
+        <div class="jumbotron">
+            <div class="container" >
+                <h1>Rotamer Optimization</h1>
+                <p>Force Field X</p>
+                <p>The following forms will allow you to select the specifics of the minimization that you wish to run.</p>
+            </div>
+        </div>
+        <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
+        <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
+        <div class="container" style="margin-left: 40px" >
+            <form name="RotamerForm" ng-controller="Rotamer_Controller">
+                <div class='row' style="height: 20px;"></div>
+                <div class='row'>
+                    <h2>
+                        Follow the steps below to begin:
+                    </h2>
+                </div>
+                <hr style="border-width: 2px;  margin-top: -5px; margin-bottom: auto; ">
+                <div class='row' style="height: 20px;"></div>
+                <div class='row'>
+                    <h4>
+                        <b>
+                            1. Upload parameter file below:
+                        </b>
+                    </h4>
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="row">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" class="col-xsm-6">
+                                <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
+                                    <p ng-show="time">The file that was uploaded contains {{finalnumber}} atoms.
+                                        With this number of atoms an estimated time of analysis is around {{time}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!--                <h2>
+                                    The following parameters do not need to be set unless a particular run is desired.
+                                </h2>
+                                <hr>-->
+                <div class='row' >
+                    <h4>
+                        2. Set variables pertaining to the calculation below: 
+                    </h4>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xsm-6">
+                            <div class="input-group" style="width:83%">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
+                                    Algorithm:
+                                </span>
+                                <select name="input0" ng-model="Number0" class="form-control">
+                                    <option></option>
+                                    <option ng-value="1">Independent residues</option>
+                                    <option ng-value="2">All with elimination</option>
+                                    <option ng-value="3">All brute force</option>
+                                    <option ng-value="4">Sliding window</option>
+                                    <option ng-value="5">Box optimization</option>
+                                </select>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Sets method used when calculating optimal rotamer conformations. Usually (Independent Residues)
+                                    </div>
+                                </div>
+                                <div class="col-xsm-6 spacer1"> </div>
+                            </div>
+                        </div>
+                        <div class="row"></div> 
+                        <div class="row" ng-show="Number0 == 4">
+                            <div class="col-xsm-5" ng-class="{
+                                'has-error'
+                                : MDForm.input0a.$error.number, 'has-success':Number0a }">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input ng-model="flag0a" ng-if="Number0a" type="checkbox" ng-init="flag0a = true">
+                                    </span>
+                                    <input name="input0a" ng-model="Number0a" placeholder=" Window size <7>." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                    <div class="input-group-addon dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                            <font style="color:black">What is this?</font>
+                                        </a>
+                                        <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                            Size of the sliding window with respect to adjacent residues.
+                                        </div>
+                                    </div>
+                                    <div class="spacer"></div>
+                                </div><!-- /input-group -->
+                            </div>                   
+                        </div>
+                        <div class="row" ng-show="Number0 == 5">
+                            <div class="col-xsm-5" ng-class="{
+                                'has-error'
+                                : MDForm.input0b0.$error.number, 'has-success':Number0b0 }">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input ng-model="flag0b0" ng-if="Number0b0" type="checkbox" ng-init="flag0b0 = true">
+                                    </span>
+                                    <input name="input0b" ng-model="Number0b0" placeholder=" Box border size <3.0>." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                    <div class="input-group-addon dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                            <font style="color:black">What is this?</font>
+                                        </a>
+                                        <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                            Extent of overlap between optimization boxes in angstroms.
+                                        </div>
+                                    </div>
+                                    <div class="spacer"></div>
+                                </div><!-- /input-group -->
+                            </div>                   
+                        </div>
+                        <div class="row" ng-show="Number0 == 5">
+                            <div class="col-xsm-5" ng-class="{
+                                'has-error'
+                                : MDForm.input0b1.$error.number, 'has-success':Number0b1 }">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input ng-model="flag0b1" ng-if="Number0b1" type="checkbox" ng-init="flag0b1 = true">
+                                    </span>
+                                    <input name="input0b1" ng-model="Number0b1" placeholder=" Approximate box length <0.0>." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                    <div class="input-group-addon dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                            <font style="color:black">What is this?</font>
+                                        </a>
+                                        <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                            Approximate side lengths of boxes to be constructed (over-rides numXYZBoxes). Box sizes round up to integers.
+                                        </div>
+                                    </div>
+                                    <div class="spacer"></div>
+                                </div><!-- /input-group -->
+                            </div>                   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xsm-6" >
+                            <div class="input-group" style="width:102%">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
+                                    Include original:
+                                </span>
+                                <select name="input1" ng-model="Number1" class="form-control">
+                                    <option></option>
+                                    <option ng-value="1">True</option>
+                                    <option ng-value="2">False</option>
+                                </select>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        If true, original coordinates are included as their own rotamer.
+                                    </div>
+                                </div>
+                                <div class="col-xsm-6 spacer1"> </div>
+                            </div>
+                        </div>                  
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-xsm-6">
+                            <div class="input-group" style="width:104%">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
+                                    Three Body:
+                                </span>
+                                <select name="input2" ng-model="Number2" class="form-control">
+                                    <option></option>
+                                    <option ng-value="1">True</option>
+                                    <option ng-value="2">False</option>
+                                </select>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        If true, Three body interactions are included in elimination criteria.
+                                    </div>
+                                </div>
+                                <div class="col-xsm-6 spacer1"> </div>
+                            </div>
+                        </div>                  
+                    </div>
+                    
+                    <div class="row" >
+                        <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : MDForm.input3.$error.number, 'has-success':Number3 }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
+                                </span>
+                                <input name="input0" ng-model="Number3" placeholder=" Starting rotamer <1>." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                        Specifies the first rotamer to be optimized.
+                                    </div>
+                                </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class="row">
+                        <div class="col-xsm-6" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
+                                </span>
+                                <input name="input4" ng-model="Number4" placeholder="Final rotamer." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Specifies the last rotamer to be optimized
+                                    </div>
+                                </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    <div class='row' style="height: 20px;"></div>
+                    <div class="row">
+                        <div class="button1">
+                            <button ng-class="{
+                                    'disabled'
+                                    : MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
+                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
+                                                migrateHtml();" 
+                                    type="button" class="btn btn-color" >Create JNLP File</button> 
+                        </div>
+                    </div>
+                </div>
+                <hr >
+                <footer>
+                    <div class="col-md-10" style="margin-top: 30px; margin-left: 40px; padding-bottom:30px;">
+                        <p>
+                            &copy; University of Iowa Biochemistry Department 2014
+                        </p>
+                    </div>
+                    <div class="col-md-2" style="margin-right:-100px">
+                        <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100">
+                    </div>
+                </footer>
+            </form> 
+        </div>
+
+
+        <script>window.jQuery || document.write('<script src="js2/vendor/jquery-1.11.1.min.js"><\/script>');</script>
+
+
+
+
+
+        <!-- <![endif]-->
 </html>
