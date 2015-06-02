@@ -88,6 +88,8 @@
                                 <li class="divider"></li>
                                 <li><a href="Rotamer.html">Rotamer Optimization</a></li>
                                 <li class="divider"></li>
+                                <li><a href="RealSpace.html">Real Space</a></li>
+                                <li class="divider"></li>
                             </ul>
                         </li>
                         <li>
@@ -131,9 +133,9 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" class="col-xsm-6">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber" time="time" fileread="fileRead" class="col-xsm-6">
                                 <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
-                                    <p ng-show="time">The file that was uploaded contains {{finalnumber}} atoms.
+                                    <p ng-show="time"> The file that was uploaded contains {{finalnumber}} atoms.
                                         With this number of atoms an estimated time of analysis is around {{time}}</p>
                                 </div>
                             </div>
