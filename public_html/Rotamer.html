@@ -147,18 +147,18 @@ and open the template in the editor.
                 <div class="container">
                     <div class="row">
                         <div class="col-xsm-6">
-                            <div class="input-group" style="width:83%">
+                            <div class="input-group" style="width:82%">
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                     Algorithm:
                                 </span>
                                 <select name="input0" ng-model="Number0" class="form-control">
                                     <option></option>
-                                    <option ng-value="1">Independent residues</option>
-                                    <option ng-value="2">All with elimination</option>
-                                    <option ng-value="3">All brute force</option>
-                                    <option ng-value="4">Sliding window</option>
-                                    <option ng-value="5">Box optimization</option>
+                                    <option ng-value="1">Global optimization</option>
+                                    <option ng-value="2">Volumetric optimization</option>
+                                    <option ng-value="3">Residue repacking</option>
+<!--                                    <option ng-value="4">Sliding window</option>
+                                    <option ng-value="5">Box optimization</option>-->
                                 </select>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -172,7 +172,7 @@ and open the template in the editor.
                             </div>
                         </div>
                         <div class="row"></div> 
-                        <div class="row" ng-show="Number0 == 4">
+                        <div class="row" ng-show="Number0 == 3">
                             <div class="col-xsm-5" ng-class="{
                                 'has-error'
                                 : MDForm.input0a.$error.number, 'has-success':Number0a }">
@@ -193,7 +193,7 @@ and open the template in the editor.
                                 </div><!-- /input-group -->
                             </div>                   
                         </div>
-                        <div class="row" ng-show="Number0 == 5">
+                        <div class="row" ng-show="Number0 == 2">
                             <div class="col-xsm-5" ng-class="{
                                 'has-error'
                                 : MDForm.input0b0.$error.number, 'has-success':Number0b0 }">
@@ -214,7 +214,7 @@ and open the template in the editor.
                                 </div><!-- /input-group -->
                             </div>                   
                         </div>
-                        <div class="row" ng-show="Number0 == 5">
+                        <div class="row" ng-show="Number0 == 2">
                             <div class="col-xsm-5" ng-class="{
                                 'has-error'
                                 : MDForm.input0
@@ -223,7 +223,7 @@ and open the template in the editor.
                                     <span class="input-group-addon">
                                         <input ng-model="flag0b1" ng-if="Number0b1" type="checkbox" ng-init="flag0b1 = true">
                                     </span>
-                                    <input name="input0b1" ng-model="Number0b1" placeholder=" Approximate box length <0.0>." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                    <input name="input0b1" ng-model="Number0b1" placeholder="Approximate box length <0.0>." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
                                     <div class="input-group-addon dropdown">
                                         <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                             <font style="color:black">What is this?</font>

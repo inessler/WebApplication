@@ -1006,9 +1006,15 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
             if (Number3 !== "" && Number3 !== undefined) {
                 TextString = TextString + ' ' + '-bB ' + Number3;
             }
+            else {
+                TextString = TextString + ' ' + '-bB ' + 1.5;
+            }
             ;
             if (Number4 !== "" && Number4 !== undefined) {
                 TextString = TextString + ' ' + '-bL ' + Number4;
+            }
+            else {
+                TextString = TextString + ' ' + '-bL ' + 5.0;
             }
             ;
             if (Number5 !== "" && Number5 !== undefined) {
