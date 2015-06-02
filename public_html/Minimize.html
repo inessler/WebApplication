@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+/*
+*   FFX Web Application
+*
+*   This project provides a GUI for persons to generate a JNLP dynamically based
+*   on forms provided on various HTML pages.
+*
+*   Author: Ian Nessler
+*   Year:   2014
+*/
 -->
 <html>
     <!--[if !IE]> -->
@@ -156,15 +162,34 @@ and open the template in the editor.
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
+                                        Specifies the root mean square convergence criteria for the run.
                                     </div>
                                 </div>
                                 <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div> 
-
                     </div>
-                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input3.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
+                                </span>
+                                <input name="input3" ng-model="Number3" placeholder="Initial lambda value" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Number of molecular dynamics steps.
+                                    </div>
+                                </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
                     <div class="row">
                         <div class="col-xsm-6" ng-class="{
                                 'has-error'
@@ -187,52 +212,6 @@ and open the template in the editor.
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
-                    <div class="row"></div>
-                    <div class="row">
-                        <div class="col-xsm-6" ng-class="{
-                                'has-error'
-                                : EnergyForm.input2.$error.number }">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
-                                </span>
-                                <input name="input2" onchange="" ng-model="Number2" type="number" placeholder="Starting ligand atom number for the second topology" class="form-control" ng-pattern="NumberPattern" required>
-                                <div class="input-group-addon dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                        <font style="color:black">What is this?</font>
-                                    </a>
-                                    <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
-                                    </div>
-                                </div>
-                                <div class="spacer"></div>
-                            </div><!-- /input-group -->
-                        </div>
-                        <!--<div class="col-xsm-6" ng-if="test2"> not an integer</div>-->
-                    </div>
-                    <div class="row"></div>
-                    <div class="row">
-                        <div class="col-xsm-6" ng-class="{
-                                'has-error'
-                                : EnergyForm.input3.$error.number }">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
-                                </span>
-                                <input name="input3" ng-model="Number3" placeholder="Initial lambda value" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                                <div class="input-group-addon dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                        <font style="color:black">What is this?</font>
-                                    </a>
-                                    <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
-                                    </div>
-                                </div>
-                                <div class="spacer"></div>
-                            </div><!-- /input-group -->
-                        </div>                   
-                    </div>
-                    <div class="row"></div>
                     <div class="row">
                         <div class="col-xsm-6" ng-class="{
                                 'has-error'
@@ -254,7 +233,28 @@ and open the template in the editor.
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
-                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : EnergyForm.input2.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
+                                </span>
+                                <input name="input2" onchange="" ng-model="Number2" type="number" placeholder="Starting ligand atom number for the second topology" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Specifies the first atom to minimize in the second topology.
+                                    </div>
+                                </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>
+                        <!--<div class="col-xsm-6" ng-if="test2"> not an integer</div>-->
+                    </div>
                     <div class="row">
                         <div class="col-xsm-6" ng-class="{
                                 'has-error'

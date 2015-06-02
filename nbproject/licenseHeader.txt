@@ -1,0 +1,10 @@
+/*
+*
+*   FFX Web Application
+*
+*   This project provides a GUI for persons to generate a JNLP dynamically based
+*   on forms provided on various HTML pages.
+*
+*   Author: Ian Nessler
+*   Year:   2014
+*/

@@ -1,8 +1,13 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+/*
+*   FFX Web Application
+*
+*   This project provides a GUI for persons to generate a JNLP dynamically based
+*   on forms provided on various HTML pages.
+*
+*   Author: Ian Nessler
+*   Year:   2014
+*/
 
 var WebApp = angular.module('WebApp', []).config(['$compileProvider', function ($compileProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/);
@@ -791,6 +796,7 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
         $scope.uriFlags = "";
         $scope.Number0 = "";
         $scope.Number0a = "";
+        $scope.Number0b = "";
         $scope.Number0b0 = "";
         $scope.Number0b1 = "";
         $scope.Number1 = "";
@@ -968,7 +974,7 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
          * @param {type} Number5
          * @returns {undefined}
          *****************************************************************************/
-        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9, Number10) {
+        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9, Number10, Number11) {
 
             /*****************************************************************************
              * Check for the various File API support. 
@@ -1039,6 +1045,10 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
             ;
             if (Number10 !== "" && Number10 !== undefined) {
                 TextString = TextString + ' ' + '-lR ' + Number8;
+            }
+            ;
+            if (Number11 !== "" && Number11 !== undefined) {
+                TextString = TextString + ' ' + '-r ' + Number11;
             }
             ;
 
