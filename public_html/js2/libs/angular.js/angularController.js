@@ -918,7 +918,6 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
         var CheckFlag = function (word1) {
             console.log(word1);
         };
-
         var DownloadCheck = function () {
 
             /*****************************************************************************
