@@ -39,8 +39,9 @@
                 margin-right: auto;
             }
             .button1 {
+                position: relative;
                 padding-top: 10px;
-                right: 20px;
+                left: 15px;
                 color: #2B2B2B;
             }         
         </style>
@@ -50,7 +51,6 @@
         <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
         <script src="js2/libs/FileSaver.js-master/FileSaver.min.js"></script>
-        <!--<script src="js2/libs/angular.js/angular.js"></script>-->
         <script src="js2/libs/Processing/RunFFX.js"></script>
         <script src="js2/libs/angular.js/angularController.js"></script>
     </head>
@@ -133,7 +133,7 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" time="time" class="col-xsm-6">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" time="time" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                                 <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
                                     <p ng-show="time">The file that was uploaded contains {{finalnumber}} atoms.
                                         With this number of atoms an estimated time of analysis is around {{time}}</p>
@@ -143,10 +143,6 @@
                     </div>
                 </div>
                 <hr>
-                <!--                <h2>
-                                    The following parameters do not need to be set unless a particular run is desired.
-                                </h2>
-                                <hr>-->
                 <div class='row' >
                     <h4>
                         2. Set variables pertaining to the calculation below: 
@@ -154,8 +150,8 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-xsm-6">
-                            <div class="input-group" style="width:82%">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                     Algorithm:
@@ -165,8 +161,8 @@
                                     <option ng-value="1">Global optimization</option>
                                     <option ng-value="5">Volumetric optimization</option>
                                     <option ng-value="4">Residue repacking</option>
-<!--                                    <option ng-value="4">Sliding window</option>
-                                    <option ng-value="5">Box optimization</option>-->
+                                    <!--                                    <option ng-value="4">Sliding window</option>
+                                                                        <option ng-value="5">Box optimization</option>-->
                                 </select>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -176,14 +172,13 @@
                                         Sets method used when calculating optimal rotamer conformations. Usually (Independent Residues)
                                     </div>
                                 </div>
-                                <div class="col-xsm-6 spacer1"> </div>
                             </div>
                         </div>
-                        <div class="row"></div> 
+                        <div class="row" ng-show="Number0 == 4 || Number0 == 5"></div> 
                         <div class="row" ng-show="Number0 == 4">
                             <div class="col-xsm-5" ng-class="{
                                 'has-error'
-                                : RotamerForm.input0a.$error.number, 'has-success':Number0a }">
+                                :RotamerForm.input0a.$error.number, 'has-success':Number0a }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0a" ng-if="Number0a" type="checkbox" ng-init="flag0a = true">
@@ -197,14 +192,13 @@
                                             Size of the sliding window with respect to adjacent residues.
                                         </div>
                                     </div>
-                                    <div class="spacer"></div>
                                 </div><!-- /input-group -->
                             </div>                   
                         </div>
                         <div class="row" ng-show="Number0 == 4">
                             <div class="col-xsm-5" ng-class="{
                                 'has-error'
-                                : RotamerForm.input0a.$error.number, 'has-success':Number0a }">
+                                :RotamerForm.input0a.$error.number, 'has-success':Number0a }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0b" ng-if="Number0b" type="checkbox" ng-init="flag0b = true">
@@ -218,7 +212,6 @@
                                             The sliding window cutoff radius (Angstroms).
                                         </div>
                                     </div>
-                                    <div class="spacer"></div>
                                 </div><!-- /input-group -->
                             </div>                   
                         </div>
@@ -239,7 +232,6 @@
                                             Extent of overlap between optimization boxes in angstroms.
                                         </div>
                                     </div>
-                                    <div class="spacer"></div>
                                 </div><!-- /input-group -->
                             </div>                   
                         </div>
@@ -260,14 +252,13 @@
                                             Approximate side lengths of boxes to be constructed (over-rides numXYZBoxes). Box sizes round up to integers.
                                         </div>
                                     </div>
-                                    <div class="spacer"></div>
                                 </div><!-- /input-group -->
                             </div>                   
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" >
-                            <div class="input-group" style="width:102%">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" >
+                            <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
                                     Include original:
@@ -285,14 +276,12 @@
                                         If true, original coordinates are included as their own rotamer.
                                     </div>
                                 </div>
-                                <div class="col-xsm-6 spacer1"> </div>
                             </div>
                         </div>                  
                     </div>
-
                     <div class="row">
-                        <div class="col-xsm-6">
-                            <div class="input-group" style="width:104%">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
                                     Three body:
@@ -310,13 +299,12 @@
                                         If true, Three body interactions are included in elimination criteria.
                                     </div>
                                 </div>
-                                <div class="col-xsm-6 spacer1"> </div>
                             </div>
                         </div>                  
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6">
-                            <div class="input-group" style="width:79%">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
                                     Rotamer selection:
@@ -335,34 +323,32 @@
                                         Various modalities for specifying which rotamers to optimize.
                                     </div>
                                 </div>
-                                <div class="col-xsm-6 spacer1"> </div>
                             </div>
                         </div>
                         <div class='row' style="height: 2px;"></div>
-                            <div class="row" ng-show="Number5 == 1">
-                                <div class="col-xsm-6" ng-class="{
+                        <div class="row" ng-show="Number5 == 1">
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : RotamerForm.input6.$error.number, 'has-success':Number6 }">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <input ng-model="flag6" ng-if="Number6" type="checkbox" ng-init="flag6 = true">
-                                        </span>
-                                        <input name="input6" ng-model="Number6" placeholder=" Starting rotamer for optimization <1>." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                                        <div class="input-group-addon dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                                <font style="color:black">What is this?</font>
-                                            </a>
-                                            <div class="dropdown-menu special wordwrap container-fluid" role="menu">
-                                                Specifies where to begin optimization of rotamers and then will continue until end of file.
-                                            </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input ng-model="flag6" ng-if="Number6" type="checkbox" ng-init="flag6 = true">
+                                    </span>
+                                    <input name="input6" ng-model="Number6" placeholder=" Starting rotamer for optimization <1>." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                    <div class="input-group-addon dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                            <font style="color:black">What is this?</font>
+                                        </a>
+                                        <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                            Specifies where to begin optimization of rotamers and then will continue until end of file.
                                         </div>
-                                        <div class="spacer"></div>
-                                    </div><!-- /input-group -->
-                                </div>                   
-                            </div>
+                                    </div>
+                                </div><!-- /input-group -->
+                            </div>                   
+                        </div>
                         <div ng-show="Number5 == 2">
                             <div class="row">
-                                <div class="col-xsm-6" ng-class="{
+                                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : RotamerForm.input3.$error.number, 'has-success':Number3 }">
                                     <div class="input-group">
@@ -378,7 +364,6 @@
                                                 Specifies the first rotamer to be optimized.
                                             </div>
                                         </div>
-                                        <div class="spacer"></div>
                                     </div><!-- /input-group -->
                                 </div>                   
                             </div>
@@ -397,34 +382,32 @@
                                                 Specifies the last rotamer to be optimized
                                             </div>
                                         </div>
-                                        <div class="spacer"></div>
                                     </div><!-- /input-group -->
                                 </div>                   
                             </div>   
                         </div>
                         <div class="row" ng-show="Number5 == 3">
-                                <div class="col-xsm-6" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : RotamerForm.input7.$error.number, 'has-success':Number7 }">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <input ng-model="flag7" ng-if="Number7" type="checkbox" ng-init="flag7 = true">
-                                        </span>
-                                        <input name="input7" ng-model="Number7" placeholder=" List of residues (eg. A11.A24.B40)." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                                        <div class="input-group-addon dropdown">
-                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                                <font style="color:black">What is this?</font>
-                                            </a>
-                                            <div class="dropdown-menu special wordwrap container-fluid" role="menu">
-                                                Choose a list of individual residues to optimize. Place a period after each residue, no spaces.
-                                            </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input ng-model="flag7" ng-if="Number7" type="checkbox" ng-init="flag7 = true">
+                                    </span>
+                                    <input name="input7" ng-model="Number7" placeholder=" List of residues (eg. A11.A24.B40)." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                    <div class="input-group-addon dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                            <font style="color:black">What is this?</font>
+                                        </a>
+                                        <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                            Choose a list of individual residues to optimize. Place a period after each residue, no spaces.
                                         </div>
-                                        <div class="spacer"></div>
-                                    </div><!-- /input-group -->
-                                </div>                   
-                            </div>
+                                    </div>
+                                </div><!-- /input-group -->
+                            </div>                   
+                        </div>
                     </div>
-                    <div class='row' style="height: 20px;"></div>
+                    <div class='row' style="height: 5px;"></div>
                     <div class="row">
                         <div class="button1">
                             <button ng-class="{

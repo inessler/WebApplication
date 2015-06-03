@@ -144,10 +144,10 @@ ul.nav a:hover {
     z-index: 1;
 }
 
-/* Allows room for pop-up message when user hovers over the 'what is this' button  */
+/* Allows room for pop-up message when user hovers over the 'what is this' button  
 .spacer {
     width: 100px;
-}
+}*/
 /* The following three @media tags provide css to make the drop-down input group on the molecular dynamics page the same size as the 
 *  other input groups at varying widths.
 */

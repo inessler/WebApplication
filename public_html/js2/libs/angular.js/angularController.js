@@ -1,17 +1,193 @@
 
 /*
-*   FFX Web Application
-*
-*   This project provides a GUI for persons to generate a JNLP dynamically based
-*   on forms provided on various HTML pages.
-*
-*   Author: Ian Nessler
-*   Year:   2014
-*/
+ *   FFX Web Application
+ *
+ *   This project provides a GUI for persons to generate a JNLP dynamically based
+ *   on forms provided on various HTML pages.
+ *
+ *   Author: Ian Nessler
+ *   Year:   2014
+ */
 
 var WebApp = angular.module('WebApp', []).config(['$compileProvider', function ($compileProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/);
     }]);
+/*
+ * Directive used to initiate function to read file and determine number of atoms and time consumption.
+ * @param {type} param1
+ * @param {type} param2
+ */
+WebApp.directive("fileread", [function () {
+        return {
+            scope: {
+                fileread: "=",
+                finalnumber: "=",
+                time: "="
+            },
+            link: function (scope, element, attrs) {
+                element.bind("change", function (changeEvent) {
+                    var reader = new FileReader();
+                    reader.onload = function (loadEvent) {
+                        scope.$apply(function () {
+                            scope.fileread = true;
+                            var textString = reader.result;
+                            var arrayOfTextString = textString.split("\n");
+                            scope.atomNumber = 0;
+                            scope.atomNumber2 = 0;
+                            var i = 0;
+                            for (i = 0; i < arrayOfTextString.length; i++) {
+                                var tempString = arrayOfTextString[i].slice(0, 6);
+                                var tempString2 = arrayOfTextString[i].slice(0, 4);
+                                var UpperCaseTempString = tempString.toUpperCase();
+                                var UpperCaseTempString2 = tempString2.toUpperCase();
+                                if (UpperCaseTempString === "HETATM") {
+                                    scope.atomNumber += 1;
+                                }
+                                if (UpperCaseTempString2 === "ATOM") {
+                                    scope.atomNumber2 += 1;
+                                }
+                            }
+                            if (scope.atomNumber > scope.atomNumber2) {
+                                scope.finalnumber = scope.atomNumber;
+                            }
+                            else if (scope.atomNumber < scope.atomNumber2) {
+                                scope.finalnumber = scope.atomNumber2;
+                            }
+                            else {
+                                scope.finalnumber = false;
+                            }
+                            scope.time = ((scope.finalnumber * Math.log(scope.finalnumber)) / 10).toFixed(0);
+                            var minutes = scope.time;
+                            var hours = (minutes / 60).toFixed(0);
+                            minutes %= 60;
+                            var days = (hours / 24).toFixed(0);
+                            hours %= 24;
+                            if (days == 1) {
+                                if (hours === 1) {
+                                    if (minutes === 1) {
+                                        scope.time = days + " day, " + hours + " hour, and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = days + " day " + hours + " hour";
+                                    }
+                                    else {
+                                        scope.time = days + " day, " + hours + " hour, and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                else if (hours == 0) {
+                                    if (minutes === 1) {
+                                        scope.time = days + " day and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = days + " day";
+                                    }
+                                    else {
+                                        scope.time = days + " day and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                else {
+                                    if (minutes === 1) {
+                                        scope.time = days + " day, " + hours + " hours, and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = days + " day " + hours + " hours";
+                                    }
+                                    else {
+                                        scope.time = days + " day, " + hours + " hours, and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                ;
+                            }
+                            else if (days == 0) {
+                                if (hours === 1) {
+                                    if (minutes === 1) {
+                                        scope.time = hours + " hour and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = hours + " hour";
+                                    }
+                                    else {
+                                        scope.time = hours + " hour and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                else if (hours == 0) {
+                                    if (minutes === 1) {
+                                        scope.time = minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = false;
+                                    }
+                                    else {
+                                        scope.time = minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                else {
+                                    if (minutes === 1) {
+                                        scope.time = hours + " hours and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = hours + " hours";
+                                    }
+                                    else {
+                                        scope.time = hours + " hours and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                ;
+                            }
+                            else {
+                                if (hours === 1) {
+                                    if (minutes === 1) {
+                                        scope.time = days + " days, " + hours + " hour, and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = days + " days and " + hours + " hour";
+                                    }
+                                    else {
+                                        scope.time = days + " days, " + hours + " hour, and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                else if (hours == 0) {
+                                    if (minutes === 1) {
+                                        scope.time = days + " days and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = days + " days";
+                                    }
+                                    else {
+                                        scope.time = days + " days and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                else {
+                                    if (minutes === 1) {
+                                        scope.time = days + " days, " + hours + " hours, and " + minutes + " minute";
+                                    }
+                                    else if (minutes == 0) {
+                                        scope.time = days + " days " + hours + " hours";
+                                    }
+                                    else {
+                                        scope.time = days + " days, " + hours + " hours, and " + minutes + " minutes";
+                                    }
+                                    ;
+                                }
+                                ;
+                            }
+                            ;
+                        });
+                    };
+                    reader.readAsText(changeEvent.target.files[0]);
+                });
+            }
+        };
+    }]);
+
 /*
  * Controller that is used for the minimzation webpage and all angular variables
  * on that web page.
@@ -63,7 +239,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
          * @returns {undefined}
          *****************************************************************************/
         DownloadCheck();
-        
+
         /*****************************************************************************
          * Function to collect flags input then download JNLP file and input file
          * @param {type} Number1
@@ -224,182 +400,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
 //        });
 //    };
 //}]);
-/*
- * Directive used to initiate function to read file and determine number of atoms and time consumption.
- * @param {type} param1
- * @param {type} param2
- */
-WebApp.directive("fileread", [function () {
-        return {
-            scope: {
-                fileread: "=",
-                finalnumber: "=",
-                time: "="
-            },
-            link: function (scope, element, attrs) {
-                element.bind("change", function (changeEvent) {
-                    var reader = new FileReader();
-                    reader.onload = function (loadEvent) {
-                        scope.$apply(function () {
-                            scope.fileread = true;
-                            var textString = reader.result;
-                            var arrayOfTextString = textString.split("\n");
-                            scope.atomNumber = 0;
-                            scope.atomNumber2 = 0;
-                            var i = 0;
-                            for (i = 0; i < arrayOfTextString.length; i++) {
-                                var tempString = arrayOfTextString[i].slice(0, 6);
-                                var tempString2 = arrayOfTextString[i].slice(0, 4);
-                                var UpperCaseTempString = tempString.toUpperCase();
-                                var UpperCaseTempString2 = tempString2.toUpperCase();
-                                if (UpperCaseTempString === "HETATM") {
-                                    scope.atomNumber += 1;
-                                }
-                                if (UpperCaseTempString2 === "ATOM") {
-                                    scope.atomNumber2 += 1;
-                                }
-                            }
-                            if (scope.atomNumber > scope.atomNumber2) {
-                                scope.finalnumber = scope.atomNumber;
-                            }
-                            else if (scope.atomNumber < scope.atomNumber2) {
-                                scope.finalnumber = scope.atomNumber2;
-                            }
-                            else {
-                                scope.finalnumber = false;
-                            }
-                                    scope.time = ((scope.finalnumber * Math.log(scope.finalnumber)) / 10).toFixed(0);
-            var minutes = scope.time;
-            var hours = (minutes / 60).toFixed(0);
-            minutes %= 60;
-            var days = (hours / 24).toFixed(0);
-            hours %= 24;
-//            console.log($scope.days + " days, " + $scope.hours + " hours, " + $scope.minutes + " minutes");
-            if (days == 1) {
-                if (hours === 1) {
-                    if (minutes === 1) {
-                        scope.time = days + " day, " + hours + " hour, and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = days + " day " + hours + " hour";
-                    }
-                    else {
-                        scope.time = days + " day, " + hours + " hour, and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                else if (hours == 0) {
-                    if (minutes === 1) {
-                        scope.time = days + " day and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = days + " day";
-                    }
-                    else {
-                        scope.time = days + " day and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                else {
-                    if (minutes === 1) {
-                        scope.time = days + " day, " + hours + " hours, and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = days + " day " + hours + " hours";
-                    }
-                    else {
-                        scope.time = days + " day, " + hours + " hours, and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                ;
-            }
-            else if (days == 0) {
-                if (hours === 1) {
-                    if (minutes === 1) {
-                        scope.time = hours + " hour and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = hours + " hour";
-                    }
-                    else {
-                        scope.time = hours + " hour and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                else if (hours == 0) {
-                    if (minutes === 1) {
-                        scope.time = minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = false;
-                    }
-                    else {
-                        scope.time = minutes + " minutes";
-                    }
-                    ;
-                }
-                else {
-                    if (minutes === 1) {
-                        scope.time = hours + " hours and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = hours + " hours";
-                    }
-                    else {
-                        scope.time = hours + " hours and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                ;
-            }
-            else {
-                if (hours === 1) {
-                    if (minutes === 1) {
-                        scope.time = days + " days, " + hours + " hour, and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = days + " days and " + hours + " hour";
-                    }
-                    else {
-                        scope.time = days + " days, " + hours + " hour, and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                else if (hours == 0) {
-                    if (minutes === 1) {
-                        scope.time = days + " days and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = days + " days";
-                    }
-                    else {
-                        scope.time = days + " days and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                else {
-                    if (minutes === 1) {
-                        scope.time = days + " days, " + hours + " hours, and " + minutes + " minute";
-                    }
-                    else if (minutes == 0) {
-                        scope.time = days + " days " + hours + " hours";
-                    }
-                    else {
-                        scope.time = days + " days, " + hours + " hours, and " + minutes + " minutes";
-                    }
-                    ;
-                }
-                ;
-            }
-            ;
-                        });
-                    };
-                    reader.readAsText(changeEvent.target.files[0]);
-                });
-            }
-        };
-    }]);
+
 /************************************************************************************
  *      The following code provides a way to go from the minimize html page to the fileDownloaded html page
  *      so that the end user will know how to run the file that was previously downloaded.
@@ -897,6 +898,7 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
         $scope.flag5 = false;
         $scope.flag6 = false;
         $scope.flag7 = false;
+        $scope.flag8 = false;
         $scope.finalnumber = true;
         $scope.confirmed = false;
         $scope.uriFlags = "";
@@ -912,6 +914,7 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
         $scope.Number5 = "";
         $scope.Number6 = "";
         $scope.Number7 = "";
+        $scope.Number8 = "";
         var CheckFlag = function (word1) {
             console.log(word1);
         };
@@ -939,16 +942,23 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
          *****************************************************************************/
         DownloadCheck();
 
-         /*****************************************************************************
-         * Function to collect flags input then download JNLP file and input file
+        /************************************
+         * 
          * @param {type} Number1
          * @param {type} Number2
          * @param {type} Number3
          * @param {type} Number4
          * @param {type} Number5
+         * @param {type} Number6
+         * @param {type} Number7
+         * @param {type} Number8
+         * @param {type} Number9
+         * @param {type} Number10
+         * @param {type} Number11
+         * @param {type} Number12
          * @returns {undefined}
-         *****************************************************************************/
-        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9, Number10, Number11) {
+         *************************************/
+        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9, Number10, Number11, Number12) {
 
             /*****************************************************************************
              * Check for the various File API support. 
@@ -967,11 +977,11 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
              * Build JNLP as Textstring to download
              *****************************************************************************/
             var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
-            var FFX_Function = "rotamer";
+            var FFX_Function = "realSpace.rotamer";
             var TextString = InitialTextString + FFX_Function;
 
             /*******************************************************************************
-             *      Next 5 if statements check to see if user input has been provided
+             *      Next 12 if statements check to see if user input has been provided
              *      in input box if so it assigns the appropriate flag and appends it to
              *      the JNLP file string called TextString. 
              *******************************************************************************/
@@ -1025,7 +1035,10 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
                 TextString = TextString + ' ' + '-r ' + Number11;
             }
             ;
-
+            if (Number12 !== "" && Number12 !== undefined) {
+                TextString = TextString + ' ' + '-Dxweight=' + Number12;
+            }
+            ;
             TextString = TextString + " </argument>\n       <argument> ";
 
             /*****************************************************************************
@@ -1060,7 +1073,7 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
             reader.readAsDataURL(dataBlob);
             reader.onloadend = function () {
                 $scope.base64data = reader.result;
-                console.log($scope.base64data);
+//                console.log($scope.base64data);
             };
             saveAs(dataBlob, "ffx.jnlp");
 
@@ -1131,8 +1144,9 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
                  *                 a.click();
                  *                 document.body.removeChild(a);
                  *****************************************************************************/
-            };
-                        function receivedText2() {
+            }
+            ;
+            function receivedText2() {
 
                 /*****************************************************************************
                  *  Set input file to a variable

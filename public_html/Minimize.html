@@ -38,11 +38,12 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-            .button1 {
+             .button1 {
+                position: relative;
                 padding-top: 10px;
-                right: 20px;
+                left: 15px;
                 color: #2B2B2B;
-            }         
+            }          
         </style>
         <link rel="stylesheet" href="css2/main.css">
         <link rel="stylesheet" href="css2/bootstrap-theme.min.css">
@@ -50,7 +51,6 @@
         <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
         <script src="js2/libs/FileSaver.js-master/FileSaver.min.js"></script>
-        <!--<script src="js2/libs/angular.js/angular.js"></script>-->
         <script src="js2/libs/Processing/RunFFX.js"></script>
         <script src="js2/libs/angular.js/angularController.js"></script>
     </head>
@@ -102,7 +102,6 @@
                 <!--          .navbar-collapse -->
             </div>
         </div>
-
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; ">
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
         <div class="jumbotron">
@@ -133,7 +132,7 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="PDB_File" finalnumber="finalnumber" time="time" fileread="fileRead" class="col-xsm-6">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber" time="time" fileread="fileRead" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                                 <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
                                     <p ng-show="time"> The file that was uploaded contains {{finalnumber}} atoms.
                                         With this number of atoms an estimated time of analysis is around {{time}}</p>
@@ -142,7 +141,6 @@
                         </div>
                     </div>
                 </div>
-
                 <hr>
                 <div class='row'>
                     <h4>
@@ -151,7 +149,7 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : EnergyForm.input0.$error.number }">
                             <div class="input-group">
@@ -167,12 +165,11 @@
                                         Specifies the root mean square convergence criteria for the run.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div> 
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : EnergyForm.input3.$error.number }">
                             <div class="input-group">
@@ -188,12 +185,11 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : EnergyForm.input1.$error.number }">
                             <div class="input-group">
@@ -210,12 +206,11 @@
                                         that will be shifted during the minimization process.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : EnergyForm.input4.$error.number }">
                             <div class="input-group">
@@ -230,13 +225,12 @@
                                     <div class="dropdown-menu special wordwrap" role="menu">
                                         Number of molecular dynamics steps.
                                     </div>
-                                </div>
-                                <div class="spacer"></div>
+                                </div>                             
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : EnergyForm.input2.$error.number }">
                             <div class="input-group">
@@ -252,13 +246,11 @@
                                         Specifies the first atom to minimize in the second topology.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>
-                        <!--<div class="col-xsm-6" ng-if="test2"> not an integer</div>-->
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : EnergyForm.input5.$error.number }">
                             <div class="input-group">
@@ -274,7 +266,6 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>  
                     </div>
