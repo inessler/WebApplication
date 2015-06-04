@@ -12,6 +12,22 @@
 var WebApp = angular.module('WebApp', []).config(['$compileProvider', function ($compileProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/);
     }]);
+
+WebApp.directive("jnlpEmbedder", function () {
+    return {
+        restrict: 'EA',
+        scope: {
+            "base64data": '='
+        },
+//        controller: controller,
+      template: 'var attributes = {code:\'ffx.jnlp\',  width:300, height:300} ; var parameters = {jnlp_href: \'jnlp/ffx.jnlp\'} ; deployJava.runApplet(attributes, parameters, \'1.7\');',
+      link: function ($scope, $timeout) {
+          }
+      };
+    }
+);
+
+
 /*
  * Directive used to initiate function to read file and determine number of atoms and time consumption.
  * @param {type} param1
@@ -441,6 +457,8 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         $scope.Number4 = "";
         $scope.Number5 = "";
         $scope.Number6 = "";
+        $scope.base64data = "hey";
+        $scope.buttonPressed = false;
         var CheckFlag = function (word1) {
             console.log(word1);
         };
@@ -557,7 +575,9 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             reader.readAsDataURL(dataBlob);
             reader.onloadend = function () {
                 $scope.base64data = reader.result;
-                console.log($scope.base64data);
+                $scope.base64dataFinal = $scope.base64data.substring(23);
+                $scope.$apply();
+                console.log($scope.base64dataFinal);
             };
             saveAs(dataBlob, "ffx.jnlp");
 

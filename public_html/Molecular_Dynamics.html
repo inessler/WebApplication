@@ -272,41 +272,35 @@
                     </div>
                     <div class="row">
                         <div class="button1">
-                            <button ng-class="{
-                                    'disabled'
-                                    : MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
-                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
-                                                migrateHtml();" 
-                                    type="button" class="btn btn-color" >Create JNLP File</button> 
+                            <button ng-class="{'disabled': MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
+                                    ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6); migrateHtml()"
+                                    type="button" class="btn btn-color" onclick='JnlpFunction()'>Create JNLP File</button> 
                         </div>
                     </div>
                 </div>
+                {{base64data}}
+                <div class='row'>
+                {{base64dataFinal}}
+                </div>
+                <script src=https://www.java.com/js/deployJava.js></script>
+                <script jnlp-embedder base64data='base64data'>
+                
+                    deployJava.createWebStartLaunchButtonEx('PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIGpubHAgUFVCTElDICctLy9TdW4gTWljcm9zeXN0ZW1zLCBJbmMvL0RURCBKTkxQIERlc2NyaXB0b3IgNi4wLy9FTicgJ2h0dHA6Ly9qYXZhLnN1bi5jb20vZHRkL0pOTFAtNi4wLmR0ZCc+CjxqbmxwIHNwZWM9IjYuMCsiPgogICAgPGluZm9ybWF0aW9uPgogICAgICAgIDx0aXRsZT5Gb3JjZSBGaWVsZCBYPC90aXRsZT4KICAgICAgICA8dmVuZG9yPk1pY2hhZWwgSi4gU2NobmllZGVyczwvdmVuZG9yPgogICAgICAgIDxob21lcGFnZSBocmVmPSJodHRwOi8vZmZ4LmJpb2NoZW0udWlvd2EuZWR1Ii8+CiAgICAgICAgPGRlc2NyaXB0aW9uPlNvZnR3YXJlIGZvciBNb2xlY3VsYXIgQmlvcGh5c2ljczwvZGVzY3JpcHRpb24+CiAgICAgICAgPGljb24gaHJlZj0iaW1hZ2VzL2ljb24xMjgucG5nIi8+CiAgICAgICAgPG9mZmxpbmUtYWxsb3dlZC8+CiAgICA8L2luZm9ybWF0aW9uPgogICAgPHNlY3VyaXR5PgogICAgICAgIDxhbGwtcGVybWlzc2lvbnMvPgogICAgPC9zZWN1cml0eT4KICAgIDx1cGRhdGUgY2hlY2s9ImFsd2F5cyIgcG9saWN5PSJhbHdheXMiLz4KICAgIDxyZXNvdXJjZXM+CiAgICAgICAgPGphdmEgdmVyc2lvbj0iMS44IiBpbml0aWFsLWhlYXAtc2l6ZT0iMUciIG1heC1oZWFwLXNpemU9IjFHIi8+CiAgICAgICAgPHByb3BlcnR5IG5hbWU9ImozZC5yZW5kIiB2YWx1ZT0iam9nbCIvPgogICAgICAgIDxleHRlbnNpb24gbmFtZT0iZmZ4LWFsbCIgaHJlZj0iaHR0cDovL2ZmeC5iaW9jaGVtLnVpb3dhLmVkdS9mZngtY29tbW9ucy9mZngtYWxsLTEuMC4wLWJldGEuam5scCIgLz4KICAgICAgICA8ZXh0ZW5zaW9uIG5hbWU9ImZmeC1kZXBlbmRlbmN5IiBocmVmPSJodHRwOi8vZmZ4LmJpb2NoZW0udWlvd2EuZWR1L2RlcGVuZGVuY3ktcmVwby9mZngtZGVwZW5kZW5jeS0xLjAuMC1iZXRhLmpubHAiIC8+CiAgICAgICAgPGV4dGVuc2lvbiBuYW1lPSJqb2dsLWFsbC1hd3QiIGhyZWY9Imh0dHA6Ly9qb2dhbXAub3JnL2RlcGxveW1lbnQvdjIuMy4xL2pvZ2wtYWxsLWF3dC5qbmxwIiAvPgogICAgPC9yZXNvdXJjZXM+CiAgICA8YXBwbGljYXRpb24tZGVzYyBtYWluLWNsYXNzPSJmZnguTWFpbiI+CiAgICAgICA8YXJndW1lbnQ+bWQgPC9hcmd1bWVudD4KICAgICAgIDxhcmd1bWVudD4gRG93bmxvYWRzLzJSNFIucGRiIDwvYXJndW1lbnQ+CiAgICA8L2FwcGxpY2F0aW9uLWRlc2M+Cjwvam5scD4=');
+//                    console.log({{base64data}});
+                      
+                </script>
+                <script>
+    var attributes = {} ;
+    var parameters = {jnlp_href: 'ffx/ffx.jnlp',
+        jnlp_embedded: 'PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIGpubHAgUFVCTElDICctLy9TdW4gTWljcm9zeXN0ZW1zLCBJbmMvL0RURCBKTkxQIERlc2NyaXB0b3IgNi4wLy9FTicgJ2h0dHA6Ly9qYXZhLnN1bi5jb20vZHRkL0pOTFAtNi4wLmR0ZCc+CjxqbmxwIHNwZWM9IjYuMCsiPgogICAgPGluZm9ybWF0aW9uPgogICAgICAgIDx0aXRsZT5Gb3JjZSBGaWVsZCBYPC90aXRsZT4KICAgICAgICA8dmVuZG9yPk1pY2hhZWwgSi4gU2NobmllZGVyczwvdmVuZG9yPgogICAgICAgIDxob21lcGFnZSBocmVmPSJodHRwOi8vZmZ4LmJpb2NoZW0udWlvd2EuZWR1Ii8+CiAgICAgICAgPGRlc2NyaXB0aW9uPlNvZnR3YXJlIGZvciBNb2xlY3VsYXIgQmlvcGh5c2ljczwvZGVzY3JpcHRpb24+CiAgICAgICAgPGljb24gaHJlZj0iaW1hZ2VzL2ljb24xMjgucG5nIi8+CiAgICAgICAgPG9mZmxpbmUtYWxsb3dlZC8+CiAgICA8L2luZm9ybWF0aW9uPgogICAgPHNlY3VyaXR5PgogICAgICAgIDxhbGwtcGVybWlzc2lvbnMvPgogICAgPC9zZWN1cml0eT4KICAgIDx1cGRhdGUgY2hlY2s9ImFsd2F5cyIgcG9saWN5PSJhbHdheXMiLz4KICAgIDxyZXNvdXJjZXM+CiAgICAgICAgPGphdmEgdmVyc2lvbj0iMS44IiBpbml0aWFsLWhlYXAtc2l6ZT0iMUciIG1heC1oZWFwLXNpemU9IjFHIi8+CiAgICAgICAgPHByb3BlcnR5IG5hbWU9ImozZC5yZW5kIiB2YWx1ZT0iam9nbCIvPgogICAgICAgIDxleHRlbnNpb24gbmFtZT0iZmZ4LWFsbCIgaHJlZj0iaHR0cDovL2ZmeC5iaW9jaGVtLnVpb3dhLmVkdS9mZngtY29tbW9ucy9mZngtYWxsLTEuMC4wLWJldGEuam5scCIgLz4KICAgICAgICA8ZXh0ZW5zaW9uIG5hbWU9ImZmeC1kZXBlbmRlbmN5IiBocmVmPSJodHRwOi8vZmZ4LmJpb2NoZW0udWlvd2EuZWR1L2RlcGVuZGVuY3ktcmVwby9mZngtZGVwZW5kZW5jeS0xLjAuMC1iZXRhLmpubHAiIC8+CiAgICAgICAgPGV4dGVuc2lvbiBuYW1lPSJqb2dsLWFsbC1hd3QiIGhyZWY9Imh0dHA6Ly9qb2dhbXAub3JnL2RlcGxveW1lbnQvdjIuMy4xL2pvZ2wtYWxsLWF3dC5qbmxwIiAvPgogICAgPC9yZXNvdXJjZXM+CiAgICA8YXBwbGljYXRpb24tZGVzYyBtYWluLWNsYXNzPSJmZnguTWFpbiI+CiAgICAgICA8YXJndW1lbnQ+bWQgPC9hcmd1bWVudD4KICAgICAgIDxhcmd1bWVudD4gRG93bmxvYWRzLzJSNFIucGRiIDwvYXJndW1lbnQ+CiAgICA8L2FwcGxpY2F0aW9uLWRlc2M+Cjwvam5scD4='
+    } ;
+    deployJava.runApplet(attributes, parameters, '1.7');
+</script>
+                <!--<script base64data='base64data' jnlp-embedder></script>-->
                 <!--                <div>TODO write content </div>
                             {{textString}}-->
                 <!--<div foo></div>-->
-                <script src="https://www.java.com/js/deployJava.js"></script>
-                <script>
-        //WebApp.directive("foo", function () {
-        //        return {
-        //        restrict: 'A',
-        //        link: function(scope, elem, attrs){
-        //            //Use scope.totals here
-        //            console.log(scope.finalnumber);
-        //            var attributes = {};
-        //                    var parameters = {
-        //                        jnlp_embedded: [[textString]]
-        //                    };
-        //                    deployJava.runApplet(attributes, parameters, '1.7');
-        //                    console.log([[textString]]);    
-        //        }
-        //    };
-        //});
-        //  $(document).ready(function(){
-        //        var $element = $('div[ng-controller="Molecular_Dynamics_Controller"]');
-        //        var scope = angular.element($element).scope();
-        //        console.dir(scope);
-
-                </script> 
+<!--<a href="jnlp/ffx.jnlp">Launch ffx Application</a>-->
                 <!--        var jnlpFile = scope.textString;
                         deployJava.createWebStartLaunchButtonEx(jnlpFile);-->
 
