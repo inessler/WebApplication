@@ -13,7 +13,7 @@
 <html>
     <!--[if !IE]> -->
     <head>
-        <title>Rotamer Optimization</title>
+        <title>Real Space Rotamer Optimization</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
@@ -86,13 +86,9 @@
                                 <li class="divider" ></li>
                                 <li><a href="Molecular_Dynamics.html">Molecular Dynamics</a></li>
                                 <li class="divider"></li>
-                                <li><a href="Rotamer.html"><font style="color: yellow;">Rotamer Optimization</font></a></li>
+                                <li><a href="Rotamer.html">Rotamer Optimization</a></li>
                                 <li class="divider"></li>
-<<<<<<< HEAD
-                                <li><a href="Xray.html">X-Ray.Minimize</a></li>
-=======
-                                <li><a href="RealSpace.html">Real Space</a></li>
->>>>>>> upstream/master
+                                <li><a href="RealSpace.html"><font style="color: yellow;">Real Space</font></a></li>
                                 <li class="divider"></li>
                             </ul>
                         </li>
@@ -106,12 +102,11 @@
                 <!--          .navbar-collapse -->
             </div>
         </div>
-
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; ">
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
         <div class="jumbotron">
             <div class="container" >
-                <h1>Rotamer Optimization</h1>
+                <h1>Real Space Rotamer Optimization</h1>
                 <p>Force Field X</p>
                 <p>The following forms will allow you to select the specifics of the minimization that you wish to run.</p>
             </div>
@@ -119,7 +114,7 @@
         <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
         <div class="container" style="margin-left: 40px" >
-            <form name="RotamerForm" ng-controller="Rotamer_Controller">
+            <form name="RealSpaceForm" ng-controller="RealSpace_Controller">
                 <div class='row' style="height: 20px;"></div>
                 <div class='row'>
                     <h2>
@@ -131,13 +126,13 @@
                 <div class='row'>
                     <h4>
                         <b>
-                            1. Upload parameter file below:
+                            1. Upload coordinate data file below:
                         </b>
                     </h4>
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" time="time" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber"  time="time" fileread="fileRead" class="col-xsm-6">
                                 <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
                                     <p ng-show="time">The file that was uploaded contains {{finalnumber}} atoms.
                                         With this number of atoms an estimated time of analysis is around {{time}}</p>
@@ -146,16 +141,30 @@
                         </div>
                     </div>
                 </div>
+                <div class='row'>
+                    <h4>
+                        <b>
+                            2. Upload real space data file below:
+                        </b>
+                    </h4>
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="row">
+                                <input type="file" id="Real_File" fileread2="fileRead2" class="col-xsm-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <hr>
                 <div class='row' >
                     <h4>
-                        2. Set variables pertaining to the calculation below: 
+                        3. Set variables pertaining to the calculation below: 
                     </h4>
                 </div>
                 <div class="container" ng-cloak>
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                            <div class="input-group">
+                            <div class="input-group" >
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                     Algorithm:
@@ -165,8 +174,6 @@
                                     <option ng-value="1">Global optimization</option>
                                     <option ng-value="5">Volumetric optimization</option>
                                     <option ng-value="4">Residue repacking</option>
-                                    <!--                                    <option ng-value="4">Sliding window</option>
-                                                                        <option ng-value="5">Box optimization</option>-->
                                 </select>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
@@ -180,9 +187,9 @@
                         </div>
                         <div class="row" ng-show="Number0 == 4 || Number0 == 5"></div> 
                         <div class="row" ng-show="Number0 == 4">
-                            <div class="col-xsm-5" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                :RotamerForm.input0a.$error.number, 'has-success':Number0a }">
+                                : RealSpaceForm.input0a.$error.number, 'has-success':Number0a }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0a" ng-if="Number0a" type="checkbox" ng-init="flag0a = true">
@@ -200,9 +207,9 @@
                             </div>                   
                         </div>
                         <div class="row" ng-show="Number0 == 4">
-                            <div class="col-xsm-5" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                :RotamerForm.input0a.$error.number, 'has-success':Number0a }">
+                                : RealSpaceForm.input0b.$error.number, 'has-success':Number0b }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0b" ng-if="Number0b" type="checkbox" ng-init="flag0b = true">
@@ -220,9 +227,9 @@
                             </div>                   
                         </div>
                         <div class="row" ng-show="Number0 == 5">
-                            <div class="col-xsm-5" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : RotamerForm.input0b0.$error.number, 'has-success':Number0b0 }">
+                                : RealSpaceForm.input0b0.$error.number, 'has-success':Number0b0 }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0b0" ng-if="Number0b0" type="checkbox" ng-init="flag0b0 = true">
@@ -240,9 +247,9 @@
                             </div>                   
                         </div>
                         <div class="row" ng-show="Number0 == 5">
-                            <div class="col-xsm-5" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : RotamerForm.input0b1.$error.number, 'has-success':Number0b1 }">
+                                : RealSpaceForm.input0b1.$error.number, 'has-success':Number0b1 }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag0b1" ng-if="Number0b1" type="checkbox" ng-init="flag0b1 = true">
@@ -262,7 +269,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" >
-                            <div class="input-group">
+                            <div class="input-group" >
                                 <span class="input-group-addon">
                                     <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
                                     Include original:
@@ -283,9 +290,10 @@
                             </div>
                         </div>                  
                     </div>
+
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                            <div class="input-group">
+                            <div class="input-group" >
                                 <span class="input-group-addon">
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
                                     Three body:
@@ -329,11 +337,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='row' style="height: 2px;"></div>
+                        <div class="row" ng-show="Number5 == 1 || Number5 == 2 || Number5 == 3"></div> 
                         <div class="row" ng-show="Number5 == 1">
                             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : RotamerForm.input6.$error.number, 'has-success':Number6 }">
+                                : RealSpaceForm.input6.$error.number, 'has-success':Number6 }">
                                 <div class="input-group">
                                     <span class="input-group-addon">
                                         <input ng-model="flag6" ng-if="Number6" type="checkbox" ng-init="flag6 = true">
@@ -354,7 +362,7 @@
                             <div class="row">
                                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : RotamerForm.input3.$error.number, 'has-success':Number3 }">
+                                : RealSpaceForm.input3.$error.number, 'has-success':Number3 }">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
@@ -372,7 +380,7 @@
                                 </div>                   
                             </div>
                             <div class="row">
-                                <div class="col-xsm-5" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
+                                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
@@ -390,34 +398,56 @@
                                 </div>                   
                             </div>   
                         </div>
-                        <div class="row" ng-show="Number5 == 3">
-                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
+                        <div ng-show="Number5 == 3">
+                            <div class="row">
+                                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : RotamerForm.input7.$error.number, 'has-success':Number7 }">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <input ng-model="flag7" ng-if="Number7" type="checkbox" ng-init="flag7 = true">
-                                    </span>
-                                    <input name="input7" ng-model="Number7" placeholder=" List of residues (eg. A11.A24.B40)." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                                    <div class="input-group-addon dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                            <font style="color:black">What is this?</font>
-                                        </a>
-                                        <div class="dropdown-menu special wordwrap container-fluid" role="menu">
-                                            Choose a list of individual residues to optimize. Place a period after each residue, no spaces.
+                                : RealSpaceForm.input7.$error.number, 'has-success':Number7 }">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input ng-model="flag7" ng-if="Number7" type="checkbox" ng-init="flag7 = true">
+                                        </span>
+                                        <input name="input7" ng-model="Number7" placeholder=" List of residues (eg. A11.A24.B40)." min="1" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                        <div class="input-group-addon dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                                <font style="color:black">What is this?</font>
+                                            </a>
+                                            <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                                Choose a list of individual residues to optimize. Place a period after each residue, no spaces.
+                                            </div>
                                         </div>
-                                    </div>
-                                </div><!-- /input-group -->
-                            </div>                   
+                                    </div><!-- /input-group -->
+                                </div>                   
+                            </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
+                                'has-error'
+                                :RealSpaceForm.input8.$error.number, 'has-success':Number8 }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag8" ng-if="Number8" type="checkbox" ng-init="flag8 = true">
+                                </span>
+                                <input name="input8" ng-model="Number8" placeholder="Data weight that should be placed on real file" min="0.05" max="20" type="number" class="form-control" ng-pattern="NumberPattern">
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap container-fluid" role="menu">
+                                        This value is treated as a ratio. For example, an xweight of 2 means 2 real for every 1 coordinate.
+                                    </div>
+                                </div>
+                            </div><!-- /input-group -->
+                        </div>                   
                     </div>
                     <div class='row' style="height: 5px;"></div>
                     <div class="row">
                         <div class="button1">
                             <button ng-class="{
                                     'disabled'
-                                    : RotamerForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
-                                    ng-click="CollectFlags(Number0, Number0a, Number0b0, Number0b1, Number1, Number2, Number3, Number4, Number6, Number7, Number0b);
+                                    : RealSpaceForm.input0a.$error.number || RealSpaceForm.input0b.$error.number || RealSpaceForm.input0b0.$error.number || RealSpaceForm.input0b1.$error.number || RealSpaceForm.input3.$error.number || RealSpaceForm.input4.$error.number || RealSpaceForm.input6.$error.number || RealSpaceForm.input7.$error.number || RealSpaceForm.input8.$invalid}" 
+                                    ng-click="CollectFlags(Number0, Number0a, Number0b0, Number0b1, Number1, Number2, Number3, Number4, Number6, Number7, Number0b, Number8);
                                             migrateHtml();" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>

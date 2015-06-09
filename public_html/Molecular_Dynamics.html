@@ -38,9 +38,10 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-            .button1 {
+             .button1 {
+                position: relative;
                 padding-top: 10px;
-                right: 20px;
+                left: 15px;
                 color: #2B2B2B;
             }         
         </style>
@@ -50,7 +51,6 @@
         <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
         <script src="js2/libs/FileSaver.js-master/FileSaver.min.js"></script>
-        <!--<script src="js2/libs/angular.js/angular.js"></script>-->
         <script src="js2/libs/Processing/RunFFX.js"></script>
         <script src="js2/libs/angular.js/angularController.js"></script>
     </head>
@@ -88,7 +88,11 @@
                                 <li class="divider"></li>
                                 <li><a href="Rotamer.html">Rotamer Optimization</a></li>
                                 <li class="divider"></li>
+<<<<<<< HEAD
                                 <li><a href="Xray.html">X-Ray.Minimize</a></li>
+=======
+                                <li><a href="RealSpace.html">Real Space</a></li>
+>>>>>>> upstream/master
                                 <li class="divider"></li>
                             </ul>
                         </li>
@@ -102,7 +106,6 @@
                 <!--          .navbar-collapse -->
             </div>
         </div>
-
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; ">
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
         <div class="jumbotron">
@@ -133,7 +136,7 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" class="col-xsm-6">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" time="time" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                                 <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
                                     <p ng-show="time">The file that was uploaded contains {{finalnumber}} atoms.
                                         With this number of atoms an estimated time of analysis is around {{time}}</p>
@@ -143,18 +146,14 @@
                     </div>
                 </div>
                 <hr>
-                <!--                <h2>
-                                    The following parameters do not need to be set unless a particular run is desired.
-                                </h2>
-                                <hr>-->
-                <div class='row' >
+                <div class='row'>
                     <h4>
                         2. Set variables pertaining to the calculation below: 
                     </h4>
                 </div>
-                <div class="container">
+                <div class="container" ng-cloak>
                     <div class="row" >
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : MDForm.input0.$error.number, 'has-success':Number0 }">
                             <div class="input-group">
@@ -170,12 +169,11 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : MDForm.input1.$error.number, 'has-success':Number1  }">
                             <div class="input-group">
@@ -191,12 +189,11 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : MDForm.input2.$error.number, 'has-success':Number2  }">
                             <div class="input-group">
@@ -212,12 +209,11 @@
                                         <span role="menuitem">Number of molecular dynamics steps.Number of molecular dynamics steps.Number of molecular dynamics steps.Number of molecular dynamics steps.</span>
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
@@ -237,12 +233,11 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="col-xsm-6 spacer1"> </div>
                             </div>
                         </div>   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
@@ -256,12 +251,11 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : MDForm.input5.$error.number, 'has-success':Number5  }">
                             <div class="input-group">
@@ -277,7 +271,6 @@
                                         Number of molecular dynamics steps.
                                     </div>
                                 </div>
-                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>  
                     </div>
@@ -328,7 +321,7 @@
                             deployJava.runApplet(attributes, parameters, '1.7'); 
                         </script>-->
                 <!--<div>TODO write content</div>-->
-                <hr >
+                <hr>
                 <footer>
                     <div class="col-md-10" style="margin-top: 30px; margin-left: 40px; padding-bottom:30px;">
                         <p>
