@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <!--
 /*
 *   FFX Web Application
 *
@@ -10,10 +16,9 @@
 *   Year:   2014
 */
 -->
-<html>
     <!--[if !IE]> -->
     <head>
-        <title>Molecular Dynamics</title>
+        <title>FFX Web Application</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
@@ -24,7 +29,7 @@
                 background-color: white;
             }
             .jumbotron {
-                background-color: white;
+                background-color: white ;
             }
             body {
                 padding-top: 50px;
@@ -38,10 +43,9 @@
                 margin-left: auto;
                 margin-right: auto;
             }
-             .button1 {
-                position: relative;
+            .button1 {
                 padding-top: 10px;
-                left: 15px;
+                right: 20px;
                 color: #2B2B2B;
             }         
         </style>
@@ -51,9 +55,11 @@
         <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
         <script src="js2/libs/FileSaver.js-master/FileSaver.min.js"></script>
+        <!--<script src="js2/libs/angular.js/angular.js"></script>-->
         <script src="js2/libs/Processing/RunFFX.js"></script>
         <script src="js2/libs/angular.js/angularController.js"></script>
     </head>
+
     <body ng-app="WebApp">
         <div  id="menubar" class="navbar  navbar-inverse navbar-fixed-top" role="navigation" style="background-color:black;">
             <div class="container-fluid">
@@ -78,21 +84,17 @@
                                 About
                             </a>
                         </li>
-                        <li id="Dropdown" class="dropdown">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions<span class="caret"></span></font></a>
-                            <ul class="dropdown-menu"  role="menu">
+                            <ul class="dropdown-menu" id="Dropdown" role="menu">
                                 <li class="divider" style="margin-top: -5px"></li>
-                                <li><a href="Minimize.html" style="padding-top: -5px;">Minimize</a></li>
+                                <li><a href="Minimize.html" style="padding-top: -5px;">Minimize</font></a></li>
                                 <li class="divider" ></li>
-                                <li><a href="Molecular_Dynamics.html"><font style="color: yellow;">Molecular Dynamics</font></a></li>
+                                <li><a href="Molecular_Dynamics.html">Molecular Dynamics</a></li>
                                 <li class="divider"></li>
                                 <li><a href="Rotamer.html">Rotamer Optimization</a></li>
                                 <li class="divider"></li>
-<<<<<<< HEAD
-                                <li><a href="Xray.html">X-Ray.Minimize</a></li>
-=======
-                                <li><a href="RealSpace.html">Real Space</a></li>
->>>>>>> upstream/master
+                                <li><a href="Xray.html"><font style="color: yellow;">X-Ray.Minimize</font></a></li>
                                 <li class="divider"></li>
                             </ul>
                         </li>
@@ -106,25 +108,34 @@
                 <!--          .navbar-collapse -->
             </div>
         </div>
+
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; ">
         <hr style="border-width: 5px; margin-top: auto; margin-bottom: auto; border-color: #2B2B2B;">
         <div class="jumbotron">
             <div class="container" >
-                <h1>Molecular Dynamics</h1>
+                <h1>X-Ray Minimize</h1>
                 <p>Force Field X</p>
-                <p>The following forms will allow you to select the specifics of the minimization that you wish to run.</p>
+                
+                <!-- Is below the correct wording? -->
+                
+                <p>The following forms will allow you to select the specifics of the minimization.</p>
+                
             </div>
         </div>
         <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
         <div class="container" style="margin-left: 40px" >
-            <form name="MDForm" ng-controller="Molecular_Dynamics_Controller">
+            
+            <!-- Form and controller needed! 
+            <form name="???" ng-controller="???">
+            -->
                 <div class='row' style="height: 20px;"></div>
                 <div class='row'>
                     <h2>
                         Follow the steps below to begin:
                     </h2>
                 </div>
+                
                 <hr style="border-width: 2px;  margin-top: -5px; margin-bottom: auto; ">
                 <div class='row' style="height: 20px;"></div>
                 <div class='row'>
@@ -136,7 +147,7 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" time="time" class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                <input type="file" id="PDB_File" finalnumber="finalnumber"  fileread="fileRead" class="col-xsm-6">
                                 <div  id="diver" ng-cloak ng-show="fileRead" class="wordwrap container-fluid">
                                     <p ng-show="time">The file that was uploaded contains {{finalnumber}} atoms.
                                         With this number of atoms an estimated time of analysis is around {{time}}</p>
@@ -145,83 +156,97 @@
                         </div>
                     </div>
                 </div>
+                
                 <hr>
                 <div class='row'>
                     <h4>
                         2. Set variables pertaining to the calculation below: 
                     </h4>
+                    <i>• Select multiple criteria if needed in Refinement Mode with Ctrl (Windows) or Command (Mac)</i>
+                    <div style="padding-bottom:10px;"> 
+                        <i>• Leave any field blank for a default setting</i>
+                    </div>
                 </div>
-                <div class="container" ng-cloak>
-                    <div class="row" >
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
+                
+                <!-- Need controller name at lines 172, 193, 214, 236, 257, 279, and 6 times on line 301 
+                cmd+f search '????' -->
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xsm-6" ng-class="{
                                 'has-error'
-                                : MDForm.input0.$error.number, 'has-success':Number0 }">
+                                : ????.input0.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
                                 </span>
-                                <input name="input0" ng-model="Number0" placeholder=" Number of molecular dynamics steps." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
-                                <div class="input-group-addon dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                        <font style="color:black">What is this?</font>
-                                    </a>
-                                    <div class="dropdown-menu special wordwrap container-fluid" role="menu">
-                                        Number of molecular dynamics steps.
-                                    </div>
-                                </div>
-                            </div><!-- /input-group -->
-                        </div>                   
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
-                                'has-error'
-                                : MDForm.input1.$error.number, 'has-success':Number1  }">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
-                                </span>
-                                <input name="input1" ng-model="Number1" placeholder="Time discretization (fsec)." type="number" class="form-control" min="0" ng-pattern="NumberPattern" required>
+                                <input name="input0" ng-model="Number0" placeholder="RMS Gradient Convergence Criteria" type="number" class="form-control" ng-pattern="NumberPattern" required>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
+                                        Specifies the root mean square convergence criteria for the run (Default: -1.0).
                                     </div>
                                 </div>
+                                <div class="spacer"></div>
                             </div><!-- /input-group -->
-                        </div>                   
+                        </div> 
                     </div>
+                    
                     <div class="row">
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
+                        <div class="col-xsm-6" ng-class="{
                                 'has-error'
-                                : MDForm.input2.$error.number, 'has-success':Number2  }">
+                                : ????.input3.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
+                                    <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
                                 </span>
-                                <input name="input2" onchange="" ng-model="Number2" type="number" min="0" placeholder="Temperature in degrees Kelvin." class="form-control" ng-pattern="NumberPattern" required>
+                                <input name="input1" ng-model="Number1" placeholder="RMS Gradient Convergence Criteria for 3 Stage Refinement" type="number" class="form-control" ng-pattern="NumberPattern" required>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
-                                    <div class="dropdown-menu special wordwrap" role="menu" style="align: justify;">
-                                        <span role="menuitem">Number of molecular dynamics steps.Number of molecular dynamics steps.Number of molecular dynamics steps.Number of molecular dynamics steps.</span>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Specifies the 3 root mean square convergence criteria for the run (Default = -1.0, -1.0, -1.0) 
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>                   
                     </div>
+                    
                     <div class="row">
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                        <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : ????.input1.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
+                                </span>
+                                <input name="input2" ng-model="Number2" placeholder="Maximum Iterations" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Maximum amount of allowed refinement iterations (Default = 1000). 
+                                    </div>
+                                </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>                   
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-xsm-6" style="width:106%">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
-                                    Polarization:
+                                    Polarization
                                 </span>
                                 <select name="input3" ng-model="Number3" class="form-control">
-                                    <option></option>
-                                    <option ng-value="None">None</option>
+                                    <option ng-value="None" selected>None</option>
                                     <option ng-value="Direct">Direct</option>
                                     <option ng-value="Mutual">Mutual</option>
                                 </select>
@@ -230,98 +255,95 @@
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
+                                        Polarization Model (Default = Mutual).
                                     </div>
                                 </div>
+                                <div class="col-xsm-6 spacer1"> </div>
                             </div>
                         </div>   
                     </div>
+                    
                     <div class="row">
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
+                        <div class="col-xsm-6" style="width:88%">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
+                                    Refinement Mode
                                 </span>
-                                <input name="input4" ng-model="Number4" placeholder="Interval to log thermodyanamics (psec)." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <select multiple size="1" name="input4" ng-model="Number4" class="form-control">
+                                    <option ng-value="1" selected>Coordinates</option>
+                                    <option ng-value="2">B Factors</option>
+                                    <option ng-value="3">Occupancies</option>
+                                </select>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
+                                        Specifies the type of refinement (Default = Coordinates).
                                     </div>
                                 </div>
-                            </div><!-- /input-group -->
-                        </div>                   
+                                <div class="col-xsm-6 spacer1"> </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <div class="row">
-                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
+                        <div class="col-xsm-6" ng-class="{
                                 'has-error'
-                                : MDForm.input5.$error.number, 'has-success':Number5  }">
+                                : ????.input5.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
                                 </span>
-                                <input name="input5" ng-model="Number5" placeholder="Interval to write out coordinates (psec)." min="0" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <input name="input5" ng-model="Number5" placeholder="Suffix" type="number" class="form-control" ng-pattern="NumberPattern" required>
                                 <div class="input-group-addon dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <font style="color:black">What is this?</font>
                                     </a>
                                     <div class="dropdown-menu special wordwrap" role="menu">
-                                        Number of molecular dynamics steps.
+                                        Output Suffix (Default = _Refine).
                                     </div>
                                 </div>
+                                <div class="spacer"></div>
                             </div><!-- /input-group -->
                         </div>  
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-xsm-6" ng-class="{
+                                'has-error'
+                                : ????.input5.$error.number }">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <input ng-model="flag6" ng-if="Number6" type="checkbox" ng-init="flag6 = true">
+                                </span>
+                                <input name="input6" ng-model="Number6" placeholder="Three Stage" type="number" class="form-control" ng-pattern="NumberPattern" required>
+                                <div class="input-group-addon dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        <font style="color:black">What is this?</font>
+                                    </a>
+                                    <div class="dropdown-menu special wordwrap" role="menu">
+                                        Set to perform refinement in 3 stages - coordinates, B factors, occupancies (Defualt = ???).
+                                    </div>
+                                </div>
+                                <div class="spacer"></div>
+                            </div><!-- /input-group -->
+                        </div>  
+                    </div>
+                    
                     <div class="row">
                         <div class="button1">
                             <button ng-class="{
                                     'disabled'
-                                    : MDForm.input5.$error.number || MDForm.input4.$error.number || MDForm.input3.$error.number || MDForm.input2.$error.number || MDForm.input1.$error.number || MDForm.input0.$error.number}" 
+                                    : ????.input5.$error.number || ????.input4.$error.number || ????.input3.$error.number || ????.input2.$error.number || ????.input1.$error.number || ????.input0.$error.number}" 
                                     ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
                                                 migrateHtml();" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
                         </div>
                     </div>
-                </div>
-                <!--                <div>TODO write content </div>
-                            {{textString}}-->
-                <!--<div foo></div>-->
-                <script src="https://www.java.com/js/deployJava.js"></script>
-                <script>
-        //WebApp.directive("foo", function () {
-        //        return {
-        //        restrict: 'A',
-        //        link: function(scope, elem, attrs){
-        //            //Use scope.totals here
-        //            console.log(scope.finalnumber);
-        //            var attributes = {};
-        //                    var parameters = {
-        //                        jnlp_embedded: [[textString]]
-        //                    };
-        //                    deployJava.runApplet(attributes, parameters, '1.7');
-        //                    console.log([[textString]]);    
-        //        }
-        //    };
-        //});
-        //  $(document).ready(function(){
-        //        var $element = $('div[ng-controller="Molecular_Dynamics_Controller"]');
-        //        var scope = angular.element($element).scope();
-        //        console.dir(scope);
-
-                </script> 
-                <!--        var jnlpFile = scope.textString;
-                        deployJava.createWebStartLaunchButtonEx(jnlpFile);-->
-
-                <!--        <script> 
-                            var attributes = {
-                                code:'ffx.jnlp',  width:300, height:300} ; 
-                            var parameters = {jnlp_href: 'jnlp/ffx.jnlp'} ; 
-                            deployJava.runApplet(attributes, parameters, '1.7'); 
-                        </script>-->
-                <!--<div>TODO write content</div>-->
-                <hr>
+                    
+                    <hr >
                 <footer>
                     <div class="col-md-10" style="margin-top: 30px; margin-left: 40px; padding-bottom:30px;">
                         <p>
@@ -334,6 +356,8 @@
                 </footer>
             </form> 
         </div>
-        <script>window.jQuery || document.write('<script src="js2/vendor/jquery-1.11.1.min.js"><\/script>');</script>
-        <!-- <![endif]-->
+
+                </div>
+
+    </body>
 </html>
