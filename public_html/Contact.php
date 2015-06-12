@@ -175,7 +175,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                     </div>
                 </div>
             </div>
-            <div style="height: 10px"></div>
+            <div style="height: 50px"></div>
   	<div class="container">
   		<div class="row">
   			<div class="col-md-6 col-md-offset-3">
