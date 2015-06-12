@@ -176,6 +176,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                     </div>
                 </div>
             </div>
+            <hr id="firstLine">
   	<div class="container">
   		<div class="row">
   			<div class="col-md-6 col-md-offset-3">
@@ -223,7 +224,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 			</div>
 		</div>
 	</div>   
-    <div class="push"></div>
+    <!--<div class="push"></div>-->
         </div>
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push">
