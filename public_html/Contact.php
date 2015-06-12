@@ -224,10 +224,10 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 			</div>
 		</div>
 	</div>   
-    <!--<div class="push"></div>-->
+    <div class="push"></div>
         </div>
         <!--  This div contains the footer which is attached to the bottom  -->
-        <div class="push">
+        <div class="push" style="background-color:#1b1b1b;">
             <hr style="border-width: 2px;  bottom: 0px;">
             <div class="col-md-10" style="margin-top: 40px">
                 <p>
