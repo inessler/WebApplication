@@ -113,10 +113,6 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 }
 	}
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -132,40 +128,40 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
   				<h1 class="page-header text-center">Contact Form Example</h1>
 				<form class="form-horizontal" role="form" method="post" action="Contact.php">
 					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Name</label>
-						<div class="col-sm-10">
+						<label for="name" class="col-sm-3 control-label">Name</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
 							<?php echo "<p class='text-danger'>$errName</p>";?>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="email" class="col-sm-2 control-label">Email</label>
-						<div class="col-sm-10">
+						<label for="email" class="col-sm-3 control-label">Email</label>
+						<div class="col-sm-9">
 							<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
 							<?php echo "<p class='text-danger'>$errEmail</p>";?>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="message" class="col-sm-2 control-label">Message</label>
-						<div class="col-sm-10">
+						<label for="message" class="col-sm-3 control-label">Message</label>
+						<div class="col-sm-9">
 							<textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
 							<?php echo "<p class='text-danger'>$errMessage</p>";?>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
-						<div class="col-sm-10">
+						<label for="human" class="col-sm-3 control-label">2 + 3 = ?</label>
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
 							<?php echo "<p class='text-danger'>$errHuman</p>";?>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-10 col-sm-offset-2">
+						<div class="col-sm-9 col-sm-offset-2">
 							<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-10 col-sm-offset-2">
+						<div class="col-sm-9 col-sm-offset-2">
 							<?php echo $result; ?>	
 						</div>
 					</div>
