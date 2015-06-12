@@ -115,7 +115,7 @@ and open the template in the editor.
                             </ul>
                         </li>
                         <li>
-                            <a id="link" class="navbar-brand" href="ContactUs.html" role="button">
+                            <a id="link" class="navbar-brand" href="Contact.php" role="button">
                                 <font style="color:yellow">Contact</font>
                             </a>
                         </li>
