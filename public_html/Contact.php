@@ -141,7 +141,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                     <div class="navbar-collapse collapse navbar-right">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a class="navbar-brand" href="index.html" role="button">
+                                <a class="navbar-brand" href="index-JNLP.html" role="button">
                                     Home
                                 </a>
                             </li>
@@ -224,7 +224,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 			</div>
 		</div>
 	</div>   
-    <div class="push"></div>
+    <div class="push" style="background-color:#1b1b1b;"></div>
         </div>
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push">
