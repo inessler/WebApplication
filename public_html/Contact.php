@@ -227,7 +227,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         </div>
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push" >
-            <hr style="border-width: 20px;  bottom: 0px; color: white !important">
+            <hr style="border-width: 2px;  bottom: 0px; border-color: white !important">
             <div class='row container-fluid' style="background-color:#1b1b1b; margin-bottom: auto">
             <div class="col-md-4" style="margin-top: 40px; background-color:#1b1b1b;">
                 <font style="color:white;">
