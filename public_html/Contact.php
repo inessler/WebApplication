@@ -227,7 +227,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         </div>
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push" >
-            <div class='row' style="background-color:#1b1b1b;">
+            <div class='row' style="background-color:#1b1b1b; margin-bottom: auto">
             <div class="col-md-4" style="margin-top: 40px; background-color:#1b1b1b;">
                 <font style="color:white;">
                     &copy; University of Iowa Biochemistry Department 2014
