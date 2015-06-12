@@ -228,11 +228,11 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         </div>
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push">
-            <hr style="border-width: 2px;  bottom: 0px;">
+            <hr style="border-width: 20px;  bottom: 0px;">
             <div class="col-md-10" style="margin-top: 40px; background-color:#1b1b1b;">
-                <p>
+                <font style="color:white;">
                     &copy; University of Iowa Biochemistry Department 2014
-                </p>
+                </font>
             </div>
             <div class="col-md-2" style="background-color:#1b1b1b;"></div>
             <div class="col-md-2" style="margin-right:-100px; background-color:#1b1b1b;">
