@@ -229,12 +229,12 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push">
             <div class='row'>
-            <div class="col-md-3" style="margin-top: 40px; background-color:#1b1b1b;">
+            <div class="col-md-5" style="margin-top: 40px; background-color:#1b1b1b;">
                 <font style="color:white;">
                     &copy; University of Iowa Biochemistry Department 2014
                 </font>
             </div>
-                <div class='col-md-7'></div>
+                <div class='col-md-5'></div>
             <div class="col-md-2" style="margin-right:-100px; background-color:#1b1b1b;">
                 <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
             </div>
