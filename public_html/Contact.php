@@ -80,9 +80,9 @@ and open the template in the editor.
 		$email = $_POST['email'];
 		$message = $_POST['message'];
 		$human = intval($_POST['human']);
-		$from = 'Demo Contact Form'; 
-		$to = 'example@domain.com'; 
-		$subject = 'Message from Contact Demo ';
+		$from = $name; 
+		$to = 'iannessler@gmail.com'; 
+		$subject = 'Message from FFX WebSRG';
 		
 		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
 		// Check if name has been entered
