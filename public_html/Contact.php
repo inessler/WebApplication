@@ -175,7 +175,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                     </div>
                 </div>
             </div>
-            <hr  style="border-width: 2px; border-color: white !important; color: white">
+            <hr  style="border-width: 20px; border-color: white; color: white">
   	<div class="container">
   		<div class="row">
   			<div class="col-md-6 col-md-offset-3">
