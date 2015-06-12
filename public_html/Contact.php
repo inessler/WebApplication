@@ -110,6 +110,7 @@ and open the template in the editor.
                                 <li><a href="Rotamer.html">Rotamer Optimization</a></li>
                                 <li class="divider"></li>
                                 <li><a href="Xray.html">X-Ray.Minimize</a></li>
+                                <li class="divider"></li>
                                 <li><a href="RealSpace.html">Real Space</a></li>
                                 <li class="divider"></li>
                             </ul>
@@ -124,7 +125,7 @@ and open the template in the editor.
             </div>
         </div>  
         <hr style="margin-top: 50px;"> 
-<h3 style="text-align: center">Fill out the form below and some one will be in touch with you as soon
+<h3 style="text-align: center">Fill out the form below and we will be in touch with you as soon
             as possible:</h3>
         <div class='row'>
         <div class="container-fluid body">
