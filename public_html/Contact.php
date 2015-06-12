@@ -118,8 +118,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Bootstrap contact form with PHP example by BootstrapBay.com.">
     <meta name="author" content="BootstrapBay.com">
-    <title>Bootstrap Contact Form With PHP Example</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <title>Contact Us</title>
   </head>
   <body>
       <div class="wrapper">
