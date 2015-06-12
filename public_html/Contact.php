@@ -122,6 +122,60 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   </head>
   <body>
+      <div class="wrapper">
+            
+            <!--  Id menubar as shown in Main.css provides coloring  -->
+            <div  id="menubar" class="navbar  navbar-inverse navbar-fixed-top" role="navigation">
+            
+                <!--  Allows the navbar to fit any width of page  -->
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index-JNLP.html">FFX Web Application</a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-right">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a class="navbar-brand" href="index.html" role="button">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="navbar-brand" href="LearnMore.html" role="button">
+                                    About
+                                </a>
+                            </li>
+                            <!--  This is the dropdown featured in the navbar. More information on the class "dropdown" can be found in Main.css  -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
+                                <ul class="dropdown-menu" id="Dropdown" role="menu">
+                                    <li class="divider" style="margin-top: -5px"></li>
+                                    <li><a href="Minimize.html" style="padding-top: -5px">Minimize</a></li>
+                                    <li class="divider" ></li>
+                                    <li><a href="Molecular_Dynamics.html">Molecular Dynamics</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="Rotamer.html">Rotamer Optimization</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="Xray.html">X-Ray</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="RealSpace.html">Real Space</a></li>
+                                <li class="divider"></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a id="link" class="navbar-brand" href="Contact.php" role="button">
+                                    <font style="color:yellow;">Contact</font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
   	<div class="container">
   		<div class="row">
   			<div class="col-md-6 col-md-offset-3">
@@ -169,7 +223,23 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 			</div>
 		</div>
 	</div>   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  </body>
+    <div class="push"></div>
+        </div>
+        <!--  This div contains the footer which is attached to the bottom  -->
+        <div class="push">
+            <hr style="border-width: 2px;  bottom: 0px;">
+            <div class="col-md-10" style="margin-top: 40px">
+                <p>
+                    &copy; University of Iowa Biochemistry Department 2014
+                </p>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2" style="margin-right:-100px">
+                <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
+            </div>
+        </div>    
+        <script>window.jQuery || document.write('<script src="js2/vendor/jquery-1.11.1.min.js"><\/script>');</script>
+        <script src="js2/vendor/bootstrap.min.js"></script>
+        <script src="js2/main.js"></script>
+    </body>
 </html>
