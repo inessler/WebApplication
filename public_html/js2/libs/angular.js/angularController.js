@@ -1188,6 +1188,265 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
         };
     }]);
 
+WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope) {
+        $scope.NumberPattern = /^[0-9]+$/;
+        $scope.TextPattern = /^[a-zA-Z]+$/;
+        $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
+        $scope.flag0 = false;
+        $scope.flag0a = false;
+        $scope.flag0b0 = false;
+        $scope.flag0b1 = false;
+        $scope.flag1 = false;
+        $scope.flag2 = false;
+        $scope.flag3 = false;
+        $scope.flag4 = false;
+        $scope.flag5 = false;
+        $scope.flag6 = false;
+        $scope.flag7 = false;
+        $scope.finalnumber = true;
+        $scope.confirmed = false;
+        $scope.uriFlags = "";
+        $scope.Number0 = "";
+        $scope.Number0a = "";
+        $scope.Number0b = "";
+        $scope.Number0b0 = "";
+        $scope.Number0b1 = "";
+        $scope.Number1 = "";
+        $scope.Number2 = "";
+        $scope.Number3 = "";
+        $scope.Number4 = "";
+        $scope.Number5 = "";
+        $scope.Number6 = "";
+        $scope.Number7 = "";
+        var CheckFlag = function (word1) {
+            console.log(word1);
+        };
+
+        var DownloadCheck = function () {
+
+            /*****************************************************************************
+             * create temporary hyperlink element
+             * @type @exp;document@call;createElement
+             *****************************************************************************/
+            var hyperlink = document.createElement('a');
+
+            /*****************************************************************************
+             *      if download property is undefined
+             *      browser doesn't support the feature
+             *****************************************************************************/
+            if (hyperlink.download === undefined) {
+                alert('Bummer... \nIt would appear your browser does not support download attributes.\n\nPlease switch to a compatible browser such as:\nGoogle Chrome\nOpera\nFirefox');
+            }
+        };
+
+        /*****************************************************************************
+         * Run DownloadCheck function to see if browser allows download attributes
+         * @returns {undefined}
+         *****************************************************************************/
+        DownloadCheck();
+
+        /*****************************************************************************
+         * Function to collect flags input then download JNLP file and input file
+         * @param {type} Number1
+         * @param {type} Number2
+         * @param {type} Number3
+         * @param {type} Number4
+         * @param {type} Number5
+         * @returns {undefined}
+         *****************************************************************************/
+        $scope.CollectFlags = function (Number0, Number1, Number2, Number3, Number4, Number5, Number6) {
+
+            /*****************************************************************************
+             * Check for the various File API support. 
+             *****************************************************************************/
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+                /*****************************************************************************
+                 * Great success! All the File APIs are supported.
+                 *****************************************************************************/
+            } else {
+                alert('The File APIs are not fully supported in this browser.');
+                return;
+            }
+
+            /*****************************************************************************
+             * Build JNLP as Textstring to download
+             *****************************************************************************/
+            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var FFX_Function = "rotamer";
+            var TextString = InitialTextString + FFX_Function;
+
+            /*******************************************************************************
+             *      Next 5 if statements check to see if user input has been provided
+             *      in input box if so it assigns the appropriate flag and appends it to
+             *      the JNLP file string called TextString. 
+             *******************************************************************************/
+            if (Number0 !== "" && Number0 !== undefined) {
+                var TextString = TextString + ' ' + '-e ' + Number0;
+            }
+            else {
+                TextString = TextString + ' ' + '-e ' + -1.0;
+            }
+            ;
+            if (Number1 !== "" && Number1 !== undefined) {
+                var TextString = TextString + ' ' + '-f ' + Number1;
+            }
+            else {
+                TextString = TextString + ' ' + '-f ' + -1,-1,-1;
+            }
+            ;
+            if (Number2 !== "" && Number2 !== undefined) {
+                TextString = TextString + ' ' + '-m ' + Number2;
+            }
+            else {
+                TextString = TextString + ' ' + '-m ' + 1000;
+            }
+            ;
+            if (Number3 !== "" && Number3 !== undefined) {
+                TextString = TextString + ' ' + '-p ' + Number3;
+            }
+            else {
+                TextString = TextString + ' ' + '-p ' + 'mutual';
+            }
+            ;
+            
+            /** All the "else if" statements are from a select multiple field in the xray form **/
+            
+            if (Number4 === "input4=Coordinates" && Number4 !== undefined) {
+                TextString = TextString + ' ' + '-r ' + Number4;
+            }
+                else if (Number4 === "input4=B Factors" && Number4 !== undefined) {
+                    TextString = TextString + ' ' + '-r ' + 'bfactors';
+                }
+                else if (Number4 === "input4=Occupancies" && Number4 !== undefined) {
+                    TextString = TextString + ' ' + '-r ' + Number4;
+                }
+                else if (Number4 === "input4=Coordinates&input4=B Factors" && Number4 !== undefined) {
+                    TextString = TextString + ' ' + '-r ' + 'coordinates_and_bfactors';
+                }
+                else if (Number4 === "input4=B Factors&input4=Occupancies" && Number4 !== undefined) {
+                    TextString = TextString + ' ' + '-r ' + 'bfactors_and_occupancies';
+                }
+                else if (Number4 === "input4=Coordinates&input4=Occupancies" && Number4 !== undefined) {
+                    TextString = TextString + ' ' + '-r ' + 'coordinates_and_occupancies';
+                }
+                else if (Number4 === "input4=Coordinates&input4=B Factors&input4=Occupancies" && Number4 !== undefined) {
+                    TextString = TextString + ' ' + '-r ' + 'coordinates_and_bfactors_and_occupancies';
+                }
+                else {
+                    TextString = TextString + ' ' + '-r ' + 'coordinates';
+                }
+                ;
+            if (Number5 !== "" && Number5 !== undefined) {
+                TextString = TextString + ' ' + '-s ' + Number5;
+            }
+            else {
+                TextString = TextString + ' ' + '-s ' + '_refine';
+            }
+            ;
+            if (Number6 !== "" && Number6 !== undefined) {
+                TextString = TextString + ' ' + '-t ' + Number6;
+            }
+            
+            TextString = TextString + " </argument>\n       <argument> ";
+
+            /*****************************************************************************
+             * 
+             *           Check if user inputed a file if not then deliver a warning to user
+             *           and exit function.
+             *           
+             *****************************************************************************/
+            if (document.getElementById("PDB_File").files.length !== 0) {
+                var FileName = document.getElementById("PDB_File").files[0].name;
+            }
+            else {
+                alert('You have not entered a file for analysis. Please select a file to continue.');
+                return;
+            }
+            TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
+            $scope.textString = TextString;
+
+            /*****************************************************************************
+             *            Textstring compile is completed create download element.
+             *****************************************************************************/
+            var dataBlob = new Blob([TextString], {type: 'text/plain'});
+            $scope.JnlpBlob = dataBlob;
+            var reader = new window.FileReader();
+            reader.readAsDataURL(dataBlob);
+            reader.onloadend = function () {
+                $scope.base64data = reader.result;
+                console.log($scope.base64data);
+            };
+            saveAs(dataBlob, "ffx.jnlp");
+
+            /*****************************************************************************           
+             * The code below this block can be used if saveAs()
+             * does not work in the future, I think the save as is a better 
+             * implementation as of this moment
+             *                      
+             *            var a = window.document.createElement('a');
+             *            a.download = 'ffx.jnlp';
+             *            a.href = $scope.JNLP_Directory;
+             *            a.href = window.URL.createObjectURL(data);
+             *            document.body.appendChild(a);
+             *            a.click();
+             *            document.body.removeChild(a);
+             *****************************************************************************/
+
+            /***************************************************************************** 
+             *               Start of dealing with input pdb file   
+             *****************************************************************************/
+            var fr = new FileReader();
+            fr.onload = receivedText;
+            fr.readAsText(document.getElementById("PDB_File").files[0]);
+
+            /*****************************************************************************
+             *      The following function reads the input file and then saves it in the
+             *      users Downloads folder
+             *****************************************************************************/
+            function receivedText() {
+
+                /*****************************************************************************
+                 *  Set input file to a variable
+                 * @returns {Element}
+                 *****************************************************************************/
+                var fileInputContents = fr.result;
+
+                /*****************************************************************************
+                 *  Create blob of input file contents
+                 * @type @new;Blob
+                 *****************************************************************************/
+                var blobFileInput = new Blob([fileInputContents], {type: 'text/plain'});
+
+                /*****************************************************************************
+                 *       Get file input name and set that as the name for the pdb file download.
+                 *       In future may want to make a random process to avoid duplicates.
+                 * @type @exp;document@call;getElementById@arr;files@pro;name
+                 *****************************************************************************/
+                var FileName = document.getElementById("PDB_File").files[0].name;
+                saveAs(blobFileInput, FileName);
+
+                /*****************************************************************************
+                 *The function below will take the user to FileDownloaded.html after completion. 
+                 * @returns {Element}
+                 *****************************************************************************/
+//                migrateHtml();
+
+                /*****************************************************************************
+                 *      The code below this block can be used if saveAs()
+                 *      does not work in the future, I think the save as is a better 
+                 *      implementation at this moment
+                 *                 
+                 *                 a.download = FileName;
+                 *                 a.href = window.URL.createObjectURL(fileInputContents);
+                 *                 document.body.appendChild(a);
+                 *                 a.click();
+                 *                 document.body.removeChild(a);
+                 *****************************************************************************/
+            }
+        };
+    }]);
+
 
 /************************************************************************************
  *      The following code provides a way to go from the minimize html page to the fileDownloaded html page

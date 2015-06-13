@@ -124,11 +124,8 @@ and open the template in the editor.
         </div>
         <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
-        <div class="container" style="margin-left: 40px" >
-            
-            <!-- Form and controller needed! 
-            <form name="???" ng-controller="???">
-            -->
+        <div class="container" style="margin-left: 40px" >            
+            <form name="XrayForm" ng-controller="Xray_Controller">
                 <div class='row' style="height: 20px;"></div>
                 <div class='row'>
                     <h2>
@@ -269,7 +266,7 @@ and open the template in the editor.
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
                                     Refinement Mode
                                 </span>
-                                <select multiple name="input0" ng-model="Number4" class="form-control">
+                                <select multiple name="input4" ng-model="Number4" class="form-control">
                                     <option ng-value="1" selected>Coordinates</option>
                                     <option ng-value="2">B Factors</option>
                                     <option ng-value="3">Occupancies</option>
