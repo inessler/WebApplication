@@ -178,8 +178,8 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
             <div style="height: 75px"></div>
   	<div class="container">
   		<div class="row">
-  			<div class="col-md-6 col-md-offset-3">
-  				<h1 class="page-header text-center">Let us know what you think!</h1>
+  			<div class="col-md-8 col-md-offset-2">
+  				<h1 class="page-header text-center">Contact Form</h1>
 				<form class="form-horizontal" role="form" method="post" action="Contact.php">
 					<div class="form-group">
 						<label for="name" class="col-sm-3 control-label">Name</label>
