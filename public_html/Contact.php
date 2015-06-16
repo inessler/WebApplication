@@ -178,7 +178,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
             <div style="height: 75px"></div>
   	<div class="container">
   		<div class="row">
-  			<div class="col-md-8 col-md-offset-2">
+  			<div class="col-md-6 col-md-offset-3">
   				<h1 class="page-header text-center">Contact Form</h1>
 				<form class="form-horizontal" role="form" method="post" action="Contact.php">
 					<div class="form-group">
