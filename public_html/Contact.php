@@ -178,7 +178,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
             <div style="height: 75px"></div>
   	<div class="container">
   		<div class="row">
-  			<div class="col-md-offset-3">
+  			<div class="col-md-6 col-md-offset-3">
   				<h1 class="page-header text-center">Contact Form</h1>
 				<form class="form-horizontal" role="form" method="post" action="Contact.php">
 					<div class="form-group">
@@ -210,7 +210,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-4">
+						<div class="col-md-offset-3">
 							<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
 						</div>
 					</div>
