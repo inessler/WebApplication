@@ -210,7 +210,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-3">
+						<div class="col-sm-offset-4">
 							<input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
 						</div>
 					</div>
