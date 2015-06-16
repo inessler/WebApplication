@@ -188,6 +188,146 @@ WebApp.directive("fileread", [function () {
         };
     }]);
 
+WebApp.controller('TutorialController', ['$scope', '$window', function ($scope) {
+        $scope.NumberPattern = /^[0-9]+$/;
+        $scope.clicked = false;
+        $scope.NumberPattern = /^[0-9]+$/;
+        $scope.TextPattern = /^[a-zA-Z]+$/;
+        $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
+        $scope.flag0 = false;
+        $scope.flag1 = false;
+        $scope.flag2 = false;
+        $scope.flag3 = false;
+        $scope.flag4 = false;
+        $scope.flag5 = false;
+        $scope.flag6 = false;
+        $scope.finalnumber = true;
+        $scope.confirmed = false;
+        $scope.uriFlags = "";
+        $scope.Number0 = 1000000;
+        $scope.Number1 = "";
+        $scope.Number2 = "";
+        $scope.Number3 = "";
+        $scope.Number4 = "";
+        $scope.Number5 = "";
+        $scope.Number6 = "";
+        /*
+         * Function to test browser compatibility with download attribute
+         * @returns {undefined}
+         */
+        var DownloadCheck = function () {
+
+            /*****************************************************************************
+             * create temporary hyperlink element
+             * @type @exp;document@call;createElement
+             *****************************************************************************/
+            var hyperlink = document.createElement('a');
+
+            /*****************************************************************************
+             *      if download property is undefined
+             *      browser doesn't support the feature
+             *****************************************************************************/
+            if (hyperlink.download === undefined) {
+                alert('Bummer... \nIt would appear your browser does not support download attributes.\n\nPlease switch to a compatible browser such as:\nGoogle Chrome\nOpera\nFirefox');
+            }
+        };
+
+        /*****************************************************************************
+         * Run DownloadCheck function to see if browser allows download attributes
+         * @returns {undefined}
+         *****************************************************************************/
+        DownloadCheck();
+
+        /*****************************************************************************
+         * Function to collect flags input then download JNLP file and input file
+         * @returns {undefined}
+         *****************************************************************************/
+$scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6) {
+var fileString='asdfasdfasdfasdfasdfasdfsadfasdfasdf';
+            /*****************************************************************************
+             * Check for the various File API support. 
+             *****************************************************************************/
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+                /*****************************************************************************
+                 * Great success! All the File APIs are supported.
+                 *****************************************************************************/
+            } else {
+                alert('The File APIs are not fully supported in this browser.');
+                return;
+            }
+
+            /*****************************************************************************
+             * Build JNLP as Textstring to download
+             *****************************************************************************/
+            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var FFX_Function = "md";
+            var TextString = InitialTextString + FFX_Function;
+
+            /*******************************************************************************
+             *      Next 5 if statements check to see if user input has been provided
+             *      in input box if so it assigns the appropriate flag and appends it to
+             *      the JNLP file string called TextString. 
+             *******************************************************************************/
+            if (Number1 !== undefined) {
+                var TextString = TextString + ' ' + '-n ' + Number1;
+            }
+            ;
+            if (Number2 !== undefined) {
+                TextString = TextString + ' ' + '-d ' + Number2;
+            }
+            ;
+            if (Number3 !== undefined) {
+                TextString = TextString + ' ' + '-t ' + Number3;
+            }
+            ;
+            if (Number4 !== "") {
+                TextString = TextString + ' ' + '-p ' + Number4;
+            }
+            ;
+            if (Number5 !== undefined) {
+                TextString = TextString + ' ' + '-l ' + Number5;
+            }
+            ;
+            if (Number6 !== undefined) {
+                TextString = TextString + ' ' + '-w ' + Number6;
+            }
+            ;
+
+            TextString = TextString + " </argument>\n       <argument> ";
+
+            /*****************************************************************************
+             * 
+             *           Check if user inputed a file if not then deliver a warning to user
+             *           and exit function.
+             *           
+             *****************************************************************************/
+//            if (document.getElementById("PDB_File").files.length !== 0) {
+//                var FileName = document.getElementById("PDB_File").files[0].name;
+//            }
+//            else {
+//                alert('You have not entered a file for analysis. Please select a file to continue.');
+//                return;
+//            }
+            TextString = TextString + "Downloads/" + 'Example.pdb' + " </argument>\n    </application-desc>\n</jnlp>";
+            $scope.textString = TextString;
+
+            /*****************************************************************************
+             *            Textstring compile is completed create download element.
+             *****************************************************************************/
+            var dataBlob = new Blob([TextString], {type: 'text/plain'});
+            saveAs(dataBlob, "ffx.jnlp");
+            /*****************************************************************************
+             *            Download example.pdb
+             *****************************************************************************/
+             var fileBlob = new Blob([fileString], {type: 'text/plain'});
+             saveAs(fileBlob, "Example.pdb");
+ migrateHtml();
+
+
+        };
+    }]);
+
 /*
  * Controller that is used for the minimzation webpage and all angular variables
  * on that web page.
@@ -401,18 +541,6 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
 //    };
 //}]);
 
-/************************************************************************************
- *      The following code provides a way to go from the minimize html page to the fileDownloaded html page
- *      so that the end user will know how to run the file that was previously downloaded.
- * @type @exp;window@pro;document@call;createElement
- ************************************************************************************/
-//var migrateHtml = function () {
-//    var a = window.document.createElement('a');
-//    a.href = "FileDownloaded.html";
-//    document.body.appendChild(a);
-//    a.click();
-//    document.body.removeChild(a);
-//};
 /****************************************************************************************************************
  * 
  * Future FFX functions can be conducted using seperate controllers with similar code on the inside.
@@ -1446,8 +1574,6 @@ WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope) {
             }
         };
     }]);
-
-
 /************************************************************************************
  *      The following code provides a way to go from the minimize html page to the fileDownloaded html page
  *      So that the end user will know how to run the file that was previously downloaded.
@@ -1455,7 +1581,7 @@ WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope) {
  ************************************************************************************/
 var migrateHtml = function () {
     var a = window.document.createElement('a');
-    a.href = "Applet.html";
+    a.href = "FileDownloaded.html";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

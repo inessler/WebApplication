@@ -109,7 +109,8 @@ ul.nav a:hover {
 */
 .dropdown:hover .dropdown-menu {
     display: block;
-    left: -20px;
+    width:175px;
+    left: 0px;
     background-color: #1b1b1b !important;
 }
 
@@ -137,13 +138,25 @@ ul.nav a:hover {
     border-width: 2px;
     border: solid;
     background-image:none !important; 
-    text-align: center;  
+    text-align: center;
     margin-left:300px; 
     margin-top: -50px;
     max-width: 600px;  
     z-index: 1;
 }
+#TutorialButton {
+    background-image:none !important; 
+    margin-top: 7px;
+}
 
+.centered{
+	width:625px;
+	height:auto;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-250px 0 0 -300px;
+}
 /* Allows room for pop-up message when user hovers over the 'what is this' button  
 .spacer {
     width: 100px;
