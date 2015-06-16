@@ -124,11 +124,8 @@ and open the template in the editor.
         </div>
         <hr style="border-width: 10px; margin-top: -10px; margin-bottom: auto; border-color: #2B2B2B;">
         <hr style="border-width: 5px;  margin-top: -5px; margin-bottom: auto; ">
-        <div class="container" style="margin-left: 40px" >
-            
-            <!-- Form and controller needed! 
-            <form name="???" ng-controller="???">
-            -->
+        <div class="container" style="margin-left: 40px" >            
+            <form name="XrayForm" ng-controller="Xray_Controller">
                 <div class='row' style="height: 20px;"></div>
                 <div class='row'>
                     <h2>
@@ -168,12 +165,11 @@ and open the template in the editor.
                     </div>
                 </div>
                 
-                <!-- Need controller name at lines 172, 193, 214, 236, 257, 279, and 6 times on line 301 
-                cmd+f search '????' -->
+                <!-- Need controller name below: cmd+f search '????' -->
                 
                 <div class="container">
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : ????.input0.$error.number }">
                             <div class="input-group">
@@ -195,7 +191,7 @@ and open the template in the editor.
                     </div>
                     
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : ????.input3.$error.number }">
                             <div class="input-group">
@@ -217,7 +213,7 @@ and open the template in the editor.
                     </div>
                     
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : ????.input1.$error.number }">
                             <div class="input-group">
@@ -239,7 +235,7 @@ and open the template in the editor.
                     </div>
                     
                     <div class="row">
-                        <div class="col-xsm-6" style="width:106%">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="width:113%">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag3" ng-if="Number3" type="checkbox" ng-init="flag3 = true">
@@ -264,13 +260,13 @@ and open the template in the editor.
                     </div>
                     
                     <div class="row">
-                        <div class="col-xsm-6" style="width:88%">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" style="width:94%">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">
                                     Refinement Mode
                                 </span>
-                                <select multiple size="1" name="input4" ng-model="Number4" class="form-control">
+                                <select multiple name="input4" ng-model="Number4" class="form-control">
                                     <option ng-value="1" selected>Coordinates</option>
                                     <option ng-value="2">B Factors</option>
                                     <option ng-value="3">Occupancies</option>
@@ -289,7 +285,7 @@ and open the template in the editor.
                     </div>
                     
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : ????.input5.$error.number }">
                             <div class="input-group">
@@ -311,7 +307,7 @@ and open the template in the editor.
                     </div>
                     
                     <div class="row">
-                        <div class="col-xsm-6" ng-class="{
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : ????.input5.$error.number }">
                             <div class="input-group">
