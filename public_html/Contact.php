@@ -179,7 +179,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
   	<div class="container">
   		<div class="row">
   			<div class="col-md-6 col-md-offset-3">
-  				<h1 class="page-header text-center">Contact Form Example</h1>
+  				<h1 class="page-header text-center">Let us know what you think!</h1>
 				<form class="form-horizontal" role="form" method="post" action="Contact.php">
 					<div class="form-group">
 						<label for="name" class="col-sm-3 control-label">Name</label>
