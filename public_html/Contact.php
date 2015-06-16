@@ -215,7 +215,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-9 col-sm-offset-2">
+						<div class="col-sm-9 col-sm-offset-2 col-md-offset-2">
 							<?php echo $result; ?>	
 						</div>
 					</div>
