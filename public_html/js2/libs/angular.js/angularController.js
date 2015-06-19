@@ -9,8 +9,9 @@
  *   Year:   2014
  */
 
-var WebApp = angular.module('WebApp', []).config(['$compileProvider', function ($compileProvider) {
+var WebApp = angular.module('WebApp', []).config(['$compileProvider', function ($compileProvider, $rootScope) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/);
+        $rootScope.InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
     }]);
 /*
  * Directive used to initiate function to read file and determine number of atoms and time consumption.
@@ -188,7 +189,7 @@ WebApp.directive("fileread", [function () {
         };
     }]);
 
-WebApp.controller('TutorialController', ['$scope', '$window', function ($scope) {
+WebApp.controller('TutorialController', ['$scope', '$window', function ($scope, $rootScope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.clicked = false;
         $scope.NumberPattern = /^[0-9]+$/;
@@ -260,7 +261,7 @@ var fileString='asdfasdfasdfasdfasdfasdfsadfasdfasdf';
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = $rootScope.InitialTextSTring;
             var FFX_Function = "md";
             var TextString = InitialTextString + FFX_Function;
 
@@ -334,7 +335,7 @@ var fileString='asdfasdfasdfasdfasdfasdfsadfasdfasdf';
  * @param {type} param1
  * @param {type} param2
  */
-WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
+WebApp.controller('EnergyController', ['$scope', '$window', function ($scope, $rootScope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.flag0 = false;
         $scope.flag1 = false;
@@ -406,7 +407,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = $rootScope.InitialTextString;
             var FFX_Function = "minimize";
             var TextString = InitialTextString + FFX_Function;
 
@@ -526,20 +527,6 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
             }
         };
     }]);
-//WebApp.service('fileUpload', ['$http', function ($http) {
-//    this.uploadFileToUrl = function(file, uploadUrl){
-//        var fd = new FormData();
-//        fd.append('file', file);
-//        $http.post(uploadUrl, fd, {
-//            transformRequest: angular.identity,
-//            headers: {'Content-Type': undefined}
-//        })
-//        .success(function(){
-//        })
-//        .error(function(){
-//        });
-//    };
-//}]);
 
 /****************************************************************************************************************
  * 
@@ -548,7 +535,7 @@ WebApp.controller('EnergyController', ['$scope', '$window', function ($scope) {
  * 
  ****************************************************************************************************************/
 
-WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope) {
+WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope,$rootScope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.TextPattern = /^[a-zA-Z]+$/;
         $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
@@ -624,7 +611,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = $rootScope.InitialTextString;
             var FFX_Function = "md";
             var TextString = InitialTextString + FFX_Function;
 
@@ -768,7 +755,7 @@ WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', functio
         };
     }]);
 
-WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) {
+WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope,$rootScope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.TextPattern = /^[a-zA-Z]+$/;
         $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
@@ -852,7 +839,7 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = $rootScope.InitialTextString;
             var FFX_Function = "rotamer";
             var TextString = InitialTextString + FFX_Function;
 
@@ -1011,7 +998,7 @@ WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) 
         };
     }]);
 
-WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope) {
+WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope, $rootScope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.TextPattern = /^[a-zA-Z]+$/;
         $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
@@ -1103,8 +1090,8 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
-            var FFX_Function = "realSpace.rotamer";
+            var InitialTextString = $rootScope.InitialTextString;
+            var FFX_Function = "realSpace.rotamer";0
             var TextString = InitialTextString + FFX_Function;
 
             /*******************************************************************************
@@ -1316,7 +1303,7 @@ WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope
         };
     }]);
 
-WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope) {
+WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope, $rootScope) {
         $scope.NumberPattern = /^[0-9]+$/;
         $scope.TextPattern = /^[a-zA-Z]+$/;
         $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
@@ -1400,7 +1387,7 @@ WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope) {
             /*****************************************************************************
              * Build JNLP as Textstring to download
              *****************************************************************************/
-            var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+            var InitialTextString = $rootScope.InitialTextString;
             var FFX_Function = "rotamer";
             var TextString = InitialTextString + FFX_Function;
 
