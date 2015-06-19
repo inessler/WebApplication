@@ -132,12 +132,38 @@
                     <h4>
                         1. Each program requires a coordinate file. Click on the button below to upload example coordinate file.
                     </h4>
+                    <div class="row">
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{ 'has-success': Molecule}">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input ng-model="flag6" ng-if="Molecule" type="checkbox" ng-init="flag6 = true">
+                                        Protein:
+                                    </span>
+                                    <select name="input6" ng-model="Molecule" class="form-control">
+                                        <option></option>
+                                        <option ng-value="Kit">Kit</option>
+                                        <option ng-value="GJB2Hexamer">GJB2 Hexamer</option>
+                                        <option ng-value="GIPC3">GIPC3</option>
+                                        <option ng-value="MAK">MAK</option>
+                                        <option ng-value="PAX6">PAX6</option>
+                                    </select>
+                                    <div class="input-group-addon dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                            <font style="color:black">What is this?</font>
+                                        </a>
+                                        <div class="dropdown-menu special wordwrap" role="menu">
+                                            There are many homology files that are stored on three github accounts. These proteins are a select few.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
                     <div class="form-group">
                         <div class="container-fluid">
                             <div class="row">
                                 <button type="button" ng-click="clicked = true" class="btn btn-color col-sm-3"> <font style="color: black">Upload coordinate file</font></button>
                                 <div  id="TutorialButton" ng-cloak ng-show="clicked" class="col-sm-5">
-                                    <p ng-show="clicked" style="color:yellow;"> <b>Homology.pdb Uploaded!</b></p>
+                                    <p ng-show="clicked" style="color:yellow;"> <b>Kit.pdb Uploaded!</b></p>
                                 </div>
                             </div>
                         </div>
