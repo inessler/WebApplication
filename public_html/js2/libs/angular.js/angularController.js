@@ -241,20 +241,21 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                  *****************************************************************************/
                 DownloadCheck();
                 
-                
+                var proteinName;
                 /**
                  * Function to download proper pdb file from server to client.
                  * @returns {file}
                  */
                 $scope.download = function (file) {
                     window.location=file+".pdb";
+                    proteinName = file;
                 }
                 
                 /*****************************************************************************
                  * Function to collect flags input then download JNLP file and input file
                  * @returns {undefined}
                  *****************************************************************************/
-                $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6, Molecule) {
+                $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6) {
                         /*****************************************************************************
                          * Check for the various File API support. 
                          *****************************************************************************/
@@ -317,7 +318,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
 //                alert('You have not entered a file for analysis. Please select a file to continue.');
 //                return;
 //            }
-                        TextString = TextString + "Downloads/" + Molecule + '.pdb' + " </argument>\n    </application-desc>\n</jnlp>";
+                        TextString = TextString + "Downloads/" + proteinName + '.pdb' + " </argument>\n    </application-desc>\n</jnlp>";
                         $scope.textString = TextString;
                         /*****************************************************************************
                          *            Textstring compile is completed create download element.
