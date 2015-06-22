@@ -229,7 +229,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
                     &copy; University of Iowa Biochemistry Department 2014
                 </font>
             </div>
-                <div class='col-md-6'></div>
+                <div class='col-md-4'></div>
             <div class="col-md-2" style="margin-right:-100px; background-color:#1b1b1b;">
                 <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
             </div>

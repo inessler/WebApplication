@@ -190,9 +190,11 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                 }
         };
         }]);
+    
         WebApp.controller('TutorialController', ['$scope', '$window', function ($scope) {
         $scope.NumberPattern = /^[0-9]+$/;
                 $scope.clicked = false;
+                $scope.unclicked = true;
                 $scope.NumberPattern = /^[0-9]+$/;
                 $scope.TextPattern = /^[a-zA-Z]+$/;
                 $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;

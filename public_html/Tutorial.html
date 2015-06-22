@@ -161,7 +161,7 @@
                     <div class="form-group">
                         <div class="container-fluid">
                             <div class="row">
-                                <input style="color:black;" type="button" ng-click="clicked = true; download(Molecule)" class="btn btn-color col-sm-3" value='Upload coordinate file'> 
+                                <input style="color:black;" type="button" ng-click="clicked = true; download(Molecule); unclicked=false" class="btn btn-color col-sm-3" value='Upload coordinate file'> 
                                 <div  id="TutorialButton" ng-cloak ng-show="clicked" class="col-sm-5">
                                     <p ng-show="clicked" style="color:yellow;"> <b>Kit.pdb Uploaded!</b></p>
                                 </div>
@@ -169,6 +169,9 @@
                         </div>
                     </div>
                     <hr>
+                    <div ng-show='unclicked' style='height:400px;'>
+                    </div>
+                    <div ng-show='clicked'>
                     <div class='row'>
                         <h4>
                             2. After the file is uploaded, advanced parameters can be set. For this examples the parameters are fixed. Click 'create JNLP File' to download jnlp file. 
@@ -298,6 +301,7 @@
                             </div>
                         </div>
                     </div>
+                        </div>
                     <script src="https://www.java.com/js/deployJava.js"></script>
                     <hr>
                     <footer>
