@@ -142,7 +142,7 @@
                                     <select name="input6" ng-model="Molecule" class="form-control">
                                         <option></option>
                                         <option ng-value="Kit">Kit</option>
-                                        <option ng-value="GJB2Hexamer">GJB2 Hexamer</option>
+                                        <option ng-value="GJB2Hexamer">GJB2Hexamer</option>
                                         <option ng-value="GIPC3">GIPC3</option>
                                         <option ng-value="MAK">MAK</option>
                                         <option ng-value="PAX6">PAX6</option>
@@ -163,12 +163,12 @@
                             <div class="row">
                                 <input style="color:black;" type="button" ng-click="clicked = true; download(Molecule); unclicked=false" class="btn btn-color col-sm-3" value='Upload coordinate file'> 
                                 <div  id="TutorialButton" ng-cloak ng-show="clicked" class="col-sm-5">
-                                    <p ng-show="clicked" style="color:yellow;"> <b>Kit.pdb Uploaded!</b></p>
+                                    <p ng-show="clicked" style="color:yellow;"> <b>{{Molecule}}.pdb Uploaded!</b></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    <hr ng-show='clicked'> 
                     <div ng-show='unclicked' style='height:400px;'>
                     </div>
                     <div ng-show='clicked'>
