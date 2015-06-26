@@ -172,8 +172,11 @@
                             </div>
                         </div>
                         <div class="row" ng-show="Number0 == 4 || Number0 == 5"></div> 
-                        <div class="row" ng-show="Number0 == 4">
-                            <div class="col-xsm-5" ng-class="{
+                        
+                        <!--The following can be used to implement sliding window option if ever necessary-->
+                        
+                        <!--                        <div class="row" ng-show="Number0 == 4">
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 :RotamerForm.input0a.$error.number, 'has-success':Number0a }">
                                 <div class="input-group">
@@ -189,11 +192,11 @@
                                             Size of the sliding window with respect to adjacent residues.
                                         </div>
                                     </div>
-                                </div><!-- /input-group -->
+                                </div> /input-group 
                             </div>                   
-                        </div>
-                        <div class="row" ng-show="Number0 == 4">
-                            <div class="col-xsm-5" ng-class="{
+                        </div>-->
+<!--                        <div class="row" ng-show="Number0 == 4">
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 :RotamerForm.input0a.$error.number, 'has-success':Number0a }">
                                 <div class="input-group">
@@ -209,11 +212,12 @@
                                             The sliding window cutoff radius (Angstroms).
                                         </div>
                                     </div>
-                                </div><!-- /input-group -->
+                                </div> /input-group 
                             </div>                   
-                        </div>
+                        </div>-->
+
                         <div class="row" ng-show="Number0 == 5">
-                            <div class="col-xsm-5" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : RotamerForm.input0b0.$error.number, 'has-success':Number0b0 }">
                                 <div class="input-group">
@@ -233,7 +237,7 @@
                             </div>                   
                         </div>
                         <div class="row" ng-show="Number0 == 5">
-                            <div class="col-xsm-5" ng-class="{
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
                                 : RotamerForm.input0b1.$error.number, 'has-success':Number0b1 }">
                                 <div class="input-group">
@@ -365,7 +369,7 @@
                                 </div>                   
                             </div>
                             <div class="row">
-                                <div class="col-xsm-5" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
+                                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{'has-error':MDForm.input4.$error.number, 'has-success':Number4 }" >
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <input ng-model="flag4" ng-if="Number4" type="checkbox" ng-init="flag4 = true">

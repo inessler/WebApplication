@@ -20,8 +20,8 @@
         <extension name="ffx-dependency" href="http://ffx.eng.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp" />
         <extension name="jogl-all-awt" href="http://jogamp.org/deployment/v2.1.5/jogl-all-awt.jnlp" />
     </resources>
-    <application-desc main-class="ffx.Main">
+    <applet-desc main-class="ffx.Main">
        <argument>md </argument>
        <argument> Molecule_Files/acetamide.pdb </argument>
-    </application-desc>
+    </applet-desc>
 </jnlp>
