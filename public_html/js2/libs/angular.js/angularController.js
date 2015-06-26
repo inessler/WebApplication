@@ -273,34 +273,34 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
          *****************************************************************************/
         var FFX_Function = "md";
                 var TextString = InitialTextString + FFX_Function;
-                TextString = TextString + " </argument>\n       <argument>";
+                TextString = TextString + "</argument>\n       <argument>";
                 /*******************************************************************************
                  *      Next 5 if statements check to see if user input has been provided
                  *      in input box if so it assigns the appropriate flag and appends it to
                  *      the JNLP file string called TextString. 
                  *******************************************************************************/
                 if (Number1 !== undefined) {
-        var TextString = TextString + '' + '-n' + "</argument>\n       <argument>" + Number1 + " </argument>\n       <argument>";
+        var TextString = TextString + '' + '-n' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
         }
         ;
                 if (Number2 !== undefined) {
-        TextString = TextString + '' + '-d' + "</argument>\n       <argument>" + Number2 + " </argument>\n       <argument>";
+        TextString = TextString + '' + '-d' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
         }
         ;
                 if (Number3 !== undefined) {
-        TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number3 + " </argument>\n       <argument>";
+        TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
         }
         ;
                 if (Number4 !== "") {
-        TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+        TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
         }
         ;
                 if (Number5 !== undefined) {
-        TextString = TextString + '' + '-l' + "</argument>\n       <argument>" + Number5 + " </argument>\n       <argument>";
+        TextString = TextString + '' + '-l' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
         }
         ;
                 if (Number6 !== undefined) {
-        TextString = TextString + '' + '-w' + "</argument>\n       <argument>" + Number6 + " </argument>\n       <argument>";
+        TextString = TextString + '' + '-w' + "</argument>\n       <argument>" + Number6 + "</argument>\n       <argument>";
         }
         ;
                 /*****************************************************************************
@@ -316,7 +316,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
 //                alert('You have not entered a file for analysis. Please select a file to continue.');
 //                return;
 //            }
-                TextString = TextString + "Downloads/" + proteinName + '.pdb' + " </argument>\n    </application-desc>\n</jnlp>";
+                TextString = TextString + "Downloads/" + proteinName + '.pdb' + "</argument>\n    </application-desc>\n</jnlp>";
                 $scope.textString = TextString;
                 /*****************************************************************************
                  *            Textstring compile is completed create download element.
@@ -407,30 +407,30 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                  *****************************************************************************/
                 var FFX_Function = "minimize";
                         var TextString = InitialTextString + FFX_Function;
-                        TextString = TextString + " </argument>\n       <argument>";
+                        TextString = TextString + "</argument>\n       <argument>";
                         /*******************************************************************************
                          *      Next 5 if statements check to see if user input has been provided
                          *      in input box if so it assigns the appropriate flag and appends it to
                          *      the JNLP file string called TextString. 
                          *******************************************************************************/
                         if (Number1 !== undefined) {
-                var TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number1 + " </argument>\n       <argument>";
+                var TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
                 }
                 ;
                         if (Number2 !== undefined) {
-                TextString = TextString + '' + '-s2' + "</argument>\n       <argument>" + Number2 + " </argument>\n       <argument>";
+                TextString = TextString + '' + '-s2' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
                 }
                 ;
                         if (Number3 !== undefined) {
-                TextString = TextString + '' + '-l' + "</argument>\n       <argument>" + Number3 + " </argument>\n       <argument>";
+                TextString = TextString + '' + '-l' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                 }
                 ;
                         if (Number4 !== undefined) {
-                TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+                TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                 }
                 ;
                         if (Number5 !== undefined) {
-                TextString = TextString + '' + '-f2' + "</argument>\n       <argument>" + Number5 + " </argument>\n       <argument>";
+                TextString = TextString + '' + '-f2' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
                 }
                 ;
                         /*****************************************************************************
@@ -446,7 +446,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                 alert('You have not entered a file for analysis. Please select a file to continue.');
                         return;
                 }
-                TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
+                TextString = TextString + "Downloads/" + FileName + "</argument>\n    </application-desc>\n</jnlp>";
                         /*****************************************************************************
                          *            Textstring compile is completed create download element.
                          *****************************************************************************/
@@ -596,34 +596,34 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                          *****************************************************************************/
                         var FFX_Function = "md";
                                 var TextString = InitialTextString + FFX_Function;
-                                TextString = TextString + " </argument>\n       <argument>";
+                                TextString = TextString + "</argument>\n       <argument>";
                                 /*******************************************************************************
                                  *      Next 5 if statements check to see if user input has been provided
                                  *      in input box if so it assigns the appropriate flag and appends it to
                                  *      the JNLP file string called TextString. 
                                  *******************************************************************************/
                                 if (Number1 !== undefined) {
-                        var TextString = TextString + '' + '-n' + "</argument>\n       <argument>" + Number1 + " </argument>\n       <argument>";
+                        var TextString = TextString + '' + '-n' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
                         }
                         ;
                                 if (Number2 !== undefined) {
-                        TextString = TextString + '' + '-d' + "</argument>\n       <argument>" + Number2 + " </argument>\n       <argument>";
+                        TextString = TextString + '' + '-d' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
                         }
                         ;
                                 if (Number3 !== undefined) {
-                        TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number3 + " </argument>\n       <argument>";
+                        TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                         }
                         ;
                                 if (Number4 !== "") {
-                        TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+                        TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                         }
                         ;
                                 if (Number5 !== undefined) {
-                        TextString = TextString + '' + '-l' + "</argument>\n       <argument>" + Number5 + " </argument>\n       <argument>";
+                        TextString = TextString + '' + '-l' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
                         }
                         ;
                                 if (Number6 !== undefined) {
-                        TextString = TextString + '' + '-w' + "</argument>\n       <argument>" + Number6 + " </argument>\n       <argument>";
+                        TextString = TextString + '' + '-w' + "</argument>\n       <argument>" + Number6 + "</argument>\n       <argument>";
                         }
                         ;
                                 /*****************************************************************************
@@ -639,7 +639,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                         alert('You have not entered a file for analysis. Please select a file to continue.');
                                 return;
                         }
-                        TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
+                        TextString = TextString + "Downloads/" + FileName + "</argument>\n    </application-desc>\n</jnlp>";
                                 $scope.textString = TextString;
                                 /*****************************************************************************
                                  *            Textstring compile is completed create download element.
@@ -811,52 +811,52 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                  *****************************************************************************/
                                 var FFX_Function = "rotamer";
                                         var TextString = InitialTextString + FFX_Function;
-                                        TextString = TextString + " </argument>\n       <argument>";
+                                        TextString = TextString + "</argument>\n       <argument>";
                                         /*******************************************************************************
                                          *      Next 5 if statements check to see if user input has been provided
                                          *      in input box if so it assigns the appropriate flag and appends it to
                                          *      the JNLP file string called TextString. 
                                          *******************************************************************************/
                                         if (Number1 !== "" && Number1 !== undefined) {
-                                TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + Number1 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
                                 }
 //                                else {
-//                                TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + 1.5 + " </argument>\n       <argument>";
+//                                TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + 1.5 + "</argument>\n       <argument>";
 //                                }
 //                                ;
                                         if (Number2 !== "" && Number2 !== undefined) {
-                                TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + Number2 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
                                 }
 //                                else {
-//                                TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + 5.0 + " </argument>\n       <argument>";
+//                                TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + 5.0 + "</argument>\n       <argument>";
 //                                }
 //                                ;
                                         if (Number3 !== "" && Number3 !== undefined) {
-                                TextString = TextString + '' + '-o' + "</argument>\n       <argument>" + Number3 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-o' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         if (Number4 !== "" && Number4 !== undefined) {
-                                TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         if (Number5 !== "" && Number5 !== undefined) {
-                                TextString = TextString + '-x' + "</argument>\n       <argument>" + Number5 + " </argument>\n       <argument>";
+                                TextString = TextString + '-x' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         if (Number6 !== "" && Number6 !== undefined) {
-                                TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number6 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number6 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         if (Number7 !== "" && Number7 !== undefined) {
-                                TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number7 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number7 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         if (Number8 !== "" && Number8 !== undefined) {
-                                TextString = TextString + '' + '-lR' + "</argument>\n       <argument>" + Number8 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-lR' + "</argument>\n       <argument>" + Number8 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         if (Number9 !== "" && Number9 !== undefined) {
-                                TextString = TextString + '' + '-a' + "</argument>\n       <argument>" + Number9 + " </argument>\n       <argument>";
+                                TextString = TextString + '' + '-a' + "</argument>\n       <argument>" + Number9 + "</argument>\n       <argument>";
                                 }
                                 ;
                                         /*****************************************************************************
@@ -872,7 +872,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                 alert('You have not entered a file for analysis. Please select a file to continue.');
                                         return;
                                 }
-                                TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
+                                TextString = TextString + "Downloads/" + FileName + "</argument>\n    </application-desc>\n</jnlp>";
                                         $scope.textString = TextString;
                                         /*****************************************************************************
                                          *            Textstring compile is completed create download element.
@@ -1043,64 +1043,64 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                          *****************************************************************************/
                                         var FFX_Function = "realSpace.rotamer"; 0
                                                 var TextString = InitialTextString + FFX_Function;
-                                                TextString = TextString + " </argument>\n       <argument>";
+                                                TextString = TextString + "</argument>\n       <argument>";
                                                 /*******************************************************************************
                                                  *      Next 12 if statements check to see if user input has been provided
                                                  *      in input box if so it assigns the appropriate flag and appends it to
                                                  *      the JNLP file string called TextString. 
                                                  *******************************************************************************/
                                                 if (Number1 !== "" && Number1 !== undefined) {
-                                        var TextString = TextString + '' + '-a' + "</argument>\n       <argument>" + Number1 + " </argument>\n       <argument>";
+                                        var TextString = TextString + '' + '-a' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number2 !== "" && Number2 !== undefined) {
-                                        TextString = TextString + '' + '-w' + "</argument>\n       <argument>" + Number2 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-w' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number3 !== "" && Number3 !== undefined) {
-                                        TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + Number3 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                                         }
                                         else {
-                                        TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + 1.5 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + 1.5 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number4 !== "" && Number4 !== undefined) {
-                                        TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                                         }
                                         else {
-                                        TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + 5.0 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + 5.0 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number5 !== "" && Number5 !== undefined) {
-                                        TextString = TextString + '' + '-o' + "</argument>\n       <argument>" + Number5 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-o' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number6 !== "" && Number6 !== undefined) {
-                                        TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number6 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number6 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number7 !== "" && Number7 !== undefined) {
-                                        TextString = TextString + '' + '-x' + "</argument>\n       <argument>" + Number7 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-x' + "</argument>\n       <argument>" + Number7 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number8 !== "" && Number8 !== undefined) {
-                                        TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number8 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number8 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number9 !== "" && Number9 !== undefined) {
-                                        TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number9 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number9 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number10 !== "" && Number10 !== undefined) {
-                                        TextString = TextString + '' + '-lR' + "</argument>\n       <argument>" + Number10 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-lR' + "</argument>\n       <argument>" + Number10 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number11 !== "" && Number11 !== undefined) {
-                                        TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number11 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number11 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number12 !== "" && Number12 !== undefined) {
-                                        TextString = TextString + '' + '-Dxweight=' + "</argument>\n       <argument>" + Number12 + " </argument>\n       <argument>";
+                                        TextString = TextString + '' + '-Dxweight=' + "</argument>\n       <argument>" + Number12 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 /*****************************************************************************
@@ -1123,7 +1123,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         alert('You have not entered a real space data file for analysis. Please select a file to continue.');
                                                 return;
                                         }
-                                        TextString = TextString + "Downloads/" + FileName + " " + FileName2 + " </argument>\n    </application-desc>\n</jnlp>";
+                                        TextString = TextString + "Downloads/" + FileName + " " + FileName2 + "</argument>\n    </application-desc>\n</jnlp>";
                                                 $scope.textString = TextString;
                                                 /*****************************************************************************
                                                  *            Textstring compile is completed create download element.
@@ -1326,76 +1326,76 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                  *****************************************************************************/
                                                 var FFX_Function = "rotamer";
                                                         var TextString = InitialTextString + FFX_Function;
-                                                        TextString = TextString + " </argument>\n       <argument>";
+                                                        TextString = TextString + "</argument>\n       <argument>";
                                                         /*******************************************************************************
                                                          *      Next 5 if statements check to see if user input has been provided
                                                          *      in input box if so it assigns the appropriate flag and appends it to
                                                          *      the JNLP file string called TextString. 
                                                          *******************************************************************************/
                                                         if (Number0 !== "" && Number0 !== undefined) {
-                                                var TextString = TextString + '' + '-e' + "</argument>\n       <argument>" + Number0 + " </argument>\n       <argument>";
+                                                var TextString = TextString + '' + '-e' + "</argument>\n       <argument>" + Number0 + "</argument>\n       <argument>";
                                                 }
                                                 else {
-                                                TextString = TextString + '' + '-e' + - 1.0 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-e' + - 1.0 + "</argument>\n       <argument>";
                                                 }
                                                 ;
                                                         if (Number1 !== "" && Number1 !== undefined) {
-                                                var TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number1 + " </argument>\n       <argument>";
+                                                var TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
                                                 }
                                                 else {
-                                                TextString = TextString + '' + '-f' + - 1, - 1, - 1 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-f' + - 1, - 1, - 1 + "</argument>\n       <argument>";
                                                 }
                                                 ;
                                                         if (Number2 !== "" && Number2 !== undefined) {
-                                                TextString = TextString + '' + '-m' + "</argument>\n       <argument>" + Number2 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-m' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
                                                 }
                                                 else {
-                                                TextString = TextString + '' + '-m' + 1000 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-m' + 1000 + "</argument>\n       <argument>";
                                                 }
                                                 ;
                                                         if (Number3 !== "" && Number3 !== undefined) {
-                                                TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number3 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                                                 }
                                                 else {
-                                                TextString = TextString + '' + '-p' + 'mutual' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-p' + 'mutual' + "</argument>\n       <argument>";
                                                 }
                                                 ;
                                                         /** All the "else if" statements are from a select multiple field in the xray form **/
 
                                                         if (Number4 === "input4=Coordinates" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                                                 }
                                                 else if (Number4 === "input4=B Factors" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + 'bfactors' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + 'bfactors' + "</argument>\n       <argument>";
                                                 }
                                                 else if (Number4 === "input4=Occupancies" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number4 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                                                 }
                                                 else if (Number4 === "input4=Coordinates&input4=B Factors" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + 'coordinates_and_bfactors' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + 'coordinates_and_bfactors' + "</argument>\n       <argument>";
                                                 }
                                                 else if (Number4 === "input4=B Factors&input4=Occupancies" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + 'bfactors_and_occupancies' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + 'bfactors_and_occupancies' + "</argument>\n       <argument>";
                                                 }
                                                 else if (Number4 === "input4=Coordinates&input4=Occupancies" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + 'coordinates_and_occupancies' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + 'coordinates_and_occupancies' + "</argument>\n       <argument>";
                                                 }
                                                 else if (Number4 === "input4=Coordinates&input4=B Factors&input4=Occupancies" && Number4 !== undefined) {
-                                                TextString = TextString + '' + '-r' + 'coordinates_and_bfactors_and_occupancies' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + 'coordinates_and_bfactors_and_occupancies' + "</argument>\n       <argument>";
                                                 }
                                                 else {
-                                                TextString = TextString + '' + '-r' + 'coordinates' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-r' + 'coordinates' + "</argument>\n       <argument>";
                                                 }
                                                 ;
                                                         if (Number5 !== "" && Number5 !== undefined) {
-                                                TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number5 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
                                                 }
                                                 else {
-                                                TextString = TextString + '' + '-s' + '_refine' + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-s' + '_refine' + "</argument>\n       <argument>";
                                                 }
                                                 ;
                                                         if (Number6 !== "" && Number6 !== undefined) {
-                                                TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number6 + " </argument>\n       <argument>";
+                                                TextString = TextString + '' + '-t' + "</argument>\n       <argument>" + Number6 + "</argument>\n       <argument>";
                                                 }
 
                                                 /*****************************************************************************
@@ -1411,7 +1411,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 alert('You have not entered a file for analysis. Please select a file to continue.');
                                                         return;
                                                 }
-                                                TextString = TextString + "Downloads/" + FileName + " </argument>\n    </application-desc>\n</jnlp>";
+                                                TextString = TextString + "Downloads/" + FileName + "</argument>\n    </application-desc>\n</jnlp>";
                                                         $scope.textString = TextString;
                                                         /*****************************************************************************
                                                          *            Textstring compile is completed create download element.
