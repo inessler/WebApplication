@@ -190,7 +190,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                 }
         };
         }]);
-    
         WebApp.controller('TutorialController', ['$scope', '$window', function ($scope) {
         $scope.NumberPattern = /^[0-9]+$/;
                 $scope.clicked = false;
@@ -240,77 +239,77 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                  * @returns {undefined}
                  *****************************************************************************/
                 DownloadCheck();
-                
                 var proteinName;
                 /**
                  * Function to download proper pdb file from server to client.
                  * @returns {file}
                  */
                 $scope.download = function (file) {
-                    window.location=file+".pdb";
-                    proteinName = file;
-                }
-                
-                /*****************************************************************************
-                 * Function to collect flags input then download JNLP file and input file
-                 * @returns {undefined}
-                 *****************************************************************************/
-                $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6) {
-                        /*****************************************************************************
-                         * Check for the various File API support. 
-                         *****************************************************************************/
-                        if (window.File && window.FileReader && window.FileList && window.Blob) {
-
-                /*****************************************************************************
-                 * Great success! All the File APIs are supported.
-                 *****************************************************************************/
-                } else {
-                alert('The File APIs are not fully supported in this browser.');
-                        return;
+                window.location = file + ".pdb";
+                        proteinName = file;
                 }
 
+        /*****************************************************************************
+         * Function to collect flags input then download JNLP file and input file
+         * @returns {undefined}
+         *****************************************************************************/
+        $scope.CollectFlags = function (Number1, Number2, Number3, Number4, Number5, Number6) {
+        /*****************************************************************************
+         * Check for the various File API support. 
+         *****************************************************************************/
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
 
+        /*****************************************************************************
+         * Great success! All the File APIs are supported.
+         *****************************************************************************/
+        } else {
+        alert('The File APIs are not fully supported in this browser.');
+                return;
+        }
+
+
+        /*****************************************************************************
+         * Build JNLP as Textstring to download
+         *****************************************************************************/
+        var FFX_Function = "md";
+                var TextString = InitialTextString + FFX_Function;
+                TextString = TextString + " </argument>\n       <argument> ";
+                /*******************************************************************************
+                 *      Next 5 if statements check to see if user input has been provided
+                 *      in input box if so it assigns the appropriate flag and appends it to
+                 *      the JNLP file string called TextString. 
+                 *******************************************************************************/
+                if (Number1 !== undefined) {
+        var TextString = TextString + ' ' + '-n ' + Number1;
+        }
+        ;
+                if (Number2 !== undefined) {
+        TextString = TextString + ' ' + '-d ' + Number2;
+        }
+        ;
+                if (Number3 !== undefined) {
+        TextString = TextString + ' ' + '-t ' + Number3;
+        }
+        ;
+                if (Number4 !== "") {
+        TextString = TextString + ' ' + '-p ' + Number4;
+        }
+        ;
+                if (Number5 !== undefined) {
+        TextString = TextString + ' ' + '-l ' + Number5;
+        }
+        ;
+                if (Number6 !== undefined) {
+        TextString = TextString + ' ' + '-w ' + Number6;
+        }
+        ;
+                TextString = TextString + " </argument>\n       <argument> ";
                 /*****************************************************************************
-                 * Build JNLP as Textstring to download
+                 * 
+                 *           Check if user inputed a file if not then deliver a warning to user
+                 *           and exit function.
+                 *           
                  *****************************************************************************/
-                var FFX_Function = "md";
-                        var TextString = InitialTextString + FFX_Function;
-                        /*******************************************************************************
-                         *      Next 5 if statements check to see if user input has been provided
-                         *      in input box if so it assigns the appropriate flag and appends it to
-                         *      the JNLP file string called TextString. 
-                         *******************************************************************************/
-                        if (Number1 !== undefined) {
-                var TextString = TextString + ' ' + '-n ' + Number1;
-                }
-                ;
-                        if (Number2 !== undefined) {
-                TextString = TextString + ' ' + '-d ' + Number2;
-                }
-                ;
-                        if (Number3 !== undefined) {
-                TextString = TextString + ' ' + '-t ' + Number3;
-                }
-                ;
-                        if (Number4 !== "") {
-                TextString = TextString + ' ' + '-p ' + Number4;
-                }
-                ;
-                        if (Number5 !== undefined) {
-                TextString = TextString + ' ' + '-l ' + Number5;
-                }
-                ;
-                        if (Number6 !== undefined) {
-                TextString = TextString + ' ' + '-w ' + Number6;
-                }
-                ;
-                        TextString = TextString + " </argument>\n       <argument> ";
-                        /*****************************************************************************
-                         * 
-                         *           Check if user inputed a file if not then deliver a warning to user
-                         *           and exit function.
-                         *           
-                         *****************************************************************************/
 //            if (document.getElementById("PDB_File").files.length !== 0) {
 //                var FileName = document.getElementById("PDB_File").files[0].name;
 //            }
@@ -318,20 +317,20 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
 //                alert('You have not entered a file for analysis. Please select a file to continue.');
 //                return;
 //            }
-                        TextString = TextString + "Downloads/" + proteinName + '.pdb' + " </argument>\n    </application-desc>\n</jnlp>";
-                        $scope.textString = TextString;
-                        /*****************************************************************************
-                         *            Textstring compile is completed create download element.
-                         *****************************************************************************/
-                        var dataBlob = new Blob([TextString], {type: 'text/plain'});
-                        saveAs(dataBlob, "ffx.jnlp");
+                TextString = TextString + "Downloads/" + proteinName + '.pdb' + " </argument>\n    </application-desc>\n</jnlp>";
+                $scope.textString = TextString;
+                /*****************************************************************************
+                 *            Textstring compile is completed create download element.
+                 *****************************************************************************/
+                var dataBlob = new Blob([TextString], {type: 'text/plain'});
+                saveAs(dataBlob, "ffx.jnlp");
 //                        /*****************************************************************************
 //                         *            Download example.pdb
 //                         *****************************************************************************/
 //                        var fileBlob = new Blob([fileString], {type: 'text/plain'});
 //                        saveAs(fileBlob, "Example.pdb");
-                        migrateHtml();
-                };
+                migrateHtml();
+        };
         }]);
         /*
          * Controller that is used for the minimzation webpage and all angular variables
@@ -409,6 +408,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                  *****************************************************************************/
                 var FFX_Function = "minimize";
                         var TextString = InitialTextString + FFX_Function;
+                        TextString = TextString + " </argument>\n       <argument> ";
                         /*******************************************************************************
                          *      Next 5 if statements check to see if user input has been provided
                          *      in input box if so it assigns the appropriate flag and appends it to
@@ -524,7 +524,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                  * What would need to change is the the flags associated with each Number from the input and the FFX_Function
                  * 
                  ****************************************************************************************************************/
-
                 WebApp.controller('Molecular_Dynamics_Controller', ['$scope', '$window', function ($scope) {
                 $scope.NumberPattern = /^[0-9]+$/;
                         $scope.TextPattern = /^[a-zA-Z]+$/;
@@ -599,6 +598,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                          *****************************************************************************/
                         var FFX_Function = "md";
                                 var TextString = InitialTextString + FFX_Function;
+                                TextString = TextString + " </argument>\n       <argument> ";
                                 /*******************************************************************************
                                  *      Next 5 if statements check to see if user input has been provided
                                  *      in input box if so it assigns the appropriate flag and appends it to
@@ -729,6 +729,9 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         deployJava.runApplet(attributes, parameters, '1.8');
                                 };
                         }]);
+                        /**
+                         * 
+                         */
                         WebApp.controller('Rotamer_Controller', ['$scope', '$window', function ($scope) {
                         $scope.NumberPattern = /^[0-9]+$/;
                                 $scope.TextPattern = /^[a-zA-Z]+$/;
@@ -811,6 +814,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                  *****************************************************************************/
                                 var FFX_Function = "rotamer";
                                         var TextString = InitialTextString + FFX_Function;
+                                        TextString = TextString + " </argument>\n       <argument> ";
                                         /*******************************************************************************
                                          *      Next 5 if statements check to see if user input has been provided
                                          *      in input box if so it assigns the appropriate flag and appends it to
@@ -957,6 +961,9 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 }
                                         };
                                 }]);
+                                /**
+                                 * 
+                                 */
                                 WebApp.controller('RealSpace_Controller', ['$scope', '$window', function ($scope) {
                                 $scope.NumberPattern = /^[0-9]+$/;
                                         $scope.TextPattern = /^[a-zA-Z]+$/;
@@ -1048,6 +1055,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                          *****************************************************************************/
                                         var FFX_Function = "realSpace.rotamer"; 0
                                                 var TextString = InitialTextString + FFX_Function;
+                                                TextString = TextString + " </argument>\n       <argument> ";
                                                 /*******************************************************************************
                                                  *      Next 12 if statements check to see if user input has been provided
                                                  *      in input box if so it assigns the appropriate flag and appends it to
@@ -1246,6 +1254,9 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                         }
                                                 };
                                         }]);
+                                        /**
+                                         * 
+                                         */
                                         WebApp.controller('Xray_Controller', ['$scope', '$window', function ($scope) {
                                         $scope.NumberPattern = /^[0-9]+$/;
                                                 $scope.TextPattern = /^[a-zA-Z]+$/;
@@ -1328,6 +1339,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                  *****************************************************************************/
                                                 var FFX_Function = "rotamer";
                                                         var TextString = InitialTextString + FFX_Function;
+                                                        TextString = TextString + " </argument>\n       <argument> ";
                                                         /*******************************************************************************
                                                          *      Next 5 if statements check to see if user input has been provided
                                                          *      in input box if so it assigns the appropriate flag and appends it to
@@ -1501,4 +1513,4 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                         document.body.appendChild(a);
                                                         a.click();
                                                         document.body.removeChild(a);
-                                                        };
+                                                };
