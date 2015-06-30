@@ -229,9 +229,9 @@
                                 <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button">Functions<span class="caret"></span></a>
                                 <ul class="dropdown-menu" id="Dropdown" role="menu">
                                     <li><a href="Minimize.html" style="margin-top: -5px;text-align: left">Minimize</a></li>
-                                <li><a href="Molecular_Dynamics.html" style="text-align: left;">Molecular Dynamics</a></li>
+                                <!--<li><a href="Molecular_Dynamics.html" style="text-align: left;">Molecular Dynamics</a></li>-->
                                 <li><a href="Rotamer.html" style="text-align: left;">Rotamer Optimization</a></li>
-                                <li><a href="Xray.html" style="text-align: left;">X-Ray.Minimize</a></li>
+                                <!--<li><a href="Xray.html" style="text-align: left;">X-Ray.Minimize</a></li>-->
                                 <li><a href="RealSpace.html" style="text-align: left;">Real Space</a></li>
                                 <li style="height:10px"> </li>
                                 </ul>
@@ -266,10 +266,11 @@
             </div>
             <hr id="firstLine">
             <hr id="secondLine" style="border-width: 3px; margin-top:-10px; margin-bottom: auto; ">
-            <div class="container" style="padding-top: 20px; " >
+            <div class="container" style="padding-top: 40px; padding-bottom: 20px " >
                 <div class="row" >
                     <div class="col-md-12" style="text-align: center">
                         <h1 >Welcome</h1>
+                        <hr style="border-width: 4px; border-color: white; width:200px; margin-top:-10px">
                         <p>It is highly suggested that first time users visit the Examples page. This page will help to orient you to the programs basic requirements and possible parameters.</p>
                         <p> To learn more about how to execute one of these commands <button class="btn btn-color" style="color:black" onclick="window.location.href='/Tutorial.html'">Click here!</button></p>
                     </div>
@@ -279,29 +280,35 @@
             <!--  This div contains the buttons and information about the various functions  -->
             <div class="container" style="padding-top: 0px; " >
                 <div class="row" >
+                    <div class="col-md-12" style="text-align: center">
+                        <h1 >Functions</h1>
+                        <hr style="border-width: 4px; border-color: white; width:200px; margin-top:-10px">
+                    </div>
+                </div>
+                <div class="row" >
                     <div class="col-md-4">
                         <h2>Minimize</h2>
                         <p>Used to calculate all details that are relevant to energy calculations. </p>
                         <p><a class="btn btn-color" href="Minimize.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
-                        <h2>Xray Minimization</h2>
+<!--                        <h2>Xray Minimization</h2>
                         <p>Given a coordinate file along with real space data, this command determines the most favorable energetic conformation. </p>
-                        <p><a class="btn btn-color" href="Xray.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
+                        <p><a class="btn btn-color" href="Xray.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>-->
                     </div>
                     <div class="col-md-4">
-                        <h2>MD</h2>
-                        <p style="padding-bottom: 19.5px">Molecular dynamics calculations.</p>
-                        <p><a class="btn btn-color" href="Molecular_Dynamics.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
                         <h2>Protein Design</h2>
+                        <p>Given a coordinate file along with real space data, this function determines the global minimum for rotamers in a protein. </p>
+                        <p><a class="btn btn-color" href="RealSpace.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
+<!--                        <h2>Protein Design</h2>
                         <p style="padding-bottom: 19.5px">Determines the way in which a novel change in a residue will affect overall protein structure.</p>
-                        <p><a class="btn btn-color" href="Molecular_Dynamics.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
+                        <p><a class="btn btn-color" href="Molecular_Dynamics.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>-->
                     </div>
                     <div class="col-md-4">
                         <h2>Rotamer Optimization</h2>
                         <p> Given a coordinate file this function determines the global minimum for rotamers in a protein.</p>
                         <p><a class="btn btn-color" href="Rotamer.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
-                    <h2>Real Space Optimization</h2>
-                        <p>Given a coordinate file along with real space data, this function determines the global minimum for rotamers in a protein. </p>
-                        <p><a class="btn btn-color" href="RealSpace.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>
+<!--                        <h2>MD</h2>
+                        <p style="padding-bottom: 19.5px">Molecular dynamics calculations.</p>
+                        <p><a class="btn btn-color" href="Molecular_Dynamics.html" role="button"><font color="#2B2B2B">View details &raquo;</font></a></p>-->
                     </div>
                 </div>
             </div>

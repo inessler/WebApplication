@@ -1249,9 +1249,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 $scope.TextPattern = /^[a-zA-Z]+$/;
                                                 $scope.PFlag = /^None+$/ || /^Direct+$/ || /^Mutual'+$/;
                                                 $scope.flag0 = false;
-                                                $scope.flag0a = false;
-                                                $scope.flag0b0 = false;
-                                                $scope.flag0b1 = false;
                                                 $scope.flag1 = false;
                                                 $scope.flag2 = false;
                                                 $scope.flag3 = false;
@@ -1263,20 +1260,12 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 $scope.confirmed = false;
                                                 $scope.uriFlags = "";
                                                 $scope.Number0 = "";
-                                                $scope.Number0a = "";
-                                                $scope.Number0b = "";
-                                                $scope.Number0b0 = "";
-                                                $scope.Number0b1 = "";
                                                 $scope.Number1 = "";
                                                 $scope.Number2 = "";
                                                 $scope.Number3 = "";
                                                 $scope.Number4 = "";
                                                 $scope.Number5 = "";
                                                 $scope.Number6 = "";
-                                                $scope.Number7 = "";
-                                                var CheckFlag = function (word1) {
-                                                console.log(word1);
-                                                };
                                                 var DownloadCheck = function () {
 
                                                 /*****************************************************************************
@@ -1324,7 +1313,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 /*****************************************************************************
                                                  * Build JNLP as Textstring to download
                                                  *****************************************************************************/
-                                                var FFX_Function = "rotamer";
+                                                var FFX_Function = "Xray.minimize";
                                                         var TextString = InitialTextString + FFX_Function;
                                                         TextString = TextString + "</argument>\n       <argument>";
                                                         /*******************************************************************************
@@ -1335,31 +1324,15 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                         if (Number0 !== "" && Number0 !== undefined) {
                                                 var TextString = TextString + '' + '-e' + "</argument>\n       <argument>" + Number0 + "</argument>\n       <argument>";
                                                 }
-                                                else {
-                                                TextString = TextString + '' + '-e' + - 1.0 + "</argument>\n       <argument>";
-                                                }
-                                                ;
                                                         if (Number1 !== "" && Number1 !== undefined) {
                                                 var TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
                                                 }
-                                                else {
-                                                TextString = TextString + '' + '-f' + - 1, - 1, - 1 + "</argument>\n       <argument>";
-                                                }
-                                                ;
                                                         if (Number2 !== "" && Number2 !== undefined) {
                                                 TextString = TextString + '' + '-m' + "</argument>\n       <argument>" + Number2 + "</argument>\n       <argument>";
                                                 }
-                                                else {
-                                                TextString = TextString + '' + '-m' + 1000 + "</argument>\n       <argument>";
-                                                }
-                                                ;
                                                         if (Number3 !== "" && Number3 !== undefined) {
                                                 TextString = TextString + '' + '-p' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                                                 }
-                                                else {
-                                                TextString = TextString + '' + '-p' + 'mutual' + "</argument>\n       <argument>";
-                                                }
-                                                ;
                                                         /** All the "else if" statements are from a select multiple field in the xray form **/
 
                                                         if (Number4 === "input4=Coordinates" && Number4 !== undefined) {

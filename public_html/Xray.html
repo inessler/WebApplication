@@ -159,13 +159,13 @@ and open the template in the editor.
                         <i>• Leave any field blank for a default setting</i>
                     </div>
                 </div>
-                <!-- Need controller name below: cmd+f search '????' -->
+                <!-- Need controller name below: cmd+f search 'Xray_Controller' -->
 
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : ????.input0.$error.number }">
+                                : Xray_Controller.input0.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag0" ng-if="Number0" type="checkbox" ng-init="flag0 = true">
@@ -186,7 +186,7 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : ????.input3.$error.number }">
+                                : Xray_Controller.input3.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag1" ng-if="Number1" type="checkbox" ng-init="flag1 = true">
@@ -207,7 +207,7 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : ????.input1.$error.number }">
+                                : Xray_Controller.input1.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag2" ng-if="Number2" type="checkbox" ng-init="flag2 = true">
@@ -273,7 +273,7 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : ????.input5.$error.number }">
+                                : Xray_Controller.input5.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag5" ng-if="Number5" type="checkbox" ng-init="flag5 = true">
@@ -293,7 +293,7 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9" ng-class="{
                                 'has-error'
-                                : ????.input5.$error.number }">
+                                : Xray_Controller.input5.$error.number }">
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <input ng-model="flag6" ng-if="Number6" type="checkbox" ng-init="flag6 = true">
@@ -314,7 +314,7 @@ and open the template in the editor.
                         <div class="button1">
                             <button ng-class="{
                                     'disabled'
-                                    : ????.input5.$error.number || ????.input4.$error.number || ????.input3.$error.number || ????.input2.$error.number || ????.input1.$error.number || ????.input0.$error.number}" 
+                                    : Xray_Controller.input5.$error.number || Xray_Controller.input4.$error.number || Xray_Controller.input3.$error.number || Xray_Controller.input2.$error.number || Xray_Controller.input1.$error.number || Xray_Controller.input0.$error.number}" 
                                     ng-click="CollectFlags(Number0, Number1, Number2, Number3, Number4, Number5, Number6);
                                                 migrateHtml();" 
                                     type="button" class="btn btn-color" >Create JNLP File</button> 
