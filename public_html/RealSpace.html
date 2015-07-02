@@ -81,15 +81,12 @@
                         <li id="Dropdown" class="dropdown">
                             <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button"><font style="color: yellow;">Functions<span class="caret"></span></font></a>
                             <ul class="dropdown-menu"  role="menu">
-                                <li class="divider" style="margin-top: -5px"></li>
-                                <li><a href="Minimize.html" style="padding-top: -5px;">Minimize</a></li>
-                                <li class="divider" ></li>
-                                <li><a href="Molecular_Dynamics.html">Molecular Dynamics</a></li>
-                                <li class="divider"></li>
-                                <li><a href="Rotamer.html">Rotamer Optimization</a></li>
-                                <li class="divider"></li>
-                                <li><a href="RealSpace.html"><font style="color: yellow;">Real Space</font></a></li>
-                                <li class="divider"></li>
+                                <li><a href="Minimize.html" style="margin-top: -5px;text-align: left;">Minimize</a></li>
+                                <li><a href="Molecular_Dynamics.html" style="text-align: left;">Molecular Dynamics</a></li>
+                                <li><a href="Rotamer.html" style="text-align: left;">Rotamer Optimization</a></li>
+                                <li><a href="Xray.html" style="text-align: left;">X-Ray.Minimize</a></li>
+                                <li><a href="RealSpace.html" style="text-align: left;color: yellow;">Real Space</a></li>
+                                <li style="height:10px"> </li>
                             </ul>
                         </li>
                         <li>
@@ -150,12 +147,25 @@
                     <div class="form-group">
                         <div class="container">
                             <div class="row">
-                                <input type="file" id="Real_File" fileread2="fileRead2" class="col-xsm-6">
+                                <input ng-click="clicked=true; unclicked=false" type="file" id="Real_File" fileread2="fileRead2" class="col-xsm-6">
                             </div>
                         </div>
                     </div>
+                    <div ng-show='clicked'; class="form-group">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <input style="color:black;" type="button" ng-click="secondclick = true; secondunclick=false" class="btn btn-color col-sm-3" value='Continue with this file'> 
+                                    <div  id="TutorialButton" ng-cloak ng-show="clicked" class="col-sm-5">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
                 </div>
-                <hr>
+                         
+                <hr ng-show='secondclick'> 
+                <div ng-show='secondunclick' style='height:200px;'>
+                </div>
+                <div ng-show='secondclick'>
                 <div class='row' >
                     <h4>
                         3. Set variables pertaining to the calculation below: 
@@ -441,6 +451,7 @@
                             </div><!-- /input-group -->
                         </div>                   
                     </div>
+                </div>
                     <div class='row' style="height: 5px;"></div>
                     <div class="row">
                         <div class="button1">
