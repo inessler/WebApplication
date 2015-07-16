@@ -223,14 +223,16 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
         <!--  This div contains the footer which is attached to the bottom  -->
         <div class="push" >
             <hr style="border-width: 2px;  bottom: 0px; border-color: white !important">
-            <div class="col-md-10" style="margin-top: 40px; background-color:#1b1b1b;">
-                <font style="color:white; text-align: left">
+            <div class='row container-fluid' style="background-color:#1b1b1b; margin-bottom: auto">
+            <div class="col-md-10" style="margin-top: 40px; background-color:#1b1b1b; text-align: left;">
+                <font style="color:white;">
                     &copy; University of Iowa Biochemistry Department 2014
                 </font>
             </div>
-            <div class='col-md-2'></div>
+                <div class='col-md-2'></div>
             <div class="col-md-2" style="margin-right:-100px; background-color:#1b1b1b;">
                 <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
+            </div>
             </div>
         </div>    
         <script>window.jQuery || document.write('<script src="js2/vendor/jquery-1.11.1.min.js"><\/script>');</script>
