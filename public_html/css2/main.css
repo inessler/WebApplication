@@ -122,6 +122,10 @@ ul.nav a:hover {
     background-color: #1b1b1b !important;
     background-image:none !important;
 }
+
+/*
+    Provides formatting for the 'what's this' dropdowns featured on each function page
+*/
 .dropdown:hover div.special  {
     color: white;
     background-color: #1b1b1b !important;
@@ -133,6 +137,10 @@ ul.nav a:hover {
     border-color: yellow;
     border-width: 2px;
 }
+
+/*
+    Provides formatting for the output of the time necessary to run a function on a file.
+*/
 #diver {
     border-color: yellow !important;
     border-width: 2px;
@@ -144,41 +152,23 @@ ul.nav a:hover {
     max-width: 600px;  
     z-index: 1;
 }
+
+/*
+    Provides formatting for the button on the turtorial page.
+*/
 #TutorialButton {
     background-image:none !important; 
     margin-top: 7px;
 }
 
-.centered{
+/*.centered{
 	width:625px;
 	height:auto;
 	position:absolute;
 	left:50%;
 	top:50%;
 	margin:-250px 0 0 -300px;
-}
-/* Allows room for pop-up message when user hovers over the 'what is this' button  
-.spacer {
-    width: 100px;
 }*/
-/* The following three @media tags provide css to make the drop-down input group on the molecular dynamics page the same size as the 
-*  other input groups at varying widths.
-*/
-@media (max-width:992px) {
-    .spacer1 {
-        width: 54px;
-    }    
-}
-@media (min-width:993px) {
-    .spacer1 {
-        width: 52px;
-    }    
-}
-@media (min-width:1201px) {
-    .spacer1 {
-        width: 50px;
-    }    
-}
 
 /* Source: http://snipplr.com/view/10979/css-cross-browser-word-wrap */
 .wordwrap { 
@@ -187,12 +177,6 @@ ul.nav a:hover {
     white-space: -pre-wrap;     /* Opera <7 */   
     white-space: -o-pre-wrap;   /* Opera 7 */    
     word-wrap: break-word;      /* IE */
-}
-/*
-  Changes the color of the divider lines in the dropdown menu   
-*/
-.divider {
-    background-color:yellow !important;
 }
 
 /*
@@ -210,7 +194,7 @@ a.navbar-brand:hover {
 }
 
 /*
-Css to deal with background image
+    Css to deal with background image
 */
 .wrapper {
     min-height: 100%;
@@ -225,11 +209,4 @@ Css to deal with background image
 .footer, .push {
     height: 142px; /* .push must be the same height as .footer */
     padding-top: 142px;
-}
-
-/*
-    Css class that makes the link in the navbar yellow for the active page
-*/
-.active1 a{
-    color: yellow !important;
 }

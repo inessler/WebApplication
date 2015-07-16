@@ -59,7 +59,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                         else {
                         scope.finalnumber = false;
                         }
-                        scope.time = ((scope.finalnumber * Math.log(scope.finalnumber)) / 10).toFixed(0);
+                        scope.time = ((scope.finalnumber * Math.log(scope.finalnumber)) / 100).toFixed(0);
                                 var minutes = scope.time;
                                 var hours = (minutes / 60).toFixed(0);
                                 minutes %= 60;
@@ -759,9 +759,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                 $scope.Number5 = "";
                                 $scope.Number6 = "";
                                 $scope.Number7 = "";
-                                var CheckFlag = function (word1) {
-                                console.log(word1);
-                                };
                                 var DownloadCheck = function () {
 
                                 /*****************************************************************************
@@ -970,23 +967,18 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         $scope.flag8 = false;
                                         $scope.finalnumber = true;
                                         $scope.confirmed = false;
-                                        $scope.uriFlags = "";
-                                        $scope.Number0 = "";
-                                        $scope.Number0a = "";
-                                        $scope.Number0b = "";
-                                        $scope.Number0b0 = "";
-                                        $scope.Number0b1 = "";
-                                        $scope.Number1 = "";
-                                        $scope.Number2 = "";
-                                        $scope.Number3 = "";
-                                        $scope.Number4 = "";
-                                        $scope.Number5 = "";
-                                        $scope.Number6 = "";
-                                        $scope.Number7 = "";
-                                        $scope.Number8 = "";
-                                        var CheckFlag = function (word1) {
-                                        console.log(word1);
-                                        };
+                                        $scope.Algorithm = "";
+                                        $scope.WindowSize = "";
+                                        $scope.BoxOverlap = "";
+                                        $scope.BoxSideLength = "";
+                                        $scope.OriginalCoords = "";
+                                        $scope.ThreeBody = "";
+                                        $scope.StartFlag = "";
+                                        $scope.FinalFlag = "";
+                                        $scope.RotamerSpecifier = "";
+                                        $scope.Xflag = "";
+                                        $scope.ListFlag = "";
+                                        $scope.Xweight = "";
                                         var DownloadCheck = function () {
 
                                         /*****************************************************************************
@@ -1041,9 +1033,20 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         /*****************************************************************************
                                          * Build JNLP as Textstring to download
                                          *****************************************************************************/
-                                        var FFX_Function = "realSpace.rotamer"; 0
+                                        var FFX_Function = "realSpace.rotamer";
+                                                if (Number12 !== "" && Number12 !== undefined) {
+                                        var System_Properties =  "\t<argument>-DXweight=" + Number12 + "</argument>\n\t";
+                                        }
+                                        ;
+                                        System_Properties = System_Properties + "<argument>-Dgkterm=true</argument>\n\t<argument>-Dcormodel=BORN_SOLV</argument>\n\t<argument>-Drelative-solvation=GK</argument>\n\t<argument>-DlazyMatrix=true</argument>\n\t"
+
+//                                        System_Properties= System_Properties + "<property name=\"jnlp.gkterm\" value=\"true\" />\n" + "<property name=\"jnlp.cormodel\" value=\"BORN_SOLV\" />\n" + "<property name=\"jnlp.relative\" value=\"GK\" />\n" + "<property name=\"jnlp.lazyMatrix\" value=\"true\" />\n";
+//                                         var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n" + System_Properties    +   "<extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
+        
                                                 var TextString = InitialTextString + FFX_Function;
-                                                TextString = TextString + "</argument>\n       <argument>";
+                                                
+
+                                                TextString = TextString + "</argument>\n " + System_Properties + " <argument>";
                                                 /*******************************************************************************
                                                  *      Next 12 if statements check to see if user input has been provided
                                                  *      in input box if so it assigns the appropriate flag and appends it to
@@ -1060,17 +1063,17 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 if (Number3 !== "" && Number3 !== undefined) {
                                         TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + Number3 + "</argument>\n       <argument>";
                                         }
-                                        else {
-                                        TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + 1.5 + "</argument>\n       <argument>";
-                                        }
-                                        ;
+//                                        else {
+//                                        TextString = TextString + '' + '-bB' + "</argument>\n       <argument>" + 1.5 + "</argument>\n       <argument>";
+//                                        }
+//                                        ;
                                                 if (Number4 !== "" && Number4 !== undefined) {
                                         TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + Number4 + "</argument>\n       <argument>";
                                         }
-                                        else {
-                                        TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + 5.0 + "</argument>\n       <argument>";
-                                        }
-                                        ;
+//                                        else {
+//                                        TextString = TextString + '' + '-bL' + "</argument>\n       <argument>" + 5.0 + "</argument>\n       <argument>";
+//                                        }
+//                                        ;
                                                 if (Number5 !== "" && Number5 !== undefined) {
                                         TextString = TextString + '' + '-o' + "</argument>\n       <argument>" + Number5 + "</argument>\n       <argument>";
                                         }
@@ -1080,15 +1083,15 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         }
                                         ;
                                                 if (Number7 !== "" && Number7 !== undefined) {
-                                        TextString = TextString + '' + '-x' + "</argument>\n       <argument>" + Number7 + "</argument>\n       <argument>";
+                                        TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number7 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number8 !== "" && Number8 !== undefined) {
-                                        TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number8 + "</argument>\n       <argument>";
+                                        TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number8 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number9 !== "" && Number9 !== undefined) {
-                                        TextString = TextString + '' + '-f' + "</argument>\n       <argument>" + Number9 + "</argument>\n       <argument>";
+                                        TextString = TextString + '' + '-x' + "</argument>\n       <argument>" + Number9 + "</argument>\n       <argument>";
                                         }
                                         ;
                                                 if (Number10 !== "" && Number10 !== undefined) {
@@ -1099,10 +1102,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         TextString = TextString + '' + '-r' + "</argument>\n       <argument>" + Number11 + "</argument>\n       <argument>";
                                         }
                                         ;
-                                                if (Number12 !== "" && Number12 !== undefined) {
-                                        TextString = TextString + '' + '-Dxweight=' + "</argument>\n       <argument>" + Number12 + "</argument>\n       <argument>";
-                                        }
-                                        ;
+                                        
                                                 /*****************************************************************************
                                                  * 
                                                  *           Check if user inputed a file if not then deliver a warning to user
@@ -1123,7 +1123,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                         alert('You have not entered a real space data file for analysis. Please select a file to continue.');
                                                 return;
                                         }
-                                        TextString = TextString + "Downloads/" + FileName + " " + FileName2 + "</argument>\n    </application-desc>\n</jnlp>";
+                                        TextString = TextString + "Downloads/" + FileName + "</argument>\n       <argument>" + "Downloads/" + FileName2 + "</argument>\n    </application-desc>\n</jnlp>";
                                                 $scope.textString = TextString;
                                                 /*****************************************************************************
                                                  *            Textstring compile is completed create download element.
@@ -1134,7 +1134,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                 reader.readAsDataURL(dataBlob);
                                                 reader.onloadend = function () {
                                                 $scope.base64data = reader.result;
-//                console.log($scope.base64data);
                                                 };
                                                 saveAs(dataBlob, "ffx.jnlp");
                                                 /*****************************************************************************           
@@ -1187,7 +1186,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                                  *The function below will take the user to FileDownloaded.html after completion. 
                                                                  * @returns {Element}
                                                                  *****************************************************************************/
-//                migrateHtml();
 
                                                                 /*****************************************************************************
                                                                  *      The code below this block can be used if saveAs()
@@ -1200,8 +1198,8 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                                  *                 a.click();
                                                                  *                 document.body.removeChild(a);
                                                                  *****************************************************************************/
-                                                        }
-                                                ;
+                                                        };
+
                                                         function receivedText2() {
 
                                                         /*****************************************************************************
@@ -1225,7 +1223,6 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                                                                  *The function below will take the user to FileDownloaded.html after completion. 
                                                                  * @returns {Element}
                                                                  *****************************************************************************/
-//                migrateHtml();
 
                                                                 /*****************************************************************************
                                                                  *      The code below this block can be used if saveAs()

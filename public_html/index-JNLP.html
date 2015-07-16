@@ -13,7 +13,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
     <head>
         <title>FFX Web Application</title>
         <meta charset="utf-8">
@@ -181,6 +181,13 @@
                     margin-left: -512px;   /*50%*/
                 }
             }
+            /* Css to be used when width is less than 1024px*/
+            @media screen and (max-width: 991px) {  
+                /* Specific to this particular image */
+                div.row {
+                    text-align: center;
+                }
+            }
             
             /* Crop the image at the standard laptop computer size */
             #wrapper{
@@ -193,6 +200,7 @@
         <link rel="stylesheet" href="css2/main.css">
         <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="js2/libs/angular.js/angular.js"></script>
+        
     </head>
     <body>
         <!--  Used to make room for footer at bottom of page see Main.css for more details  -->
@@ -330,8 +338,14 @@
                 <img src="img2/Logo2.png" alt="Smiley face" height="100" width="100" style="background-color: ">
             </div>
         </div>    
+        <!--
+        This code block allows for dropbox actions on this page which are actually detrimental to UI. I leave it here incase dropdown functionality on click 
+        is necessary in the future.
+        
         <script>window.jQuery || document.write('<script src="js2/vendor/jquery-1.11.1.min.js"><\/script>');</script>
-        <script src="js2/vendor/bootstrap.min.js"></script>
-        <script src="js2/main.js"></script>
+        
+        -->
+        <!--<script src="js2/vendor/bootstrap.min.js"></script>-->
+        <!--<script src="js2/main.js"></script>-->
     </body>
 </html>
