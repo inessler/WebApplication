@@ -225,7 +225,7 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
             <hr style="border-width: 2px;  bottom: 0px; border-color: white !important">
             <div class='row container-fluid' style="background-color:#1b1b1b; margin-bottom: auto">
             <div class="col-md-10" style="margin-top: 40px; background-color:#1b1b1b;">
-                <font style="color:white;">
+                <font style="color:white; text-align: left">
                     &copy; University of Iowa Biochemistry Department 2014
                 </font>
             </div>
