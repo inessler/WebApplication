@@ -14,8 +14,12 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
 }]);
 // Global variable that defines most of the machinery used in the JNLP download.
 // Verison control can be moderated for all controllers by modifying this text string.
+/*
+ *  JILL-Edit this initial text string to the required format for the Cloud service
+ */
         var InitialTextString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE jnlp PUBLIC '-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN' 'http://java.sun.com/dtd/JNLP-6.0.dtd'>\n<jnlp spec=\"6.0+\">\n    <information>\n        <title>Force Field X</title>\n        <vendor>Michael J. Schnieders</vendor>\n        <homepage href=\"http://ffx.biochem.uiowa.edu\"/>\n        <description>Software for Molecular Biophysics</description>\n        <icon href=\"images/icon128.png\"/>\n        <offline-allowed/>\n    </information>\n    <security>\n        <all-permissions/>\n    </security>\n    <update check=\"always\" policy=\"always\"/>\n    <resources>\n        <java version=\"1.8\" initial-heap-size=\"1G\" max-heap-size=\"1G\"/>\n        <property name=\"j3d.rend\" value=\"jogl\"/>\n        <extension name=\"ffx-all\" href=\"http://ffx.biochem.uiowa.edu/ffx-commons/ffx-all-1.0.0-beta.jnlp\" />\n        <extension name=\"ffx-dependency\" href=\"http://ffx.biochem.uiowa.edu/dependency-repo/ffx-dependency-1.0.0-beta.jnlp\" />\n        <extension name=\"jogl-all-awt\" href=\"http://jogamp.org/deployment/v2.3.1/jogl-all-awt.jnlp\" />\n    </resources>\n    <application-desc main-class=\"ffx.Main\">\n       <argument>";
-        /*
+        
+/*
          * Directive used to initiate function to read file and determine number of atoms and time consumption.
          * @param {type} param1
          * @param {type} param2
@@ -379,6 +383,7 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                  * @returns {undefined}
                  *****************************************************************************/
                 DownloadCheck();
+                
                 /*****************************************************************************
                  * Function to collect flags input then download JNLP file and input file
                  * @param {type} Number1
@@ -404,6 +409,9 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
 
                 /*****************************************************************************
                  * Build JNLP as Textstring to download
+                 * 
+                 * JILL - Edit this function to build the appropriate textfile for cloud services
+                 * 
                  *****************************************************************************/
                 var FFX_Function = "minimize";
                         var TextString = InitialTextString + FFX_Function;
@@ -412,6 +420,10 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                          *      Next 5 if statements check to see if user input has been provided
                          *      in input box if so it assigns the appropriate flag and appends it to
                          *      the JNLP file string called TextString. 
+                         *      
+                         *      JILL-Eidt the following if statments to correspond to proper notation for
+                         *      cloud services.
+                         *      
                          *******************************************************************************/
                         if (Number1 !== undefined) {
                 var TextString = TextString + '' + '-s' + "</argument>\n       <argument>" + Number1 + "</argument>\n       <argument>";
@@ -438,6 +450,8 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                          *           Check if user inputed a file if not then deliver a warning to user
                          *           and exit function.
                          *           
+                         *           JILL - The flowwing if else return is not necessary for your code
+                         *           
                          *****************************************************************************/
                         if (document.getElementById("PDB_File").files.length !== 0) {
                 var FileName = document.getElementById("PDB_File").files[0].name;
@@ -446,9 +460,18 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
                 alert('You have not entered a file for analysis. Please select a file to continue.');
                         return;
                 }
+                
+                /*
+                 * JILL-Edit this text string as well. This string addition was used to specify where the structure file
+                 * is located on the users machine. Edit this to specify where file is on cloud service.
+                 */
                 TextString = TextString + "Downloads/" + FileName + "</argument>\n    </application-desc>\n</jnlp>";
                         /*****************************************************************************
                          *            Textstring compile is completed create download element.
+                         *            
+                         *            JILL-This is used to get textstring into blob form to download onto 
+                         *            users computer. May not be necessary.
+                         *            
                          *****************************************************************************/
                         var data = new Blob([TextString], {type: 'text/plain'});
                         saveAs(data, "ffx.jnlp");
@@ -468,6 +491,9 @@ $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|blob):/
 
                         /***************************************************************************** 
                          *               Start of dealing with input pdb file   
+                         *               
+                         *               JILL-Does not affect group as input will already be on cloud
+                         *               
                          *****************************************************************************/
                         var fr = new FileReader();
                         fr.onload = receivedText;
