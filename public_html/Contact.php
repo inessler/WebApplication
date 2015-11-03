@@ -15,7 +15,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="css2/main.css">
         <script src="js2/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="js2/libs/angular.js/angular.js"></script>
-        <title>Contact</title>
+        <title>Contact FFX</title>
         <style>
             body {
                 color:#3a3a3a;
@@ -85,7 +85,8 @@ and open the template in the editor.
 		$subject = 'Message from FFX WebSRG';
 		
 		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
-		// Check if name has been entered
+		
+                // Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
 		}
@@ -183,13 +184,13 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 							<?php echo "<p class='text-danger'>$errName</p>";?>
 						</div>
 					</div>
-					<div class="form-group">
+<!--					<div class="form-group">
 						<label for="email" class="col-sm-3 control-label">Email</label>
 						<div class="col-sm-9">
 							<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
 							<?php echo "<p class='text-danger'>$errEmail</p>";?>
 						</div>
-					</div>
+					</div>-->
 					<div class="form-group">
 						<label for="message" class="col-sm-3 control-label">Message</label>
 						<div class="col-sm-9">
