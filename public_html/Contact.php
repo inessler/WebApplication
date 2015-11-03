@@ -108,6 +108,7 @@ and open the template in the editor.
 if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 	if (mail ($to, $subject, $body, $from)) {
 		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+                mail ($to, $subject, $body, $from);
 	} else {
 		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
 	}
