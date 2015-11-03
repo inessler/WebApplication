@@ -183,13 +183,13 @@ if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
 							<?php echo "<p class='text-danger'>$errName</p>";?>
 						</div>
 					</div>
-<!--					<div class="form-group">
+					<div class="form-group">
 						<label for="email" class="col-sm-3 control-label">Email</label>
 						<div class="col-sm-9">
 							<input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
 							<?php echo "<p class='text-danger'>$errEmail</p>";?>
 						</div>
-					</div>-->
+					</div>
 					<div class="form-group">
 						<label for="message" class="col-sm-3 control-label">Message</label>
 						<div class="col-sm-9">
